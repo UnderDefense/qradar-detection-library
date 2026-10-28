@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../static/rule-schema.json
+# Building Block: no `enabled`, `action`, `response` or `limiter`.
+id: 20202639-c214-4810-a950-a3d5e14cbb45
+name: "BB:Log Source Type - Example Building Block"
+description: |
+  Matches QRadar building block example.
+type: event # flow / common / offense
+building_block: true
+groups:
+  - Example Group
+mitre: # optional for building blocks
+  - T1000
+author: Example Author
+status: experimental
+created: 2026-10-26
+modified: 2026-10-26
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Office 365]
+  - group: common
+    type: regex
+    properties: [Action (custom)]
+    regex: "^Example-Action$"

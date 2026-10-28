@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 696df92a-cd6d-4271-ae68-86810bc927e1
+name: EntraID - Privileged Role Assigned to User
+description: |
+  Detects when an admin role is assigned to a user or group outside of the PIM (Privileged Identity
+  Management) approval workflow. Direct role assignments bypass just-in-time access controls and may
+  indicate unauthorized privilege escalation.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.EntraID
+mitre:
+  - T1098.003
+
+tests:
+  - group: event
+    type: qid
+    events:
+      - "Add eligible member to role-success"
+      - "Add member to role-success"
+  - group: common
+    type: search_filter
+    filters:
+      - property: Role Name (custom)
+        operator: contains_any_of
+        values: [admin]
+  # Assignments made through PIM and by the Purview role migration.
+  - group: common
+    type: search_filter
+    filters:
+      - property: OAuth Actor (custom)
+        operator: is_not_any_of
+        values: [MS-PIM]
+      - property: OAuth Actor (custom)
+        operator: is_not_any_of
+        values: [PurviewRoleAssignmentMigrator]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: EntraID - Privileged Role Assigned to User
+
+response:
+  new_event:
+    name: EntraID - Privileged Role Assigned to User
+    description: >-
+      Detects when an admin role is assigned to a user or group outside of the PIM (Privileged Identity
+      Management) approval workflow. Direct role assignments bypass just-in-time access controls and may
+      indicate unauthorized privilege escalation.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Authentication
+    low_cat: User Account Changed
+    annotate: EntraID - Privileged Role Assigned to User
+    offense:
+      index_on: Username
+      new_offense: true

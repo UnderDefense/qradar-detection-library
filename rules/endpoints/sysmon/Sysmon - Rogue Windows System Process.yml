@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: d8b87fc5-3828-43fd-9940-e9f1e459bb31
+name: Sysmon - Rogue Windows System Process
+description: |
+  Detects Windows processes with names matching legitimate system binaries but running from
+  non-standard directories such as AppData or Temp, indicating potential masquerading by
+  adversaries to evade detection.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1036.005
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [1] # Process Create
+  - group: common
+    type: aql
+    filter: >-
+      LOWER("Process Name") IN ( 'smss.exe', 'svchost.exe', 'taskhost.exe', 'taskhostw.exe', 'ctfmon.exe',
+      'services.exe', 'dllhost.exe', 'wininit.exe', 'winlogon.exe', 'csrss.exe', 'lsass.exe',
+      'lsm.exe', 'dwm.exe', 'sihost.exe', 'conhost.exe' )
+      AND LOWER("Process Path") NOT LIKE 'c:\windows\system32\%'
+      AND LOWER("Process Path") NOT LIKE 'c:\windows\syswow64\%'
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Rogue Windows System Process
+
+response:
+  new_event:
+    name: Sysmon - Rogue Windows System Process
+    description: >-
+      Detects execution of processes named after core Windows system binaries but running from
+      locations outside their legitimate directories.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: System
+    low_cat: Process Creation Success
+    annotate: Sysmon - Rogue Windows System Process
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: c1f5048b-c733-4f62-b6d9-a073aef9e032
+name: Sysmon - NTDS.dit Domain Hash Retrieval Activity
+description: |
+  Detects attempts to dump Active Directory password hashes by accessing NTDS.dit via shadow copy,
+  ntdsutil IFM, or direct file copy techniques.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1003.003
+  - T1003.002
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [1] # Process Create
+  - group: common
+    type: aql
+    filter: >-
+      LOWER("Command") MATCHES '.*vssadmin.*create\s+shadow\s+/for=c:.*'
+      OR LOWER("Command") MATCHES '.*x?copy\s+\\\\[?]\\globalroot\\device\\.*\\windows\\ntds\\ntds.dit.*'
+      OR LOWER("Command") MATCHES '.*esentutl.*\s/vss\s.*ntds\.dit.*'
+      OR LOWER("Command") MATCHES '.*reg(\.exe)?\s+save\s+(hklm|hkey_local_machine)\\system\s.*'
+      OR Lower("Command") MATCHES '.*ntdsutil.*ac\w*\s+i\w*\s+ntds.*[\s''"]i(fm)?[\s"''].*create\s+full.*'
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - NTDS.dit Domain Hash Retrieval Activity
+
+response:
+  new_event:
+    name: Sysmon - NTDS.dit Domain Hash Retrieval Activity
+    description: >-
+      Detects attempts to dump Active Directory password hashes by accessing NTDS.dit via shadow copy,
+      ntdsutil IFM, or direct file copy techniques.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Sysmon - NTDS.dit Domain Hash Retrieval Activity
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

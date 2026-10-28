@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: b4b65e2d-3b56-42e4-889f-d0c46b1647a6
+name: Sysmon - Indirect Command Execution via External Tool
+description: |
+  Detects indirect command execution via Windows modules like WSL or tools like Powershdll and
+  Cmddll that emulate shell functionality, which may be used to bypass software or shell access
+  restrictions without invoking original executables.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1202
+  - T1216.002
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [1] # Process Create
+  - group: common
+    type: aql
+    filter: >-
+      (LOWER("Original Filename") = 'wsl.exe'
+      AND ("Command" LIKE '% -e %' OR "Command" LIKE '% --exec %'))
+      OR (LOWER("Original Filename") = 'bash.exe' AND "Command" LIKE '% -c %')
+      OR LOWER("Original Filename") = 'syncappvpublishingserver.exe'
+      OR (LOWER("Original Filename") = 'forfiles.exe'
+      AND ("Command" LIKE '% -c %' OR "Command" LIKE '% /c %'))
+      OR (LOWER("Original Filename") IN ('rundll32.exe', 'wscript.exe')
+      AND ("Command" LIKE '%SyncAppvPublishingServer%' OR "Command" LIKE '%cmd.dll%'
+      OR "Command" LIKE '%Powershdll.dll%'))
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Indirect Command Execution via External Tool
+
+response:
+  new_event:
+    name: Sysmon - Indirect Command Execution via External Tool
+    description: >-
+      Detects indirect command execution via Windows modules like WSL or tools like Powershdll and
+      Cmddll that emulate shell functionality, which may be used to bypass software or shell access
+      restrictions without invoking original executables.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Sysmon - Indirect Command Execution via External Tool
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

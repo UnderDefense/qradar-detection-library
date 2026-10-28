@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 947a251d-9622-42d1-a8db-438517b91f12
+name: "BB:Windows - Scheduled Task Creation by a Process"
+description: |
+  Processes started by the Task Scheduler service (svchost.exe -k netsvcs), except built-in
+  Windows maintenance tasks.
+type: event
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Windows
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: event
+    type: category
+    categories:
+      - { high: System, low: Process Creation Success }
+      - { high: System, low: Process Creation Attempt }
+  - group: common
+    type: regex
+    properties: [Command (custom)]
+    regex: '.*svchost\.exe.*\-k.*netsvcs.*'
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Process Path (custom)
+        operator: is_any_of
+        values:
+          - 'c:\windows\system32\taskhost.exe'
+          - 'c:\windows\system32\consent.exe'
+          - 'c:\windows\system32\taskhostex.exe'
+          - 'c:\windows\system32\rundll32.exe'
+          - 'c:\windows\system32\wbem\wmiadap.exe'
+          - 'c:\windows\system32\wermgr.exe'
+          - 'c:\windows\system32\wsqmcons.exe'
+          - 'c:\windows\system32\servermanagerlauncher.exe'
+          - 'c:\windows\system32\aitagent.exe'
+          - 'c:\windows\system32\taskeng.exe'
+          - 'c:\windows\system32\defrag.exe'
+          - 'c:\windows\system32\schtasks.exe'
+          - 'c:\windows\system32\ceipdata.exe'
+          - 'c:\windows\system32\tzsync.exe'
+          - 'c:\windows\system32\lpremove.exe'
+          - 'c:\windows\system32\musnotification.exe'
+          - 'c:\windows\system32\musnotificationux.exe'
+          - 'c:\windows\system32\compattelrunner.exe'
+          - 'c:\windows\system32\mdm.exe'
+          - 'c:\windows\system32\sdclt.exe'
+          - 'c:\windows\softwaredistribution\download\install\windowsupdatebox.exe'

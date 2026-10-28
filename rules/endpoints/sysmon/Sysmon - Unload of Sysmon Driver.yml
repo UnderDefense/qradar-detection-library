@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 34caf644-95b5-40e8-b6ae-3d29262e5537
+name: Sysmon - Unload of Sysmon Driver
+description: |
+  Detects attempts to unload the Sysmon driver using the Windows Filter Manager Control Program
+  (fltMC.exe), a technique used by attackers to disable Sysmon monitoring and eliminate SOC
+  visibility on the endpoint.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1562.001
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: event
+    type: qid
+    events: ["Process Create"]
+  - group: common
+    type: aql
+    filter: >-
+      ("Command" ILIKE '%SysmonDrv%')
+      AND ("Process Name" ILIKE 'fltmc.exe' OR "Description" = 'Filter Manager Control Program')
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Unload of Sysmon Driver
+
+response:
+  new_event:
+    name: Sysmon - Unload of Sysmon Driver
+    description: >-
+      Detects attempts to unload the Sysmon driver using the Windows Filter Manager Control Program
+      (fltMC.exe), a technique used by attackers to disable Sysmon monitoring and eliminate SOC
+      visibility on the endpoint.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: System
+    low_cat: Process Creation Success
+    annotate: Sysmon - Unload of Sysmon Driver
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

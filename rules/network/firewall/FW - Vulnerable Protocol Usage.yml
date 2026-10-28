@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 72953159-33d8-489e-a253-6056f6a56d64
+name: FW - Vulnerable Protocol Usage
+description: |
+  Detects usage of FTP, TFTP, Rlogin, or Telnet protocols that should not appear in corporate
+  environments as they are vulnerable to MITM attacks. It is always recommended to switch to more
+  secure alternatives like SSH or SFTP.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1557
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  # TFTP Ports comes with an IBM content extension, see static/qradar-extension-rules.yml.
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:FW - Unsecure TCP Ports", "BB:PortDefinition: TFTP Ports"]
+  - group: function_counter
+    type: same_properties
+    count: 10
+    properties: [Source IP]
+    within: 60
+    unit: minutes
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Vulnerable Protocol Usage
+  annotate: FW - Vulnerable Protocol Usage
+
+response:
+  new_event:
+    name: FW - Vulnerable Protocol Usage
+    description: >-
+      Detects usage of FTP, TFTP, Rlogin, or Telnet protocols that should not appear in corporate
+      environments as they are vulnerable to MITM attacks. It is always recommended to switch to more
+      secure alternatives like SSH or SFTP.
+    severity: 4
+    credibility: 7
+    relevance: 8
+    high_cat: Access
+    low_cat: Access Denied
+    annotate: FW - Vulnerable Protocol Usage
+    offense:
+      index_on: Source IP
+      new_offense: true

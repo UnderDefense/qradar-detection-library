@@ -1,0 +1,103 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: eccd57d6-5db5-487a-a5ca-275b85e02b30
+name: Windows - Scheduled Task Created on Multiple Hosts
+description: |
+  Detects potential lateral movement or widespread persistence establishment by identifying the same
+  scheduled task being created across 5 or more distinct hosts within a 10-minute window.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Windows
+mitre:
+  - T1053.005
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:Windows - Scheduled Task Creation by a Process", "BB:Windows - Scheduled Task Creation"]
+  - group: function_counter
+    type: distinct_properties
+    count: 5
+    properties: [Command (custom)]
+    distinct_properties: [Source IP]
+    within: 10
+    unit: minutes
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Username
+        operator: is_not_na
+  # Defender, Google Updater, Windows Error Reporting, MDM enrollment, HP Support Assistant, Office.
+  - group: common
+    type: aql
+    negate: true
+    filter: >-
+      (Command like '%C:\ProgramData\Microsoft\Windows Defender\Platform\%' and Command like '%MpCmdRun.exe%')
+      or (Command like '%C:\Program Files (x86)\Google\GoogleUpdater\%' and Command like '%updater.exe%')
+      or (Command like '%windir%\system32\wermgr.exe' and "Command Arguments" like '-upload'
+      and "Task Name" like 'Microsoft\Windows\Windows Error Reporting\QueueReporting'
+      and "Account Security ID" like 'NT AUTHORITY\SYSTEM')
+      or (Command ILIKE '%windir%\system32\deviceenroller.exe%' AND "Task Name" ILIKE 'Microsoft\Windows\EnterpriseMgmt%')
+      or (Command ILIKE 'C:\ProgramData\HP\HP Support Framework\Softpaq\%' AND "Task Name" ILIKE 'HP\HP Support Assistant\sp%')
+      or (Command = 'C:\Program Files\Common Files\Microsoft Shared\ClickToRun\officesvcmgr.exe'
+      AND "Task Name" ILIKE 'Microsoft\Office\Office Serviceability Manager%')
+  # Windows Update Orchestrator.
+  - group: common
+    type: aql
+    negate: true
+    filter: >-
+      "Account Name" like '%$%' and "Account Security ID" like 'NT AUTHORITY\SYSTEM'
+      and "AllowHardTerminate" like 'true' and "Command" like '%systemroot%\system32\usoclient.exe'
+      and ("Task Name" like 'Microsoft\Windows\UpdateOrchestrator\AC Power Download'
+      or "Task Name" like 'Microsoft\Windows\UpdateOrchestrator\AC Power Install')
+  # Office Actions Server.
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Command (custom)
+        operator: contains_any_of
+        values: ['ProgramFilesCommonX64\Microsoft Shared\Office16\ActionsServer\ActionsServer.exe']
+      - property: Task Name (custom)
+        operator: contains_any_of
+        values: ['Microsoft\Office\Office']
+  # Intune app installation.
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Task Name (custom)
+        operator: is_any_of
+        values: ['Microsoft\Windows\EnterpriseMgmt\DesktopAppCSP\Resume App Installation Actions']
+      - property: Command (custom)
+        operator: is_any_of
+        values: ['C:\windows\system32\MDMAppInstaller.exe']
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: Windows - Scheduled Task Created on Multiple Hosts
+
+response:
+  new_event:
+    name: Windows - Scheduled Task Created on Multiple Hosts
+    description: >-
+      Detects potential lateral movement or widespread persistence establishment by identifying the same
+      scheduled task being created across 5 or more distinct hosts within a 10-minute window.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Misc Suspicious Event
+    annotate: Windows - Scheduled Task Created on Multiple Hosts
+    offense:
+      index_on: Source IP
+      new_offense: true

@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 2a2b7a31-5b5f-4b9d-bfa9-3cd8070ceb71
+name: Windows - Access Token Abuse
+description: |
+  This rule detects token impersonation and theft. (Example: DuplicateToken(Ex) and
+  ImpersonateLoggedOnUser with the LOGON32_LOGON_NEW_CREDENTIALS flag.)
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Windows
+mitre:
+  - T1134.001
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: event
+    type: qid
+    events: ["Success Audit: An account was successfully logged on"]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Logon Type (custom)
+        operator: is_any_of
+        values: [5]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Logon Process (custom)
+        operator: is_any_of
+        values: [Advapi]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Authentication Package (custom)
+        operator: is_any_of
+        values: [Negotiate]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Impersonation Level (custom)
+        operator: is_any_of
+        values: [Impersonation]
+  # Defender for Endpoint, IIS application pools, built-in service accounts
+  # (СИСТЕМА is SYSTEM on localized Windows) and computer accounts.
+  - group: common
+    type: aql
+    negate: true
+    filter: >-
+      "Process Name" = 'SenseIR.exe' OR "Process Name" = 'MsSense.exe'
+      OR ("Process Name" = 'svchost.exe' AND "Logon Account Domain" = 'IIS APPPOOL')
+      OR ("Process Name" = 'svchost.exe' AND "Logon Account Name" = 'IUSR')
+      OR "Logon Account Name" IN ('LOCAL SERVICE', 'NETWORK SERVICE', 'SYSTEM', 'СИСТЕМА')
+      OR "Logon Account Name" IMATCHES '.*\$$' OR "Process Name" = 'services.exe'
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Windows - Access Token Abuse
+  annotate: Windows - Access Token Abuse
+
+response:
+  new_event:
+    name: Windows - Access Token Abuse
+    description: >-
+      Detects token impersonation and theft. (Example: DuplicateToken(Ex) and ImpersonateLoggedOnUser
+      with the LOGON32_LOGON_NEW_CREDENTIALS flag.)
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Windows - Access Token Abuse
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true
+
+limiter:
+  times: 10
+  per_unit: 30
+  unit: minutes
+  per_property: Machine Identifier (custom)

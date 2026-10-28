@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 7becd6c0-24d0-45fa-ab9b-374ea3bbe58b
+name: "BB:FW - Unsecure TCP Ports"
+description: |
+  Clear-text remote access protocols over TCP: FTP (21), Telnet (23) and rlogin (513).
+type: event
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: network
+    type: destination_port
+    ports: [21, 23, 513]
+  - group: common
+    type: protocol
+    protocols: [TCP.tcp_ip]

@@ -1,0 +1,1 @@
+	<limiter hostType="{host_type}" intervalType="{unit}" intervalCount="{per_unit}" responseCount="{times}"/>

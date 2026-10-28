@@ -1,0 +1,10 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION" groupId="3" group="jsp.qradar.rulewizard.condition.page.group.event" uid="{uid}"{negate} name="com.q1labs.semsources.cre.tests.QID_Test" id="19">
+			<parameter id="1">
+				<initialText>QIDs</initialText>
+				<selectionLabel>Browse or Search for QIDs below. Select the desired QIDs and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getQidsByLowLevelCategory" source="class" format="CustomizeParameter-QID.jsp"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionTypes></userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

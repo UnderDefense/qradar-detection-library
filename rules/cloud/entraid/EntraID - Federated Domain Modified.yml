@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: d5da9459-1a13-4552-838e-5cc09a4a6868
+name: EntraID - Federated Domain Modified
+description: |
+  Detects modifications to accepted or federated domains in Azure AD via Exchange cmdlets. Attackers
+  may add or modify federated domains to establish persistence or enable pass-through authentication
+  bypass, allowing them to authenticate as any user in the tenant without knowing their password.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.EntraID
+mitre:
+  - T1484.002
+
+tests:
+  - group: event
+    type: qid
+    events:
+      - "Set-AcceptedDomain Exchange cmdlet issued success"
+      - "Add-FederatedDomain Exchange cmdlet issued success"
+      - "New-AcceptedDomain Exchange cmdlet issued success"
+      - "Remove-AcceptedDomain Exchange cmdlet issued success"
+      - "Remove-FederatedDomain Exchange cmdlet issued success"
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: EntraID - Federated Domain Modified
+
+response:
+  new_event:
+    name: EntraID - Federated Domain Modified
+    description: >-
+      Detects modifications to accepted or federated domains in Azure AD via Exchange cmdlets. Attackers
+      may add or modify federated domains to establish persistence or enable pass-through authentication
+      bypass, allowing them to authenticate as any user in the tenant without knowing their password.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Access
+    low_cat: Access Denied
+    annotate: EntraID - Federated Domain Modified
+    offense:
+      index_on: Username
+      new_offense: true

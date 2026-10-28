@@ -1,0 +1,12 @@
+	<offense_type>
+		<database>{database}</database>
+		<legacy>{legacy}</legacy>
+		<nva_name>{nva_name}</nva_name>
+		<composite>false</composite>
+		<custom>{custom}</custom>
+		<name>{name}</name>
+		<limiter_string>{limiter_string}</limiter_string>
+		<default_label>{default_label}</default_label>
+		<id>{id}</id>
+		<property_name>{property_name}</property_name>
+	</offense_type>

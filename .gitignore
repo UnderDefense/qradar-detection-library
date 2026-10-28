@@ -1,0 +1,25 @@
+# Build output
+dist/
+__pycache__/
+
+# Exports from a client console: they contain client data
+Rule-Data_*.zip
+Rule-*-Mappings_*.json
+qids.json
+
+# Console metadata (API dumps, system rule exports)
+high_cat.json
+low_cat.json
+log_source_types.json
+offense_types.json
+system_rules.csv
+system_extended_rules.csv
+
+# IBM content extensions and apps, kept locally as format references
+ContentPackage*.zip
+ContentExtension-*.zip
+*-ContentExtension-*.zip
+SysmonContentExtension-*.zip
+User_Entity_Behavior_Analytics[-_]*.zip
+ThreatIntelligenceApp*.zip
+IBM_QRadar_SOAR_Plugin_*_Content_Pack.zip

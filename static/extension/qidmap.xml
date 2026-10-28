@@ -1,0 +1,14 @@
+	<qidmap>
+		<severity>{severity}</severity>
+		<lowlevelcategory>{low_level_category}</lowlevelcategory>
+		<reverseip>false</reverseip>
+		<qid>{qid}</qid>
+		<ratethreshold>0</ratethreshold>
+		<rateinterval>1000</rateinterval>
+		<qdescription>{description}</qdescription>
+		<catpipename>Beta</catpipename>
+		<ratelongwindow>86400</ratelongwindow>
+		<qname>{name}</qname>
+		<rateshortwindow>3600</rateshortwindow>
+		<id>{id}</id>
+	</qidmap>

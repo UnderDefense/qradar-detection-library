@@ -1,0 +1,10 @@
+	<custom_rule>
+		<origin>USER</origin>
+		<flags>0</flags>
+		<mod_date>{date}</mod_date>
+		<rule_data>{rule_data}</rule_data>
+		<uuid>{uuid}</uuid>
+		<rule_type>0</rule_type>
+		<id>{id}</id>
+		<create_date>{date}</create_date>
+	</custom_rule>

@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../static/reference-data-schema.json
+# Reference sets that ship in the extension of this folder. Rules refer to a set as
+# "<name> - <type>", e.g. "Example - Sensitive Process Names - AlphaNumeric (Ignore Case)".
+reference_sets:
+  - name: Example - Sensitive Process Names
+    type: AlphaNumeric (Ignore Case)
+    values: [lsass.exe, winlogon.exe, csrss.exe]
+  # No values: each console fills the set itself.
+  - name: Example - Trusted Admin Hosts
+    type: IP

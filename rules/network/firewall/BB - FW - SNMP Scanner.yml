@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 77e67605-2b98-4bd2-a22f-a69871a92794
+name: "BB:FW - SNMP Scanner"
+description: |
+  A source IP sending recon or suspicious traffic on SNMP ports to more than 59 destination IPs
+  within 10 minutes. No direction: rules add the context they need.
+type: common
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:PortDefinition: SNMP Ports"]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 59
+    distinct: destination IP
+    within: 10
+    unit: minutes

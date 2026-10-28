@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 7a5de026-a016-4fcc-958a-072c60b109ad
+name: FW - SMB to the Internet
+description: |
+  This rule detects network events that may indicate the use of Windows file sharing (also called
+  SMB or CIFS) traffic to the Internet. SMB is commonly used within networks to share files,
+  printers, and other system resources amongst trusted systems. It should almost never be directly
+  exposed to the Internet, as it is frequently targeted and exploited by threat actors as an initial
+  access or backdoor vector or for data exfiltration.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1048
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Destination Port
+        operator: is_any_of
+        values: [139, 445]
+  - group: common
+    type: protocol
+    protocols: [TCP.tcp_ip]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Source IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Destination IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+
+action:
+  severity: { set: 2 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - SMB to the Internet
+
+response:
+  new_event:
+    name: FW - SMB to the Internet
+    description: >-
+      This rule detects network events that may indicate the use of Windows file sharing (also called
+      SMB or CIFS) traffic to the Internet. SMB is commonly used within networks to share files,
+      printers, and other system resources amongst trusted systems. It should almost never be directly
+      exposed to the Internet, as it is frequently targeted and exploited by threat actors as an initial
+      access or backdoor vector or for data exfiltration.
+    severity: 2
+    credibility: 7
+    relevance: 7
+    high_cat: Suspicious Activity
+    low_cat: Potential SMB Vulnerability
+    annotate: FW - SMB to the Internet
+    offense:
+      index_on: Source IP
+      new_offense: true

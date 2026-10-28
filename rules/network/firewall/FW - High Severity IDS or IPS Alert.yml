@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 705ca51b-344b-4583-99ce-c1fe185259ba
+name: FW - High Severity IDS or IPS Alert
+description: |
+  Detects all outbound and allowed inbound traffic matching high or critical severity IDS/IPS rule
+  on the firewall. The rule can indicate different types and stages of attacks, from initial access
+  to exfiltration or C2.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre: []
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Level (custom)
+        operator: is_any_of
+        values: [alert]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Threat Severity (custom)
+        operator: is_any_of
+        values: [high, critical]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Policy Type (custom)
+        operator: is_any_of
+        values: [DoS-policy]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Action (custom)
+        operator: is_any_of
+        values: [dropped]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - High Severity IDS or IPS Alert
+  annotate: FW - High Severity IDS or IPS Alert
+
+response:
+  new_event:
+    name: FW - High Severity IDS or IPS Alert
+    description: >-
+      Detects all outbound and allowed inbound traffic matching high or critical severity IDS/IPS rule
+      on the firewall. The rule can indicate different types and stages of attacks, from initial access
+      to exfiltration or C2.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Unknown Evasion Event
+    annotate: FW - High Severity IDS or IPS Alert
+    offense:
+      index_on: Source IP
+      new_offense: true

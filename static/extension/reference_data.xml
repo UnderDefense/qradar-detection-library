@@ -1,0 +1,15 @@
+	<reference_data>
+		<created_time>{created_time}</created_time>
+		<tenant_info>0</tenant_info>
+		<log_separately>true</log_separately>
+		<timeout_type>0</timeout_type>
+		<description/>
+		<element_type>{element_type}</element_type>
+		<collection_type>0</collection_type>
+		<is_table>false</is_table>
+		<uuid>{uuid}</uuid>
+		<bulk_update_timestamp>0</bulk_update_timestamp>
+		<current_count>{current_count}</current_count>
+		<name>{name}</name>
+		<id>{id}</id>
+	</reference_data>

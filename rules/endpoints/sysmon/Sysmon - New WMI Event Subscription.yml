@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: bc483513-4730-4f11-b125-a7117aaee6d3
+name: Sysmon - New WMI Event Subscription
+description: |
+  Detects establish persistence and elevate privileges by executing malicious content triggered by
+  a Windows Management Instrumentation (WMI) event subscription. The subscription is a stealthy way
+  to remain access on an infected system.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1546.003
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: aql
+    filter: >-
+      "Event ID"=1 AND (("Process Path"='C:\Windows\System32\wbem\mofcomp.exe'
+      AND "Current Directory"!='C:\WINDOWS\system32\')
+      OR ("Process Name" IN ('powershell.exe', 'WMIC.exe')
+      AND ("Process CommandLine" ILIKE '%ActiveScriptEventConsumer%'
+      OR "Process CommandLine" ILIKE '%CommandLineEventConsumer%')))
+  # mofcomp.exe compiling MOF files from Windows\Temp without a user (software installers).
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Username
+        operator: is_na
+      - property: Command (custom)
+        operator: matches_any_of
+        values:
+          - 'C:\\Windows\\TEMP\\[a-zA-Z0-9\-]+\.mof'
+          - 'C:\\Windows\\Temp\\[a-zA-Z0-9\-]+\.mof'
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - New WMI Event Subscription
+
+response:
+  new_event:
+    name: Sysmon - New WMI Event Subscription
+    description: >-
+      Detects establish persistence and elevate privileges by executing malicious content triggered by
+      a Windows Management Instrumentation (WMI) event subscription. The subscription is a stealthy way
+      to remain access on an infected system.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Sysmon - New WMI Event Subscription
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

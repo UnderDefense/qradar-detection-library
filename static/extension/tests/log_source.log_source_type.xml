@@ -1,0 +1,10 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION" groupId="10" group="jsp.qradar.rulewizard.condition.page.group.log" uid="{uid}"{negate} name="com.q1labs.semsources.cre.tests.DeviceTypeID_Test" id="14">
+			<parameter id="1">
+				<initialText>these log source types</initialText>
+				<selectionLabel>Select a Log Source type and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getDeviceTypeDescs" source="class" format="list"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionTypes></userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

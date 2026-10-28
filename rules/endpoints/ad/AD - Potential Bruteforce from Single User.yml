@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 6766e8b2-42e6-4fa3-bed4-57705ab020c6
+name: AD - Potential Bruteforce from Single User
+description: |
+  Detects 30 and more failed logins on a single user account from a single source,
+  indicating user bruteforce activity.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.ActiveDirectory
+mitre:
+  - T1110.001
+
+tests:
+  - group: common
+    type: reference_set
+    negate: true
+    properties: [Source IP]
+    reference_sets: [(Shared) Brute Force exclusion - IP]
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:AD - Invalid Password at Login"]
+  - group: function_counter
+    type: same_properties
+    count: 30
+    properties: [Username, Source IP]
+    within: 10
+    unit: minutes
+  - group: common
+    type: reference_set
+    negate: true
+    properties: [Username]
+    reference_sets: [(Shared) Password Change - AlphaNumeric]
+  # Computer accounts failing NTLM network logons with a wrong password (0xC0000064).
+  - group: common
+    type: aql
+    negate: true
+    filter: >-
+      ("Logon Account Name" = "Machine Identifier" OR "Logon Account Domain" = "Machine Identifier")
+      AND "Authentication Package" = 'NTLM' AND "Logon Type" = '3'
+      AND "Extended Error Code" = '0xC0000064'
+
+action:
+  annotate: AD - Potential Bruteforce from Single User

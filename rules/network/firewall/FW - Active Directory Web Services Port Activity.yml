@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: f4d65483-6c07-4159-9029-80f9a2afb48e
+name: FW - Active Directory Web Services Port Activity
+description: |
+  Adversaries may use publicly or internally available Active Directory Web Services using Valid
+  Account to change configurations to persist in the victim's network.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1078.002
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Protocol
+        operator: is
+        values: [TCP.tcp_ip]
+      - property: Source Port
+        operator: greater_than_or_equal
+        values: [49152]
+      - property: Destination Port
+        operator: is
+        values: [9389]
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Active Directory Web Services Port Activity
+
+response:
+  new_event:
+    name: FW - Active Directory Web Services Port Activity
+    description: >-
+      Adversaries may use publicly or internally available Active Directory Web Services using Valid
+      Account to change configurations to persist in the victim's network.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Web Protocol Anomaly
+    annotate: FW - Active Directory Web Services Port Activity
+    offense:
+      index_on: Source IP
+      new_offense: true

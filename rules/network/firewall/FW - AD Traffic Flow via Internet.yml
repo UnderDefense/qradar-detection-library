@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 337df64f-ab65-43e8-aa2b-1ce312bb3afa
+name: FW - AD Traffic Flow via Internet
+description: |
+  Detects Active Directory protocol traffic (LDAP, SMB, NetBIOS) flowing to or from internet-facing
+  hosts. AD traffic should never traverse WAN connections as it exposes sensitive directory data and
+  enables multiple attack vectors.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1133
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  - group: common
+    type: protocol
+    protocols: [TCP.tcp_ip]
+  - group: network
+    type: destination_port
+    ports: [88, 135, 389, 464, 636, 9389]
+  # Both ends in private, CGNAT or link-local space.
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Source IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16]
+      - property: Destination IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16]
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - AD Traffic Flow via Internet
+
+response:
+  new_event:
+    name: FW - AD Traffic Flow via Internet
+    description: >-
+      Detects Active Directory protocol traffic (LDAP, SMB, NetBIOS) flowing to or from internet-facing
+      hosts. AD traffic should never traverse WAN connections as it exposes sensitive directory data and
+      enables multiple attack vectors.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Packet
+    annotate: FW - AD Traffic Flow via Internet
+    offense:
+      index_on: Source IP
+      new_offense: true

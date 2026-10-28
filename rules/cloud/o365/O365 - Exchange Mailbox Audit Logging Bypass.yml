@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: aeb842c1-72eb-46d8-979a-ff3badd45b07
+name: O365 - Exchange Mailbox Audit Logging Bypass
+description: |
+  Detects execution of the Set-MailboxAuditBypassAssociation Exchange cmdlet in Microsoft 365, which
+  disables mailbox audit logging for a specific account. Attackers with administrative access may
+  use this technique to suppress audit trails and conceal malicious activity such as email reading,
+  forwarding rule creation, or data exfiltration.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Office365
+mitre:
+  - T1562.008
+
+tests:
+  - group: event
+    type: qid
+    events: ["Set-MailboxAuditBypassAssociation Exchange cmdlet issued success"]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: O365 - Exchange Mailbox Audit Logging Bypass
+
+response:
+  new_event:
+    name: O365 - Exchange Mailbox Audit Logging Bypass
+    description: >-
+      Detects execution of the Set-MailboxAuditBypassAssociation Exchange cmdlet in Microsoft 365, which
+      disables mailbox audit logging for a specific account. Attackers with administrative access may
+      use this technique to suppress audit trails and conceal malicious activity such as email reading,
+      forwarding rule creation, or data exfiltration.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Activity
+    annotate: O365 - Exchange Mailbox Audit Logging Bypass
+    offense:
+      index_on: Username
+      new_offense: true

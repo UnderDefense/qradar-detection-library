@@ -1,0 +1,18 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION"{negate} groupId="1" group="jsp.qradar.rulewizard.condition.page.group.common" uid="{uid}" name="com.q1labs.semsources.cre.tests.PropertyRegex" id="225">
+			<parameter id="1">
+				<initialText>these properties</initialText>
+				<selectionLabel>Select a property and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getEventDatabaseFields" source="class" format="list"/>
+				<userSelection>{properties}</userSelection>
+				<userSelectionTypes/>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="2">
+				<initialText>this regular expression</initialText>
+				<selectionLabel>Enter a value</selectionLabel>
+				<userOptions multiselect="false" errorkey="12000" validation="com.q1labs.core.ui.util.ValidatorUtils.validateRegularExpression" source="user" format="user"/>
+				<userSelection>{regex}</userSelection>
+				<userSelectionTypes>property</userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

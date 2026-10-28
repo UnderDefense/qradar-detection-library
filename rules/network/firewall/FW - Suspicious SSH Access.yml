@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 56fd836f-c6d0-417c-939a-f848bebdd132
+name: FW - Suspicious SSH Access
+description: |
+  Detects SSH access attempts to network infrastructure devices by monitoring CLI SSH login success
+  and failure events. Unexpected SSH login attempts may indicate unauthorized access attempts,
+  brute-force attacks against network infrastructure, or lateral movement by an attacker who has
+  gained a foothold in the network and is attempting to pivot to network devices for traffic
+  manipulation, persistence, or defense evasion.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1021.004
+
+tests:
+  - group: event
+    type: qid
+    events:
+      - "CLI_SSH_LOGIN"
+      - "CLI_SSH_LOGIN_FAILED"
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Suspicious SSH Access
+
+response:
+  new_event:
+    name: FW - Suspicious SSH Access
+    description: >-
+      Detects SSH access attempts to network infrastructure devices by monitoring CLI SSH login success
+      and failure events. Unexpected SSH login attempts may indicate unauthorized access attempts,
+      brute-force attacks against network infrastructure, or lateral movement by an attacker who has
+      gained a foothold in the network and is attempting to pivot to network devices for traffic
+      manipulation, persistence, or defense evasion.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Access
+    low_cat: Access Denied
+    annotate: FW - Suspicious SSH Access
+    offense:
+      index_on: Source IP
+      new_offense: true
+
+limiter:
+  times: 2
+  per_unit: 10
+  unit: minutes
+  per_property: Rule

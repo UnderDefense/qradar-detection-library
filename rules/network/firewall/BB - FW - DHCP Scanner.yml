@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 3cc77e08-5c8f-4f01-9c04-1f54ca5ad44c
+name: "BB:FW - DHCP Scanner"
+description: |
+  A source IP sending recon or suspicious traffic on DHCP ports to more than 59 destination IPs
+  within 10 minutes. No direction: rules add the context they need.
+type: common
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:PortDefinition: DHCP Ports"]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 59
+    distinct: destination IP
+    within: 10
+    unit: minutes

@@ -1,0 +1,16 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION" groupId="3" group="jsp.qradar.rulewizard.condition.page.group.event" uid="{uid}"{negate} name="com.q1labs.semsources.cre.tests.ArielFilterTest" id="316">
+			<parameter id="1">
+				<initialText>this search filter</initialText>
+				<selectionLabel>Add Filters below</selectionLabel>
+				<userOptions format="CustomizeParameter-ArielFitler.jsp" source="arielFilter" multiselect="true"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionTypes></userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="2">
+				<initialText></initialText>
+				<selectionLabel>Select a value</selectionLabel>
+				<userSelection>events</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

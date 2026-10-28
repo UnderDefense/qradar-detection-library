@@ -1,0 +1,10 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION"{negate} group="IP / Port Tests" uid="{uid}" name="com.q1labs.semsources.cre.tests.DstPort_Test" id="5">
+			<parameter id="1">
+				<initialText>ports</initialText>
+				<selectionLabel>Enter a port number and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" errorkey="21007" validation="com.q1labs.core.ui.util.ValidatorUtils.validatePortInclusive" source="user" format="user"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionTypes/>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

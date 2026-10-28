@@ -1,0 +1,5 @@
+	<reference_data_key>
+		<domain_info>2147483647</domain_info>
+		<id>{id}</id>
+		<rd_id>{reference_data_id}</rd_id>
+	</reference_data_key>

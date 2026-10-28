@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 0882d881-532d-47a8-b56e-39d19644e2d6
+name: "BB:FW - Uncommon Port Scanner"
+description: |
+  A source IP sending recon or suspicious traffic on uncommon IP protocols to more than 59 destination IPs
+  within 10 minutes. No direction: rules add the context they need.
+type: common
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: common
+    type: protocol
+    protocols: [Uncommon, other]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 59
+    distinct: destination IP
+    within: 10
+    unit: minutes

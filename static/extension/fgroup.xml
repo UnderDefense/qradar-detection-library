@@ -1,0 +1,10 @@
+	<fgroup>
+		<parent_id>3</parent_id>
+		<type_id>3</type_id>
+		<user_name>admin</user_name>
+		<level_id>2</level_id>
+		<name>{name}</name>
+		<description></description>
+		<id>{id}</id>
+		<modified_date>{date}</modified_date>
+	</fgroup>

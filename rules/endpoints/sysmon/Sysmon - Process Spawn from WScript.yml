@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: ed565396-3e49-4b40-a109-91098e138e39
+name: Sysmon - Process Spawn from WScript
+description: |
+  Detects use VisualBasic or JScript payloads to execute malicious commands. Common malicious usage
+  includes embedded document macros or phishing payload, often followed by powershell spawn or
+  download of other malware components.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1059.005
+  - T1059.007
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [1] # Process Create
+  - group: common
+    type: search_filter
+    filters:
+      - property: Parent Process Name (custom)
+        operator: is_any_of
+        values: [wscript.exe, cscript.exe]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Username
+        operator: is_na
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Process Spawn from WScript
+
+response:
+  new_event:
+    name: Sysmon - Process Spawn from WScript
+    description: >-
+      Detects use VisualBasic or JScript payloads to execute malicious commands. Common malicious usage
+      includes embedded document macros or phishing payload, often followed by powershell spawn or
+      download of other malware components.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Sysmon - Process Spawn from WScript
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

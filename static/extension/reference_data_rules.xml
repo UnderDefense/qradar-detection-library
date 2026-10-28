@@ -1,0 +1,5 @@
+	<reference_data_rules>
+		<rule_id>{rule_id}</rule_id>
+		<id>{id}</id>
+		<rd_id>{reference_data_id}</rd_id>
+	</reference_data_rules>

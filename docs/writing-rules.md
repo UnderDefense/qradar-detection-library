@@ -1,0 +1,195 @@
+# Writing rules
+
+A rule file describes one QRadar custom rule or Building Block (BB) the way the Rule Wizard shows
+it. If you can read a rule in QRadar, you can write its YAML: every test, action and response has
+a field with the same meaning. The schema (`static/rule-schema.json`) has a description for each
+field, and [examples/](../examples) shows all of them.
+
+## Where a rule goes
+
+- One file per rule, named after the rule: `Sysmon - Process Spawn from WScript.yml`.
+  Building Blocks start with `BB - `: `BB - AD - Invalid Password at Login.yml`.
+- A folder under `rules/` is one log source and becomes one extension. Put a rule in the folder
+  of the log source it reads. Building Blocks that a rule uses go in the same folder.
+- A folder may hold `reference-data.yml` with the reference sets its rules use (see below) and a
+  `README.MD` with the log source type and the custom properties the rules need.
+
+## Names and metadata
+
+```yaml
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 9cff47ce-a8a6-4171-94e0-2018aa987ba8   # generate once: python3 -c "import uuid; print(uuid.uuid4())"
+name: O365 - Member Added to High-Severity Entra ID Group
+description: |
+  What the rule detects and why it matters.
+type: event          # event, flow, common (events or flows), offense
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Office365
+mitre:
+  - T1098.003
+```
+
+- Rule names: `<Pack> - <Title>`, for example `FW - SMB to the Internet`. Drop console prefixes
+  such as `[UD]`, `[PROD-UD]` or `L1 -`.
+- Building Block names: `BB:<Pack> - <Title>`, without a space after `BB:`. Quote them in YAML.
+- `id` is the rule's identity in QRadar. Never change it after the rule is in use: a new `id`
+  means a new rule on every console.
+- Groups follow `UnderDefense.<Area>`: `UnderDefense.Windows`, `UnderDefense.Sysmon`,
+  `UnderDefense.ActiveDirectory`, `UnderDefense.Office365`, `UnderDefense.EntraID`,
+  `UnderDefense.Firewall`.
+
+## Keep the library client-agnostic
+
+When you port a rule from a client console, remove everything that belongs to that client:
+
+- the "domain is one of" test;
+- named log sources (`<Client>_Office365`): use the log source type instead;
+- client hosts, IP addresses, subnets, accounts, tenants, policy names and application names;
+- client Building Blocks that only hold exclusions (guest Wi-Fi, scanners, servers).
+
+Exclusions for vendor software (Defender, VMware Tools, Trend Micro, Office) stay, with a comment
+that names the product. If a rule needs per-client data, use a shared reference set that each
+console fills: `(Shared) Brute Force exclusion - IP`. Name events instead of using QID numbers,
+and never put offense type IDs or other console-specific numbers in a rule.
+
+## Tests
+
+`tests` is the list of Rule Wizard conditions, joined with AND. `negate: true` turns a test into
+"AND NOT when". A comment above a test explains why it is there, especially for exclusions.
+
+| Rule Wizard condition | YAML |
+|---|---|
+| when the event(s) were detected by one or more of these log source types | `group: log_source`, `type: log_source_type` |
+| when the event QID is one of the following QIDs | `group: event`, `type: qid`, `events: [names]` |
+| when the event category for the event is one of the following | `group: event`, `type: category` |
+| when the event matches this search filter | `group: common`, `type: search_filter` |
+| when the event matches this AQL filter query | `group: common`, `type: aql` |
+| when any of these properties match this regular expression | `group: common`, `type: regex` |
+| when any of these properties are contained in any of these reference sets | `group: common`, `type: reference_set` |
+| when the IP protocol is one of the following | `group: common`, `type: protocol` |
+| when the destination port is one of the following | `group: network`, `type: destination_port` |
+| when the source / destination is local or remote | `group: network`, `type: source_location` / `destination_location` |
+| when the (event) context is Local to Local, ... | `group: network`, `type: context` |
+| when an event matches any of the following rules | `group: function_simple`, `type: rule` |
+| when at least N events are seen with the same ... in T | `group: function_counter`, `type: same_properties` |
+| ... with the same ... and different ... in T | `group: function_counter`, `type: distinct_properties` |
+| when any of these rules with the same source IP more than N times, across more than M destination IP | `group: function_counter`, `type: rule_threshold` |
+
+A condition the schema has no type for yet can be written as `type: raw` with the Rule Wizard
+sentence in `text`. The builder cannot turn a raw test into XML, so treat it as a placeholder.
+
+### Events by name
+
+Name events as the Rule Wizard shows them, never by QID. QIDs can be custom and differ per
+console; the builder looks names up on the target console.
+
+```yaml
+- group: event
+  type: qid
+  events: ["Success Audit: An account was successfully logged on"]
+```
+
+The same holds for `Event Name` in a search filter: write names in `values`. If the name exists
+for several log source types, keep a `log_source_type` test in the rule so the builder can pick
+the right one.
+
+### Search filters
+
+```yaml
+- group: common
+  type: search_filter
+  filters:                      # all filters of one test are joined with AND
+    - property: Action (custom)
+      operator: is_any_of
+      values: [UpdateInboxRules]
+    - property: Username
+      operator: is_not_na
+```
+
+- Custom properties keep the ` (custom)` suffix, exactly as the Rule Wizard shows them.
+- Operators: `is`, `is_not`, `greater_than`, `greater_than_or_equal`, `less_than`,
+  `less_than_or_equal` (one value); `is_any_of`, `is_not_any_of`, `contains_any_of`,
+  `matches_any_of`, `not_matches_any_of` (a list; `matches` takes regular expressions);
+  `is_na`, `is_not_na` (no values).
+- Quote values that YAML would read as something else: `"0xC000006A"` (an integer otherwise),
+  `'C:\Windows\'` (single quotes keep backslashes as they are), `"01:00"`.
+- Several "when the event matches" lines in QRadar are several `search_filter` tests, not one
+  test with several filters.
+
+### Reference sets
+
+Refer to a set the way the Rule Wizard prints it, with its type: `(Shared) Password Change -
+AlphaNumeric`. Types: `AlphaNumeric`, `AlphaNumeric (Ignore Case)`, `Numeric`, `IP`, `Port`,
+`Date`, `CIDR`. The builder creates every set a rule uses (empty) in the extension.
+
+To ship a set with values, list it in the folder's `reference-data.yml`:
+
+```yaml
+# yaml-language-server: $schema=../../../static/reference-data-schema.json
+reference_sets:
+  - name: (Shared) Entra High Groups
+    type: AlphaNumeric
+    values: [Global Administrators]     # only values that fit every client
+  - name: (Shared) Brute Force exclusion
+    type: IP                            # no values: each console fills it
+```
+
+### Referring to other rules
+
+`type: rule` and `rule_threshold` name rules or Building Blocks. A name can be:
+
+- a rule or BB in the same folder;
+- a rule or BB that ships with QRadar (`BB:CategoryDefinition: Recon Events`), listed in
+  `system_rules` in `static/qradar-ids.yml`;
+- a rule or BB that an IBM content extension installs, listed in
+  `static/qradar-extension-rules.yml`. The target console then needs that extension; the builder
+  prints which ones.
+
+## Actions, responses, limiter
+
+```yaml
+action:
+  severity: { set: 7 }          # or { increase: 1 } / { decrease: 1 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - LSASS Credentials Dump from Memory
+  annotate: Sysmon - LSASS Credentials Dump from Memory
+  drop: true                    # drop the detected event
+
+response:
+  new_event:
+    name: Sysmon - LSASS Credentials Dump from Memory
+    description: >-
+      Same text as the rule description.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Sysmon - LSASS Credentials Dump from Memory
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Rule            # or Source IP, Username, Machine Identifier (custom), ...
+```
+
+`index_on` and `per_property` take the offense type names from `offense_types` in
+`static/qradar-ids.yml`. Categories must exist in `low_level_categories` there.
+
+## Check your work
+
+```
+python3 scripts/validate.py                    # everything
+python3 scripts/validate.py rules/cloud/o365   # one folder
+```
+
+The validator reports schema errors and duplicate names or IDs. Then build the folder (see
+[the builder guide](extension-builder.md)): the builder lists anything it cannot turn into XML yet.

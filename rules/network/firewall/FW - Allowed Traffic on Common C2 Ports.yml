@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: b29e6577-b8eb-4f68-867c-9b73ed029cc8
+name: FW - Allowed Traffic on Common C2 Ports
+description: |
+  Detects allowed firewall traffic on ports commonly associated with Command and Control (C2)
+  frameworks where either the source or destination IP matches known threat indicators from MISP
+  threat intelligence feeds.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1571
+
+tests:
+  - group: event
+    type: qid
+    events:
+      - "Forward Traffic"
+      - "Firewall Permit"
+      - "Allow Action"
+  - group: common
+    type: reference_set
+    properties: [Source IP, Destination IP]
+    reference_sets: [(Shared) misp_srcip - IP, (Shared) misp_dstip - IP]
+  - group: network
+    type: destination_port
+    ports: [4444, 4242, 3333, 50050, 50051, 31337, 1337]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Allowed Traffic on Common C2 Ports
+
+response:
+  new_event:
+    name: FW - Allowed Traffic on Common C2 Ports
+    description: >-
+      Detects allowed firewall traffic on ports commonly associated with Command and Control (C2)
+      frameworks where either the source or destination IP matches known threat indicators from MISP
+      threat intelligence feeds.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Access
+    low_cat: Firewall Permit
+    annotate: FW - Allowed Traffic on Common C2 Ports
+    offense:
+      index_on: Source IP
+      new_offense: true

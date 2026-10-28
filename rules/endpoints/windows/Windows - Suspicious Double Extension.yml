@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 7d42ca3b-5df9-4817-ac4f-b024db92ad8d
+name: Windows - Suspicious Double Extension
+description: |
+  Detects files with double extensions where an executable or script is disguised as a document or
+  image. This technique is commonly used in malware delivery and phishing campaigns.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Windows
+mitre:
+  - T1036.007
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: aql
+    filter: >-
+      ("File Path" MATCHES '(?i).*(^|[\\\/])[^\\\/]+\.(txt|docx|doc|pdf|rtf|csv|xls|xlsx|ppt|pptx|jpg|jpeg|png|gif)\s*\.+\s*(exe|scr|com|bat|cmd|ps1|js|jse|vbs|vbe|hta|lnk|dll|cpl|msi|msp|iso|img|vhd|vhdx|zip|rar|7z)(\b|$).*')
+      OR ("Filename" MATCHES '(?i).*\.(txt|docx|doc|pdf|rtf|csv|xls|xlsx|ppt|pptx|jpg|jpeg|png|gif)\s*\.\s*(exe|scr|com|bat|cmd|ps1|js|jse|vbs|vbe|hta|lnk|dll|cpl|msi|msp|iso|img|vhd|vhdx|zip|rar|7z)(\b|$).*')
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Windows - Suspicious Double Extension
+
+response:
+  new_event:
+    name: Windows - Suspicious Double Extension
+    description: >-
+      Detects files with double extensions where an executable or script is disguised as a document or
+      image. This technique is commonly used in malware delivery and phishing campaigns.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Malware
+    low_cat: Unknown Malware
+    annotate: Windows - Suspicious Double Extension
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Rule

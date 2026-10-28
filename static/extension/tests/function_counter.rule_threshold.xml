@@ -1,0 +1,90 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION"{negate} groupId="4" group="jsp.qradar.rulewizard.condition.page.group.functions.counters" uid="{uid}" name="com.q1labs.semsources.cre.tests.ThresholdFunction_Test" id="80">
+			<parameter id="1">
+				<name>getEventRules</name>
+				<initialText>rules</initialText>
+				<selectionLabel>Select the rule(s) to match and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getEventRules" source="class" format="list"/>
+				<userSelection>{rules}</userSelection>
+				<userSelectionTypes/>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="2">
+				<initialText>source IP</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="UserName">username</option>
+					<option id="SourceIP">source IP</option>
+					<option id="SourcePort">source port</option>
+					<option id="DestinationIP">destination IP</option>
+					<option id="DestinationPort">destination port</option>
+					<option id="Qid">QID</option>
+					<option id="DeviceEventID">event ID</option>
+					<option id="DeviceId">log source</option>
+					<option id="Category">category</option>
+				</userOptions>
+				<userSelection>{same}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="3">
+				<initialText>this many</initialText>
+				<selectionLabel>Enter a rule count</selectionLabel>
+				<userOptions multiselect="false" errorkey="30001" validation="com.q1labs.core.ui.util.ValidatorUtils.validatePositiveNumber" format="user"/>
+				<userSelection>{times}</userSelection>
+				<userSelectionTypes>property</userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="4">
+				<initialText>more than|exactly</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="gt">more than</option>
+					<option id="eq">exactly</option>
+				</userOptions>
+				<userSelection>{comparison}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="5">
+				<initialText>this many</initialText>
+				<selectionLabel>Enter a rule count</selectionLabel>
+				<userOptions multiselect="false" errorkey="30001" validation="com.q1labs.core.ui.util.ValidatorUtils.validatePositiveNumber" format="user"/>
+				<userSelection>{across}</userSelection>
+				<userSelectionTypes>property</userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="6">
+				<initialText>destination IP</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="UserName">username</option>
+					<option id="SourceIP">source IP</option>
+					<option id="SourcePort">source port</option>
+					<option id="DestinationIP">destination IP</option>
+					<option id="DestinationPort">destination port</option>
+					<option id="Qid">QID</option>
+					<option id="DeviceEventID">event ID</option>
+					<option id="DeviceId">log source</option>
+					<option id="Category">category</option>
+				</userOptions>
+				<userSelection>{distinct}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="7">
+				<initialText>this many</initialText>
+				<selectionLabel>Enter a time span</selectionLabel>
+				<userOptions multiselect="false" errorkey="30001" validation="com.q1labs.core.ui.util.ValidatorUtils.validatePositiveNumber" format="user"/>
+				<userSelection>{within}</userSelection>
+				<userSelectionTypes>property</userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="8">
+				<initialText>minutes</initialText>
+				<selectionLabel>Select a time interval</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="m">minutes</option>
+					<option id="h">hours</option>
+					<option id="d">days</option>
+				</userOptions>
+				<userSelection>{unit}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

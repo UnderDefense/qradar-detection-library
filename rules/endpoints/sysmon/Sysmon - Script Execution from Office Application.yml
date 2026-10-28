@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 59cb1435-67e7-4081-8bf1-a9127c34db3d
+name: Sysmon - Script Execution from Office Application
+description: |
+  Detects when user opening malicious document, email attachment, or spreadsheet in order to get
+  initial access. Most phishing attacks begin opening a malicious MS Word, Excel, or Outlook
+  application that start the infection from running a batch or powershell payload.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1566.001
+  - T1204.002
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [1] # Process Create
+  # Sysmon keeps the original case: WINWORD.EXE, Cmd.Exe, PowerShell.EXE.
+  - group: common
+    type: aql
+    filter: >-
+      LOWER("Parent Process Name") IN ('winword.exe', 'outlook.exe', 'excel.exe')
+      AND LOWER("Original Filename") IN ('cmd.exe', 'powershell.exe', 'cscript.exe', 'wscript.exe')
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Script Execution from Office Application
+
+response:
+  new_event:
+    name: Sysmon - Script Execution from Office Application
+    description: >-
+      Detects when user opening malicious document, email attachment, or spreadsheet in order to get
+      initial access. Most phishing attacks begin opening a malicious MS Word, Excel, or Outlook
+      application that start the infection from running a batch or powershell payload.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Malware
+    low_cat: Malware Infection
+    annotate: Sysmon - Script Execution from Office Application
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

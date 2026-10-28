@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: e30c211e-ca87-4094-8650-62894985253a
+name: "BB:FW - RMM Ports"
+description: |
+  RMM (Remote Monitoring and Management) ports: TeamViewer, AnyDesk, Radmin, VNC and similar tools.
+type: event
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: network
+    type: destination_port
+    ports: [5938, 6568, 4899, 5900, 5800, 6129, 5650, 5721, 6783, 8040, 8041]

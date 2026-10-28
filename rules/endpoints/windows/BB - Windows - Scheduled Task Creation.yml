@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 0008640f-180a-4dbf-99c1-ad48a1d0d17f
+name: "BB:Windows - Scheduled Task Creation"
+description: |
+  Scheduled tasks created or attempted with a command that runs a script interpreter or a LOLBin.
+type: event
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Windows
+
+tests:
+  - group: common
+    type: regex
+    properties: [Command (custom)]
+    regex: '.*?(cmd\.exe|powershell|wscript|cscript|mshta|rundll32|regsvr32|certutil|bitsadmin|wmic|odbcconf|pcalua|msiexec).*'
+  - group: event
+    type: category
+    categories:
+      - { high: System, low: Task Creation Attempt }
+      - { high: System, low: Task Creation Success }

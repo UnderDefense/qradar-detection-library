@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 6f12b6e6-9604-4f90-bcd6-773bdbe67f0d
+name: FW - Internal UDP Scanner
+description: |
+  Reports a source IP address attempting reconnaissance or suspicious connections on common UDP
+  ports to more than 60 hosts in 10 minutes.
+type: common
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1046
+
+tests:
+  - group: function_simple
+    type: rule
+    match: any
+    rules:
+      - "BB:PortDefinition: Database Ports"
+      - "BB:PortDefinition: DHCP Ports"
+      - "BB:PortDefinition: DNS Ports"
+      - "BB:PortDefinition: FTP Ports"
+      - "BB:PortDefinition: Game Server Ports"
+      - "BB:PortDefinition: IM Ports"
+      - "BB:PortDefinition: IRC Ports"
+      - "BB:PortDefinition: LDAP Ports"
+      - "BB:PortDefinition: Mail Ports"
+      - "BB:PortDefinition: P2P Ports"
+      - "BB:PortDefinition: Proxy Ports"
+      - "BB:PortDefinition: RPC Ports"
+      - "BB:PortDefinition: SNMP Ports"
+      - "BB:PortDefinition: SSH Ports"
+      - "BB:PortDefinition: Web Ports"
+      - "BB:PortDefinition: Windows Ports"
+  - group: network
+    type: context
+    contexts: [local_to_local]
+  - group: common
+    type: protocol
+    protocols: [UDP]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 59
+    distinct: destination IP
+    within: 10
+    unit: minutes
+
+action:
+  severity: { set: 2 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Internal UDP Scanner
+  annotate: FW - Internal UDP Scanner
+
+response:
+  new_event:
+    name: FW - Internal UDP Scanner
+    description: >-
+      Reports a source IP address attempting reconnaissance or suspicious connections on common UDP
+      ports to more than 60 hosts in 10 minutes.
+    severity: 2
+    credibility: 10
+    relevance: 10
+    high_cat: Recon
+    low_cat: Host Port Scan
+    annotate: FW - Internal UDP Scanner
+    offense:
+      index_on: Source IP
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Source IP

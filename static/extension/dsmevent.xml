@@ -1,0 +1,11 @@
+	<dsmevent>
+		<routepoint>EP</routepoint>
+		<credibility>{credibility}</credibility>
+		<deviceeventcategory>262</deviceeventcategory>
+		<customevent>false</customevent>
+		<id>{id}</id>
+		<unravelevent>0</unravelevent>
+		<qidmapid>{qidmap_id}</qidmapid>
+		<devicetypeid>262</devicetypeid>
+		<deviceeventid>{qid}</deviceeventid>
+	</dsmevent>

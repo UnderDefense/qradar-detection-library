@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 7944c198-92b1-427b-9cbc-a0a3950ab4eb
+name: Sysmon - Remote Thread Creation inside System Process
+description: |
+  Detects remote thread creation inside legitimate Windows system processes, which is a common
+  process injection technique used by adversaries to evade process-based defenses and potentially
+  elevate privileges.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1055
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [8] # CreateRemoteThread
+      - property: Source Process Path (custom)
+        operator: is_not_any_of
+        values: ['C:\Windows\System32\']
+      - property: Target Process Path (custom)
+        operator: is_any_of
+        values: ['C:\Windows\']
+      - property: Source Process Path (custom)
+        operator: is_not_any_of
+        values: [<unknown process>]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Process Path (custom)
+        operator: is_any_of
+        values:
+          - 'C:\Windows\ImmersiveControlPanel\SystemSettings.exe'
+          - 'C:\Program Files\VMware\VMware Tools\VMwareResolutionSet.exe'
+          - 'C:\Windows\Sysmon64.exe'
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Remote Thread Creation inside System Process
+
+response:
+  new_event:
+    name: Sysmon - Remote Thread Creation inside System Process
+    description: >-
+      Detects remote thread creation inside legitimate Windows system processes, which is a common
+      process injection technique used by adversaries to evade process-based defenses and potentially
+      elevate privileges.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: System
+    low_cat: Privilege Access
+    annotate: Sysmon - Remote Thread Creation inside System Process
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

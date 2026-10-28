@@ -1,0 +1,38 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION" groupId="3" group="jsp.qradar.rulewizard.condition.page.group.event" uid="{uid}"{negate} name="com.q1labs.semsources.cre.tests.ReferenceSetTest" id="107">
+			<parameter id="1">
+				<initialText>any</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="any">any</option>
+					<option id="all">all</option>
+				</userOptions>
+				<userSelection>any</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="2">
+				<initialText>these event properties</initialText>
+				<selectionLabel>Select an event property and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getEventDatabaseFields" source="class" format="list"/>
+				<userSelection>{properties}</userSelection>
+				<userSelectionTypes/>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="3">
+				<initialText>any</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="any">any</option>
+					<option id="all">all</option>
+				</userOptions>
+				<userSelection>any</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="4">
+				<initialText>these reference set(s)</initialText>
+				<selectionLabel>Select one or more reference sets and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getReferenceSets" source="class" format="list"/>
+				<userSelection>{reference_sets}</userSelection>
+				<userSelectionTypes/>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

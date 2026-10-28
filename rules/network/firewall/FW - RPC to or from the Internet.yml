@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 2e7aaa49-0861-402a-8d19-906c3b0e81ef
+name: FW - RPC to or from the Internet
+description: |
+  This rule detects network events that may indicate the use of RPC traffic to/from the Internet.
+  RPC is commonly used by system administrators to remotely control a system for maintenance or to
+  use shared resources. It should almost never be directly exposed to the Internet, as it is
+  frequently targeted and exploited by threat actors as an initial access or backdoor vector.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1190
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Source Port
+        operator: greater_than_or_equal
+        values: [49152]
+      - property: Destination Port
+        operator: is
+        values: [135]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Destination IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Source IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - RPC to or from the Internet
+
+response:
+  new_event:
+    name: FW - RPC to or from the Internet
+    description: >-
+      This rule detects network events that may indicate the use of RPC traffic to/from the Internet.
+      RPC is commonly used by system administrators to remotely control a system for maintenance or to
+      use shared resources. It should almost never be directly exposed to the Internet, as it is
+      frequently targeted and exploited by threat actors as an initial access or backdoor vector.
+    severity: 4
+    credibility: 7
+    relevance: 8
+    high_cat: Suspicious Activity
+    low_cat: Potential RPC Vulnerability
+    annotate: FW - RPC to or from the Internet
+    offense:
+      index_on: Source IP
+      new_offense: true

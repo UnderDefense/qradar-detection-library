@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 5ae8bc22-6707-4d37-b74e-26b6c55e087d
+name: FW - Potential Local Port Scan
+description: |
+  Potential local port scan detected.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1046
+
+tests:
+  - group: function_simple
+    type: rule
+    match: any
+    negate: true
+    rules: ["BB:HostDefinition: Servers"]
+  - group: common
+    type: reference_set
+    negate: true
+    properties: [Source IP]
+    reference_sets: [(Shared) Avast - IP]
+  - group: network
+    type: context
+    contexts: [local_to_local]
+  - group: function_counter
+    type: distinct_properties
+    count: 100
+    properties: [Source IP, Destination IP]
+    distinct_properties: [Destination Port]
+    within: 10
+    unit: minutes
+
+action:
+  severity: { set: 2 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Potential Local Port Scan
+  annotate: FW - Potential Local Port Scan
+
+response:
+  new_event:
+    name: FW - Potential Local Port Scan
+    description: >-
+      Potential local port scan detected.
+    severity: 2
+    credibility: 10
+    relevance: 10
+    high_cat: Recon
+    low_cat: Host Port Scan
+    annotate: FW - Potential Local Port Scan
+    offense:
+      index_on: Source IP
+      new_offense: true
+
+limiter:
+  times: 10
+  per_unit: 30
+  unit: minutes
+  per_property: Rule

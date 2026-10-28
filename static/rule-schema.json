@@ -1,0 +1,725 @@
+{
+  "$id": "https://underdefense.com/schemas/rule.qradar.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QRadar Custom Rule",
+  "description": "A QRadar Custom Rule stored as code. Field names follow the QRadar Rule Wizard.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Stable identifier of the rule. Survives renames; generate once with `uuidgen`."
+    },
+    "name": {
+      "$ref": "#/$defs/nonEmptyString",
+      "description": "The name of the custom rule. Must be unique across the library. Building Block names start with 'BB:', rule names must not."
+    },
+    "description": {
+      "$ref": "#/$defs/nonEmptyString",
+      "description": "The description of the custom rule (provided through notes)."
+    },
+    "type": {
+      "enum": ["event", "flow", "common", "offense"],
+      "description": "The type of the custom rule.",
+      "default": "event"
+    },
+    "scope": {
+      "enum": ["local", "global"],
+      "description": "Apply the rule on events detected by the Local or the Global system.",
+      "default": "local"
+    },
+    "building_block": {
+      "type": "boolean",
+      "description": "The rule is a Building Block: name, description, type, groups and tests only. Building Blocks cannot be enabled and have no action, response or limiter; `mitre` is optional.",
+      "default": false
+    },
+    "groups": {
+      "description": "Groups the custom rule belongs to.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "enabled": {
+      "description": "Flag to indicate whether a rule is enabled. Required for rules, not allowed for Building Blocks.",
+      "type": "boolean",
+      "default": false
+    },
+    "mitre": {
+      "description": "A list of MITRE ATT&CK (sub)techniques a rule is related to.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^T\\d{4}(\\.\\d{3})?$"
+      }
+    },
+    "author": {
+      "$ref": "#/$defs/nonEmptyString",
+      "description": "Who wrote the rule."
+    },
+    "status": {
+      "enum": ["experimental", "test", "stable", "deprecated"],
+      "description": "Lifecycle status of the rule in the library. Independent from `enabled`."
+    },
+    "created": { "type": "string", "format": "date", "description": "Creation date, YYYY-MM-DD." },
+    "modified": { "type": "string", "format": "date", "description": "Last modification date, YYYY-MM-DD." },
+    "references": {
+      "description": "Links to research, vendor docs or threat reports the rule is based on.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri" }
+    },
+    "false_positives": {
+      "description": "Known benign activity that triggers the rule.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "tests": {
+      "description": "A list of custom rule tests in Rule Wizard order. QRadar connects all tests with AND; set `negate: true` for AND NOT.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/test" }
+    },
+    "action": { "$ref": "#/$defs/action" },
+    "response": { "$ref": "#/$defs/response" },
+    "limiter": { "$ref": "#/$defs/limiter" }
+  },
+  "required": ["name", "description", "type", "groups", "tests"],
+  "additionalProperties": false,
+  "if": {
+    "properties": { "building_block": { "const": true } },
+    "required": ["building_block"]
+  },
+  "then": {
+    "properties": {
+      "name": {
+        "pattern": "^BB:\\S",
+        "errorMessage": "Building Block names must start with 'BB:', e.g. 'BB:Office 365 - Failed Login'."
+      },
+      "enabled": { "$ref": "#/$defs/forbiddenInBuildingBlock" },
+      "action": { "$ref": "#/$defs/forbiddenInBuildingBlock" },
+      "response": { "$ref": "#/$defs/forbiddenInBuildingBlock" },
+      "limiter": { "$ref": "#/$defs/forbiddenInBuildingBlock" }
+    }
+  },
+  "else": {
+    "required": ["enabled", "mitre"],
+    "properties": {
+      "name": {
+        "pattern": "^(?!BB:)",
+        "errorMessage": "Only Building Blocks can start with 'BB:'. Add `building_block: true` or rename the rule."
+      }
+    }
+  },
+  "defaultSnippets": [
+    {
+      "label": "New QRadar rule",
+      "body": {
+        "id": "${1:uuid}",
+        "name": "${2:Rule name}",
+        "description": "${3:What the rule detects.}",
+        "type": "event",
+        "enabled": false,
+        "groups": ["${4:Group}"],
+        "mitre": ["${5:T1078}"],
+        "tests": [
+          { "group": "log_source", "type": "log_source_type", "log_source_types": ["${6:Office 365}"] }
+        ]
+      }
+    },
+    {
+      "label": "New QRadar Building Block",
+      "body": {
+        "id": "${1:uuid}",
+        "name": "${2:BB:Building block name}",
+        "description": "${3:What the building block matches.}",
+        "type": "event",
+        "building_block": true,
+        "groups": ["${4:Group}"],
+        "tests": [
+          { "group": "log_source", "type": "log_source_type", "log_source_types": ["${5:Office 365}"] }
+        ]
+      }
+    }
+  ],
+
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "forbiddenInBuildingBlock": { "not": {}, "errorMessage": "Not allowed when building_block is true." },
+    "stringList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    },
+    "property": {
+      "$ref": "#/$defs/nonEmptyString",
+      "description": "Event/flow property as shown in QRadar, e.g. `Source IP`, `Username`, `Action (custom)`."
+    },
+    "propertyList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/property" }
+    },
+    "score": { "type": "integer", "minimum": 0, "maximum": 10 },
+    "timeUnit": { "enum": ["seconds", "minutes", "hours", "days"] },
+    "comparison": { "enum": ["greater_than", "less_than", "equal_to"] },
+
+    "test": {
+      "description": "One rule test. `group` matches the Rule Wizard 'Test Group'; `type` selects the test; the remaining keys are its parameters.",
+      "type": "object",
+      "properties": {
+        "group": {
+          "enum": [
+            "common",
+            "datetime",
+            "event",
+            "flow",
+            "offense",
+            "log_source",
+            "ip_port",
+            "network",
+            "host_profile",
+            "function_counter",
+            "function_negative",
+            "function_sequence",
+            "function_simple",
+            "xforce"
+          ],
+          "description": "Rule Wizard test group."
+        },
+        "type": { "type": "string", "description": "Test within the group. `raw` is available in every group." },
+        "negate": {
+          "type": "boolean",
+          "default": false,
+          "description": "Turn the test into AND NOT."
+        }
+      },
+      "required": ["group", "type"],
+      "allOf": [
+        { "$ref": "#/$defs/testGroupTypes" },
+        { "if": { "properties": { "type": { "const": "raw" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_raw" } },
+        { "if": { "properties": { "type": { "const": "aql" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_aql" } },
+        { "if": { "properties": { "type": { "const": "regex" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_regex" } },
+        { "if": { "properties": { "type": { "const": "reference_set" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_reference_set" } },
+        { "if": { "properties": { "type": { "const": "time" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_time" } },
+        { "if": { "properties": { "type": { "const": "day_of_week" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_day_of_week" } },
+        { "if": { "properties": { "type": { "const": "qid" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_qid" } },
+        { "if": { "properties": { "type": { "const": "category" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_category" } },
+        { "if": { "properties": { "type": { "enum": ["severity", "credibility", "relevance"] } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_score" } },
+        { "if": { "properties": { "type": { "const": "log_source_type" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_log_source_type" } },
+        { "if": { "properties": { "type": { "const": "log_source" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_log_source" } },
+        { "if": { "properties": { "type": { "const": "log_source_group" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_log_source_group" } },
+        { "if": { "properties": { "type": { "const": "same_properties" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_same_properties" } },
+        { "if": { "properties": { "type": { "const": "distinct_properties" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_distinct_properties" } },
+        { "if": { "properties": { "type": { "const": "rule_threshold" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_rule_threshold" } },
+        { "if": { "properties": { "type": { "const": "rule" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_rule" } },
+        { "if": { "properties": { "type": { "const": "domain" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_domain" } },
+        { "if": { "properties": { "type": { "const": "search_filter" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_search_filter" } },
+        { "if": { "properties": { "type": { "enum": ["source_location", "destination_location"] } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_network_location" } },
+        { "if": { "properties": { "type": { "const": "context" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_network_context" } },
+        { "if": { "properties": { "type": { "const": "destination_port" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_destination_port" } },
+        { "if": { "properties": { "type": { "const": "protocol" } }, "required": ["type"] }, "then": { "$ref": "#/$defs/test_protocol" } }
+      ],
+      "defaultSnippets": [
+        { "label": "log_source_type", "body": { "group": "log_source", "type": "log_source_type", "log_source_types": ["${1:Office 365}"] } },
+        { "label": "aql", "body": { "group": "common", "type": "aql", "filter": "${1:INCIDR('10.0.0.0/8', sourceip)}" } },
+        { "label": "regex", "body": { "group": "common", "type": "regex", "properties": ["${1:Username}"], "regex": "${2:.*}" } },
+        { "label": "reference_set", "body": { "group": "common", "type": "reference_set", "properties": ["${1:Source IP}"], "reference_sets": ["${2:Reference set}"] } },
+        { "label": "qid", "body": { "group": "event", "type": "qid", "events": ["${1:Event name}"] } },
+        { "label": "category", "body": { "group": "event", "type": "category", "categories": [{ "high": "${1:Authentication}", "low": "${2:User Login Failure}" }] } },
+        { "label": "time", "body": { "group": "datetime", "type": "time", "operator": "${1|after,before,at|}", "time": "${2:01:00}" } },
+        { "label": "same_properties", "body": { "group": "function_counter", "type": "same_properties", "count": "^${1:5}", "properties": ["${2:Username}"], "within": "^${3:10}", "unit": "minutes" } },
+        { "label": "rule", "body": { "group": "function_simple", "type": "rule", "match": "any", "rules": ["${1:Rule name}"] } },
+        { "label": "domain", "body": { "group": "common", "type": "domain", "domains": ["${1:Domain}"] } },
+        { "label": "search_filter", "body": { "group": "common", "type": "search_filter", "filters": [{ "property": "${1:Action (custom)}", "operator": "${2|is,is_not,greater_than,greater_than_or_equal,less_than,less_than_or_equal,is_any_of,is_not_any_of,contains_any_of,matches_any_of,not_matches_any_of,is_na,is_not_na|}", "values": ["${3:value}"] }] } },
+        { "label": "source_location", "body": { "group": "network", "type": "source_location", "location": "${1|remote,local|}" } },
+        { "label": "context", "body": { "group": "network", "type": "context", "contexts": ["${1|local_to_local,local_to_remote,remote_to_local,remote_to_remote|}"] } },
+        { "label": "raw", "body": { "group": "${1:common}", "type": "raw", "text": "${2:when ...}" } }
+      ]
+    },
+
+    "testGroupTypes": {
+      "description": "Allowed test types per group. Groups without typed tests accept only `raw` until someone models them.",
+      "allOf": [
+        { "if": { "properties": { "group": { "const": "common" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["aql", "search_filter", "regex", "reference_set", "domain", "protocol", "raw"] } } } },
+        { "if": { "properties": { "group": { "const": "datetime" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["time", "day_of_week", "raw"] } } } },
+        { "if": { "properties": { "group": { "const": "event" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["qid", "category", "severity", "credibility", "relevance", "raw"] } } } },
+        { "if": { "properties": { "group": { "const": "log_source" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["log_source_type", "log_source", "log_source_group", "raw"] } } } },
+        { "if": { "properties": { "group": { "const": "function_counter" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["same_properties", "distinct_properties", "rule_threshold", "raw"] } } } },
+        { "if": { "properties": { "group": { "const": "function_simple" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["rule", "raw"] } } } },
+        { "if": { "properties": { "group": { "const": "network" } }, "required": ["group"] }, "then": { "properties": { "type": { "enum": ["source_location", "destination_location", "context", "destination_port", "raw"] } } } },
+        {
+          "if": {
+            "properties": { "group": { "enum": ["flow", "offense", "ip_port", "host_profile", "function_negative", "function_sequence", "xforce"] } },
+            "required": ["group"]
+          },
+          "then": { "properties": { "type": { "const": "raw" } } }
+        }
+      ]
+    },
+
+    "test_raw": {
+      "description": "Any test not modelled yet: paste the Rule Wizard sentence with the parameters filled in.",
+      "properties": { "group": true, "type": true, "negate": true, "text": { "$ref": "#/$defs/nonEmptyString" } },
+      "required": ["text"],
+      "additionalProperties": false
+    },
+    "test_aql": {
+      "description": "when the event matches this AQL filter query",
+      "properties": { "group": true, "type": true, "negate": true, "filter": { "$ref": "#/$defs/nonEmptyString", "description": "AQL WHERE clause, e.g. INCIDR('127.0.0.0/8', sourceip)." } },
+      "required": ["filter"],
+      "additionalProperties": false
+    },
+    "test_regex": {
+      "description": "when any of these properties match this regular expression",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "properties": { "$ref": "#/$defs/propertyList" },
+        "regex": { "type": "string", "format": "regex" }
+      },
+      "required": ["properties", "regex"],
+      "additionalProperties": false
+    },
+    "test_reference_set": {
+      "description": "when any of these properties are contained in any of these reference set(s)",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "properties": { "$ref": "#/$defs/propertyList" },
+        "reference_sets": { "$ref": "#/$defs/stringList" }
+      },
+      "required": ["properties", "reference_sets"],
+      "additionalProperties": false
+    },
+    "test_time": {
+      "description": "when the event(s) occur after/before/at this time",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "operator": { "enum": ["after", "before", "at"] },
+        "time": { "type": "string", "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$", "description": "HH:MM, 24h. Quote it: unquoted 13:30 is parsed by YAML as a number." }
+      },
+      "required": ["operator", "time"],
+      "additionalProperties": false
+    },
+    "test_day_of_week": {
+      "description": "when the event(s) occur on/after/before the selected day of the week",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "operator": { "enum": ["equals", "after", "before"], "description": "`equals` stands for 'on' (bare `on` is a boolean in YAML 1.1)." },
+        "days": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] }
+        }
+      },
+      "required": ["operator", "days"],
+      "additionalProperties": false
+    },
+    "test_qid": {
+      "description": "when the event QID is one of the following QIDs. Name the events as the Rule Wizard shows them; the extension builder looks their QIDs up on the target console.",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "events": { "$ref": "#/$defs/stringList", "description": "Event names, e.g. 'Process Create'." },
+        "qids": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "integer", "minimum": 0 }, "description": "QID numbers, only for QIDs that are the same on every console." }
+      },
+      "oneOf": [{ "required": ["events"] }, { "required": ["qids"] }],
+      "errorMessage": "A QID test takes either 'events' (names) or 'qids' (numbers).",
+      "additionalProperties": false
+    },
+    "test_category": {
+      "description": "when the event category for the event is one of the following categories",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "high": { "$ref": "#/$defs/nonEmptyString", "description": "High-level category." },
+              "low": { "$ref": "#/$defs/nonEmptyString", "description": "Low-level category. Omit to match the whole high-level category." }
+            },
+            "required": ["high"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["categories"],
+      "additionalProperties": false
+    },
+    "test_score": {
+      "description": "when the event severity/credibility/relevance is greater than/less than/equal to this value",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "operator": { "$ref": "#/$defs/comparison" },
+        "value": { "$ref": "#/$defs/score" }
+      },
+      "required": ["operator", "value"],
+      "additionalProperties": false
+    },
+    "test_log_source_type": {
+      "description": "when the event(s) were detected by one or more of these log source types",
+      "properties": { "group": true, "type": true, "negate": true, "log_source_types": { "$ref": "#/$defs/stringList" } },
+      "required": ["log_source_types"],
+      "additionalProperties": false
+    },
+    "test_log_source": {
+      "description": "when the event(s) were detected by one or more of these log sources",
+      "properties": { "group": true, "type": true, "negate": true, "log_sources": { "$ref": "#/$defs/stringList" } },
+      "required": ["log_sources"],
+      "additionalProperties": false
+    },
+    "test_log_source_group": {
+      "description": "when the event(s) were detected by one or more of these log source groups",
+      "properties": { "group": true, "type": true, "negate": true, "log_source_groups": { "$ref": "#/$defs/stringList" } },
+      "required": ["log_source_groups"],
+      "additionalProperties": false
+    },
+    "test_same_properties": {
+      "description": "when at least this many events are seen with the same event properties in this many minutes",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "count": { "type": "integer", "minimum": 1 },
+        "properties": { "$ref": "#/$defs/propertyList" },
+        "within": { "type": "integer", "minimum": 1 },
+        "unit": { "$ref": "#/$defs/timeUnit" }
+      },
+      "required": ["count", "properties", "within", "unit"],
+      "additionalProperties": false
+    },
+    "test_rule_threshold": {
+      "description": "when any of these rules with the same <same> more than <times> times, across more than <across> <distinct> within <within> <unit>",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "rules": { "$ref": "#/$defs/stringList", "description": "Rule or Building Block names." },
+        "same": { "$ref": "#/$defs/thresholdField" },
+        "times": { "type": "integer", "minimum": 0 },
+        "comparison": { "enum": ["more_than", "exactly"], "default": "more_than" },
+        "across": { "type": "integer", "minimum": 0 },
+        "distinct": { "$ref": "#/$defs/thresholdField" },
+        "within": { "type": "integer", "minimum": 1 },
+        "unit": { "$ref": "#/$defs/timeUnit" }
+      },
+      "required": ["rules", "same", "times", "across", "distinct", "within", "unit"],
+      "additionalProperties": false
+    },
+    "thresholdField": {
+      "enum": ["username", "source IP", "source port", "destination IP", "destination port", "QID", "event ID", "log source", "category"],
+      "description": "Field as the Rule Wizard lists it for this test."
+    },
+    "test_distinct_properties": {
+      "description": "when at least this many events are seen with the same event properties and different event properties in this many minutes",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "count": { "type": "integer", "minimum": 1 },
+        "properties": { "$ref": "#/$defs/propertyList", "description": "Properties that must be the same." },
+        "distinct_properties": { "$ref": "#/$defs/propertyList", "description": "Properties that must differ." },
+        "within": { "type": "integer", "minimum": 1 },
+        "unit": { "$ref": "#/$defs/timeUnit" }
+      },
+      "required": ["count", "properties", "distinct_properties", "within", "unit"],
+      "additionalProperties": false
+    },
+    "test_rule": {
+      "description": "when an event matches any|all of the following rules",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "match": { "enum": ["any", "all"] },
+        "rules": { "$ref": "#/$defs/stringList", "description": "Rule or Building Block names." }
+      },
+      "required": ["match", "rules"],
+      "additionalProperties": false
+    },
+    "test_protocol": {
+      "description": "when the IP protocol is one of the following protocols",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "protocols": { "$ref": "#/$defs/stringList", "description": "Protocols as the Rule Wizard shows them, e.g. TCP.tcp_ip in event rules, TCP in common rules." }
+      },
+      "required": ["protocols"],
+      "additionalProperties": false
+    },
+    "test_destination_port": {
+      "description": "when the destination port is one of the following ports",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "ports": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 0, "maximum": 65535 }
+        }
+      },
+      "required": ["ports"],
+      "additionalProperties": false
+    },
+    "test_network_context": {
+      "description": "when the event context is one of these (source and destination local or remote against the QRadar Network Hierarchy)",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "contexts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["local_to_local", "local_to_remote", "remote_to_local", "remote_to_remote"] }
+        }
+      },
+      "required": ["contexts"],
+      "additionalProperties": false
+    },
+    "test_network_location": {
+      "description": "when the source/destination is local/remote (against the QRadar Network Hierarchy)",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "location": { "enum": ["local", "remote"] }
+      },
+      "required": ["location"],
+      "additionalProperties": false
+    },
+    "test_domain": {
+      "description": "when the domain is one of the following domains",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "domains": { "$ref": "#/$defs/stringList" }
+      },
+      "required": ["domains"],
+      "additionalProperties": false
+    },
+    "test_search_filter": {
+      "description": "when the event matches this search filter. The Rule Overview prints it as 'when the event matches <property> is any of <values>, ...'.",
+      "properties": {
+        "group": true, "type": true, "negate": true,
+        "filters": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "property": { "$ref": "#/$defs/property" },
+              "operator": {
+                "enum": ["is", "is_not", "greater_than", "greater_than_or_equal", "less_than", "less_than_or_equal", "is_any_of", "is_not_any_of", "contains_any_of", "matches_any_of", "not_matches_any_of", "is_na", "is_not_na"],
+                "description": "Filter operator as shown in QRadar: 'is', 'is not', 'is greater than', 'is greater than or equal to', 'is less than', 'is less than or equal to' (one value), 'is any of', 'is not any of', 'contains any of', 'matches any of', 'does not match any of' (values are regular expressions), 'is N/A', 'is not N/A'. Extend the list when a rule needs another one."
+              },
+              "values": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "type": ["string", "integer"] }
+              }
+            },
+            "required": ["property", "operator"],
+            "if": { "properties": { "operator": { "enum": ["is_na", "is_not_na"] } } },
+            "then": { "not": { "required": ["values"] }, "errorMessage": "Operators 'is_na' and 'is_not_na' take no values." },
+            "else": { "required": ["values"] },
+            "allOf": [
+              {
+                "if": { "properties": { "operator": { "enum": ["is", "is_not", "greater_than", "greater_than_or_equal", "less_than", "less_than_or_equal"] } } },
+                "then": { "properties": { "values": { "maxItems": 1, "errorMessage": "This operator takes one value." } } }
+              }
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["filters"],
+      "additionalProperties": false
+    },
+
+    "adjustment": {
+      "description": "Set, increase or decrease the value. Exactly one key.",
+      "type": "object",
+      "properties": {
+        "set": { "$ref": "#/$defs/score" },
+        "increase": { "$ref": "#/$defs/score" },
+        "decrease": { "$ref": "#/$defs/score" }
+      },
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false
+    },
+    "offenseIndex": {
+      "type": "object",
+      "properties": {
+        "index_on": { "$ref": "#/$defs/property", "description": "Index offense based on this property." },
+        "include_events": { "type": "integer", "minimum": 1, "description": "Include detected events from this point forward, for this many seconds." },
+        "new_offense": {
+          "type": "boolean",
+          "default": false,
+          "description": "Force the event to create a NEW offense, select the offense using `index_on`."
+        }
+      },
+      "required": ["index_on"]
+    },
+    "action": {
+      "description": "Rule Response page, 'Rule Action' section.",
+      "type": "object",
+      "properties": {
+        "severity": { "$ref": "#/$defs/adjustment" },
+        "credibility": { "$ref": "#/$defs/adjustment" },
+        "relevance": { "$ref": "#/$defs/adjustment" },
+        "offense": {
+          "description": "Ensure the detected event is part of an offense.",
+          "$ref": "#/$defs/offenseIndex",
+          "properties": { "index_on": true, "include_events": true, "new_offense": true, "annotate": { "$ref": "#/$defs/nonEmptyString" } },
+          "unevaluatedProperties": false
+        },
+        "annotate": { "$ref": "#/$defs/nonEmptyString", "description": "Annotate event." },
+        "bypass": { "type": "boolean", "description": "Bypass further rule correlation event." },
+        "drop": { "type": "boolean", "description": "Drop the detected event." }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+
+    "response": {
+      "description": "Rule Response page, 'Rule Response' section.",
+      "type": "object",
+      "properties": {
+        "new_event": { "$ref": "#/$defs/newEvent" },
+        "email": {
+          "description": "Email notification.",
+          "type": "object",
+          "properties": {
+            "emails": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "format": "email" } },
+            "template": { "$ref": "#/$defs/nonEmptyString" }
+          },
+          "required": ["emails"],
+          "additionalProperties": false
+        },
+        "syslog": { "type": "boolean", "description": "Send to Local SysLog." },
+        "forward": { "$ref": "#/$defs/stringList", "description": "Send to these Forwarding Destinations." },
+        "notify": {
+          "type": "object",
+          "description": "Notify (System Notifications).",
+          "properties": { "use_event_severity": { "type": "boolean" } },
+          "additionalProperties": false
+        },
+        "add_to_reference_set": { "$ref": "#/$defs/referenceSetAction" },
+        "add_to_reference_data": { "$ref": "#/$defs/referenceDataAction" },
+        "remove_from_reference_set": { "$ref": "#/$defs/referenceSetAction" },
+        "remove_from_reference_data": { "$ref": "#/$defs/referenceDataAction" },
+        "execute_custom_action": { "$ref": "#/$defs/nonEmptyString", "description": "Name of the Custom Action script." }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "newEvent": {
+      "description": "Dispatch New Event.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "severity": { "$ref": "#/$defs/score" },
+        "credibility": { "$ref": "#/$defs/score" },
+        "relevance": { "$ref": "#/$defs/score" },
+        "high_cat": { "$ref": "#/$defs/nonEmptyString", "description": "High-Level Category." },
+        "low_cat": { "$ref": "#/$defs/nonEmptyString", "description": "Low-Level Category." },
+        "annotate": { "$ref": "#/$defs/nonEmptyString", "description": "Annotate the offense with this text." },
+        "offense": {
+          "description": "Ensure the dispatched event is part of an offense.",
+          "$ref": "#/$defs/offenseIndex",
+          "properties": {
+            "index_on": true,
+            "include_events": true,
+            "new_offense": true,
+            "naming": {
+              "enum": ["contribute", "set_or_replace", "not_contribute"],
+              "default": "not_contribute",
+              "description": "How this event affects the offense name."
+            }
+          },
+          "unevaluatedProperties": false
+        }
+      },
+      "required": ["name", "description", "severity", "credibility", "relevance", "high_cat", "low_cat"],
+      "additionalProperties": false
+    },
+    "referenceSetAction": {
+      "type": "object",
+      "properties": {
+        "property": { "$ref": "#/$defs/property" },
+        "reference_set": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "required": ["property", "reference_set"],
+      "additionalProperties": false
+    },
+    "referenceDataAction": {
+      "description": "Exactly one reference data collection per response.",
+      "type": "object",
+      "properties": {
+        "reference_map": {
+          "type": "object",
+          "properties": {
+            "object": { "$ref": "#/$defs/nonEmptyString" },
+            "key": { "$ref": "#/$defs/property" },
+            "value": { "$ref": "#/$defs/property" }
+          },
+          "required": ["object", "key", "value"],
+          "additionalProperties": false
+        },
+        "reference_map_of_sets": {
+          "type": "object",
+          "properties": {
+            "object": { "$ref": "#/$defs/nonEmptyString" },
+            "key": { "$ref": "#/$defs/property" },
+            "value": { "$ref": "#/$defs/property" }
+          },
+          "required": ["object", "key", "value"],
+          "additionalProperties": false
+        },
+        "reference_map_of_maps": {
+          "type": "object",
+          "properties": {
+            "object": { "$ref": "#/$defs/nonEmptyString" },
+            "key_1": { "$ref": "#/$defs/property" },
+            "key_2": { "$ref": "#/$defs/property" },
+            "value": { "$ref": "#/$defs/property" }
+          },
+          "required": ["object", "key_1", "key_2", "value"],
+          "additionalProperties": false
+        },
+        "reference_table": {
+          "type": "object",
+          "properties": {
+            "object": { "$ref": "#/$defs/nonEmptyString" },
+            "outer_key": { "$ref": "#/$defs/property" },
+            "inner_keys": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": { "$ref": "#/$defs/nonEmptyString", "description": "Reference table column." },
+                  "value": { "$ref": "#/$defs/property" }
+                },
+                "required": ["key", "value"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["object", "outer_key", "inner_keys"],
+          "additionalProperties": false
+        }
+      },
+      "minProperties": 1,
+      "maxProperties": 1,
+      "additionalProperties": false
+    },
+
+    "limiter": {
+      "description": "Response Limiter: respond no more than <times> time(s) per <per_unit> <unit> per <per_property>.",
+      "type": "object",
+      "properties": {
+        "times": { "type": "integer", "minimum": 1 },
+        "per_unit": { "type": "integer", "minimum": 1 },
+        "unit": { "$ref": "#/$defs/timeUnit" },
+        "per_property": { "$ref": "#/$defs/property", "description": "`Rule` or an indexed property such as `Source IP`." }
+      },
+      "required": ["times", "per_unit", "unit", "per_property"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<rule overrideid="{id}" owner="admin" scope="{scope}" type="{type}" roleDefinition="false" buildingBlock="{building_block}" enabled="{enabled}" id="{id}">
+	<name>{name}</name>
+	<notes>{notes}</notes>
+	<testDefinitions>
+{tests}
+	</testDefinitions>
+{actions}{responses}{limiter}</rule>

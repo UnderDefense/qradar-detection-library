@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: dd3bbe3a-3885-4222-ba88-b764c36fb88f
+name: Sysmon - Executables Started in Suspicious Folder
+description: |
+  Detects execution of processes from directories commonly abused by attackers for staging
+  malicious binaries and evading detection.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1036
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: event
+    type: category
+    categories:
+      - { high: System, low: Process Creation Success }
+  - group: common
+    type: search_filter
+    filters:
+      - property: Process Path (custom)
+        operator: is_not_na
+  - group: common
+    type: aql
+    filter: >-
+      LOWER("Process Path") MATCHES ('(c:\\perflogs\\.*)|(.*((\\\$recycle\.bin\\)|(\\config\\systemprofile\\)|(\\intel\\logs\\)|(\\rsa\\machinekeys\\)|(\\windows\\(addins|debug|fonts|help|ime|media|repair|security|(system32\\)?tasks)\\)|(\\users\\(public|networkservice|default|all users)\\)).*)')
+  # IBM i Access Client Solutions and Citrix Receiver updater.
+  - group: common
+    type: aql
+    negate: true
+    filter: >-
+      (LOWER("Process Path") LIKE 'c:\users\public\ibm\clientsolutions\start_programs\%'
+      OR (LOWER("Process Path") LIKE 'c:\windows\syswow64\config\systemprofile\citrix\updaterbinaries\%'
+      and LOWER("Process Path") LIKE '%\citrixreceiverupdater.exe') )
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - Executables Started in Suspicious Folder
+
+response:
+  new_event:
+    name: Sysmon - Executables Started in Suspicious Folder
+    description: >-
+      Detects execution of processes from directories commonly abused by attackers for staging
+      malicious binaries and evading detection.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Activity
+    annotate: Sysmon - Executables Started in Suspicious Folder
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true

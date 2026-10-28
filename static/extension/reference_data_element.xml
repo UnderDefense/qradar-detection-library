@@ -1,0 +1,8 @@
+	<reference_data_element>
+		<first_seen>{date}</first_seen>
+		<data>{data}</data>
+		<last_seen>{date}</last_seen>
+		<rdk_id>{key_id}</rdk_id>
+		<id>{id}</id>
+		<source>admin</source>
+	</reference_data_element>

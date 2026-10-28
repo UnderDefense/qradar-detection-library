@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 1d6bf0ac-2f4e-4029-ad45-f394f699a9a7
+name: FW - Internet Exposed SNMP Service
+description: |
+  Detects SNMP traffic originating from external (internet-facing) sources. Network devices should
+  never expose SNMP on WAN interfaces as it can leak sensitive network configuration and credentials.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1602.001
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Fortinet FortiGate Security Gateway]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Destination Port
+        operator: is_any_of
+        values: [161, 162]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Source IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16]
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Internet Exposed SNMP Service
+
+response:
+  new_event:
+    name: FW - Internet Exposed SNMP Service
+    description: >-
+      Detects SNMP traffic originating from external (internet-facing) sources. Network devices should
+      never expose SNMP on WAN interfaces as it can leak sensitive network configuration and credentials.
+    severity: 4
+    credibility: 7
+    relevance: 7
+    high_cat: Suspicious Activity
+    low_cat: Potential SNMP Vulnerability
+    annotate: FW - Internet Exposed SNMP Service
+    offense:
+      index_on: Source IP
+      new_offense: true

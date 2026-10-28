@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 1354f8ce-e5a5-4769-b267-fbeb745717d6
+name: O365 - Exchange Suspicious Email Forwarding
+description: |
+  Detects creation or modification of mailbox forwarding rules and inbox rules in Microsoft 365
+  Exchange that redirect emails to external or internal addresses. Attackers with access to a
+  compromised account commonly configure silent email forwarding to collect sensitive
+  communications without the victim's awareness.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Office365
+mitre:
+  - T1114.003
+
+tests:
+  - group: event
+    type: qid
+    events:
+      - "Set-Mailbox Exchange cmdlet issued failure"
+      - "Set-Mailbox Exchange cmdlet issued success"
+      - "Set-InboxRule Exchange cmdlet issued success"
+      - "Set-InboxRule Exchange cmdlet issued failure"
+      - "New-InboxRule Exchange cmdlet issued failure"
+  - group: common
+    type: search_filter
+    filters:
+      - property: Payload Contains
+        operator: is_any_of
+        values: [ForwardTo, ForwardAsAttachmentTo, RedirectTo, ForwardingAddress, ForwardingSmtpAddress]
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: O365 - Exchange Suspicious Email Forwarding
+
+response:
+  new_event:
+    name: O365 - Exchange Suspicious Email Forwarding
+    description: >-
+      Detects creation or modification of mailbox forwarding rules and inbox rules in Microsoft 365
+      Exchange that redirect emails to external or internal addresses. Attackers with access to a
+      compromised account commonly configure silent email forwarding to collect sensitive
+      communications without the victim's awareness.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Activity
+    annotate: O365 - Exchange Suspicious Email Forwarding
+    offense:
+      index_on: Username
+      new_offense: true

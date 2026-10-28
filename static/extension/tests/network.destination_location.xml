@@ -1,0 +1,12 @@
+		<test requiredCapabilities="EventViewer.RULECREATION"{negate} group="Event Property Tests" uid="{uid}" name="com.q1labs.semsources.cre.tests.Destination_Test" id="28">
+			<parameter id="1">
+				<initialText>local or remote {{default: remote}}</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="local">Local</option>
+					<option id="remote">Remote</option>
+				</userOptions>
+				<userSelection>{location}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

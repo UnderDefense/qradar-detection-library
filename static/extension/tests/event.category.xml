@@ -1,0 +1,10 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION" groupId="3" group="jsp.qradar.rulewizard.condition.page.group.event" uid="{uid}"{negate} name="com.q1labs.semsources.cre.tests.EventCategory_Test" id="21">
+			<parameter id="1">
+				<initialText>categories</initialText>
+				<selectionLabel>Select a category and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getCategories" source="class" format="CustomizeParameter-Categories.jsp"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionTypes/>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

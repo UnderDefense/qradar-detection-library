@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: b4331593-85dc-4a80-a61b-b36a52eb9944
+name: "BB:FW - IRC Server Scanner"
+description: |
+  A source IP sending recon or suspicious traffic on IRC Server ports to more than 10 destination IPs
+  within 5 minutes. No direction: rules add the context they need.
+type: common
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:PortDefinition: IRC Ports"]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 10
+    distinct: destination IP
+    within: 5
+    unit: minutes
+  - group: common
+    type: protocol
+    protocols: [TCP]

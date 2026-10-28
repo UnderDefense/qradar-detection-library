@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: d8029803-b3ad-493b-b056-06170b24f4eb
+name: AD - Multiple Login Failures for Single Username
+description: |
+  Detects potential brute-force or account lockout scenarios by identifying 100 or more login
+  failures or password expiration events for a single username within a 30-minute window.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.ActiveDirectory
+mitre:
+  - T1110
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: reference_set
+    negate: true
+    properties: [Source IP]
+    reference_sets: [(Shared) Brute Force exclusion - IP]
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:AD - Invalid Password at Login", "BB:AD - Password Expired at Login"]
+  - group: function_counter
+    type: same_properties
+    count: 100
+    properties: [Username]
+    within: 30
+    unit: minutes
+  - group: common
+    type: reference_set
+    negate: true
+    properties: [Username]
+    reference_sets: [(Shared) Password Change - AlphaNumeric]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Username
+        operator: is_not_na
+
+action:
+  annotate: AD - Multiple Login Failures for Single Username
+  drop: true
+
+response:
+  new_event:
+    name: AD - Multiple Login Failures for Single Username
+    description: >-
+      Detects potential brute-force or account lockout scenarios by identifying 100 or more login
+      failures or password expiration events for a single username within a 30-minute window.
+    severity: 2
+    credibility: 10
+    relevance: 10
+    high_cat: Authentication
+    low_cat: User Login Failure
+    annotate: AD - Multiple Login Failures for Single Username
+    offense:
+      index_on: Username
+      new_offense: true
+
+limiter:
+  times: 10
+  per_unit: 30
+  unit: minutes
+  per_property: Username

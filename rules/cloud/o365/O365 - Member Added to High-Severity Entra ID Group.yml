@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 9cff47ce-a8a6-4171-94e0-2018aa987ba8
+name: O365 - Member Added to High-Severity Entra ID Group
+description: |
+  Detects when a user account is added as a member to a high-severity Entra ID RBAC group.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Office365
+mitre:
+  - T1098.003
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Office 365]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Action (custom)
+        operator: is_any_of
+        values: [Add eligible member to group., Add member to group.]
+  - group: common
+    type: reference_set
+    properties: [Group Name (custom)]
+    reference_sets: [(Shared) Entra High Groups - AlphaNumeric]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: O365 - Member Added to High-Severity Entra ID Group
+  annotate: O365 - Member Added to High-Severity Entra ID Group
+
+response:
+  new_event:
+    name: O365 - Member Added to High-Severity Entra ID Group
+    description: >-
+      Detects when a user account is added as a member to a high-severity Entra ID RBAC group.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Authentication
+    low_cat: Group Member Added
+    annotate: O365 - Member Added to High-Severity Entra ID Group
+    offense:
+      index_on: Username
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 15
+  unit: minutes
+  per_property: Username

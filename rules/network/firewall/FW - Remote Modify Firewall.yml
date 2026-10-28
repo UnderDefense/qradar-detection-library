@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: b976f619-93b2-48da-9267-08d0a9069d9b
+name: FW - Remote Modify Firewall
+description: |
+  This rule detects attempts to modify firewall configuration from remote sources.
+  The alert is triggered when administrative or configuration change events are
+  initiated from external IP addresses.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1562.004
+
+tests:
+  - group: network
+    type: source_location
+    location: remote
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Name
+        operator: is_any_of
+        values: [Administration Edit Event, Configuration is changed]
+  # Trusted admin networks are client-specific: each client fills this reference set.
+  - group: common
+    type: reference_set
+    negate: true
+    properties: [Source IP]
+    reference_sets: [FW - Trusted Admin Networks - CIDR]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Remote Modify Firewall
+  annotate: FW - Remote Modify Firewall
+
+response:
+  new_event:
+    name: FW - Remote Modify Firewall
+    description: >-
+      The alert is triggered when administrative or configuration change events
+      (e.g., Administration Edit Event or Configuration is changed) are initiated
+      from external (remote) IP addresses.
+    severity: 5
+    credibility: 10
+    relevance: 10
+    high_cat: System
+    low_cat: System Configuration
+    annotate: FW - Remote Modify Firewall
+    offense:
+      index_on: Source IP
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Source IP

@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 7ec20edd-d172-4f4c-b068-b08ddb1e7a43
+name: EntraID - MFA Removed for User Account
+description: |
+  Detects when MFA (Strong Authentication) is disabled for a user account in Azure AD. Disabling MFA
+  reduces account security and may indicate unauthorized changes to authentication settings or
+  account takeover preparation.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.EntraID
+mitre:
+  - T1556.006
+
+tests:
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Name
+        operator: is_any_of
+        values:
+          - Successfully Disable Strong Authentication
+          - Disable Strong Authentication - Success
+          - Disable Strong Authentication Success
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: EntraID - MFA Removed for User Account
+
+response:
+  new_event:
+    name: EntraID - MFA Removed for User Account
+    description: >-
+      Detects when MFA (Strong Authentication) is disabled for a user account in Azure AD. Disabling MFA
+      reduces account security and may indicate unauthorized changes to authentication settings or
+      account takeover preparation.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Access
+    low_cat: Access Denied
+    annotate: EntraID - MFA Removed for User Account
+    offense:
+      index_on: Username
+      new_offense: true

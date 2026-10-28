@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: c6c72150-d835-43c3-9882-57996c30691d
+name: "BB:FW - Remote Shell Ports"
+description: |
+  Outbound connections to ports that reverse shells and exploitation frameworks use by default
+  (Metasploit 4444, netcat and similar listeners).
+type: event
+scope: local
+building_block: true
+groups:
+  - UnderDefense.Firewall
+
+tests:
+  - group: network
+    type: destination_port
+    ports: [4444, 5555, 9999, 9001, 9002, 31337, 4242, 3333]
+  - group: network
+    type: context
+    contexts: [local_to_remote]

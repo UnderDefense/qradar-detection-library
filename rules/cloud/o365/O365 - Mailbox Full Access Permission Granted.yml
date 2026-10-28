@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 7c1e4b52-9a3d-4f86-b0e2-5d8a61f3c947
+name: O365 - Mailbox Full Access Permission Granted
+description: |
+  Triggers when a user is granted FullAccess permissions to another mailbox via Exchange.
+  This may indicate unauthorized access delegation, lateral movement, or preparation
+  for email data exfiltration.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Office365
+mitre:
+  - T1098.002
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Office 365]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Action (custom)
+        operator: is_any_of
+        values: [Add-MailboxPermission]
+      - property: User Right (custom)
+        operator: is_any_of
+        values: [FullAccess]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Sender (custom)
+        operator: is_any_of
+        values: ['NT SERVICE\\MSExchangeAdminApiNetCore (Microsoft.Exchange.AdminApi.NetCore)']
+      - property: Target Username (custom)
+        operator: is_any_of
+        values: [Discovery Management]
+      - property: Object Name (custom)
+        operator: contains_any_of
+        values: [DiscoverySearchMailbox]
+
+action:
+  severity: { set: 2 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: O365 - Mailbox Full Access Permission Granted
+  annotate: O365 - Mailbox Full Access Permission Granted
+
+response:
+  new_event:
+    name: O365 - Mailbox Full Access Permission Granted
+    description: >-
+      Triggers when a user is granted FullAccess permissions to another mailbox via Exchange.
+      This may indicate unauthorized access delegation, lateral movement, or preparation
+      for email data exfiltration.
+    severity: 2
+    credibility: 10
+    relevance: 10
+    high_cat: Authentication
+    low_cat: User Right Assigned
+    annotate: O365 - Mailbox Full Access Permission Granted
+    offense:
+      index_on: Username
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Username

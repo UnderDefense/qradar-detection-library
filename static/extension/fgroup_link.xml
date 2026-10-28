@@ -1,0 +1,6 @@
+	<fgroup_link>
+		<fgroup_id>{fgroup_id}</fgroup_id>
+		<item_id>{rule_id}</item_id>
+		<user_name>admin</user_name>
+		<id>{id}</id>
+	</fgroup_link>

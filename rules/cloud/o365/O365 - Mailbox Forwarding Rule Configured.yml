@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: f44f4bda-985e-41f7-8b79-458ce668a634
+name: O365 - Mailbox Forwarding Rule Configured
+description: |
+  Triggers when a mailbox forwarding rule is established, automatically redirecting
+  emails to another address.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Office365
+mitre:
+  - T1114.003
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Office 365]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Action (custom)
+        operator: is_any_of
+        values: [UpdateInboxRules]
+      - property: Action Type (custom)
+        operator: is_any_of
+        values: [Forward]
+
+action:
+  severity: { set: 2 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: O365 - Mailbox Forwarding Rule Configured
+  annotate: O365 - Mailbox Forwarding Rule Configured
+
+response:
+  new_event:
+    name: O365 - Mailbox Forwarding Rule Configured
+    description: >-
+      Triggers when a mailbox forwarding rule is established, automatically redirecting
+      emails to another address.
+    severity: 2
+    credibility: 10
+    relevance: 10
+    high_cat: Authentication
+    low_cat: User Right Assigned
+    annotate: O365 - Mailbox Forwarding Rule Configured
+    offense:
+      index_on: Username
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 15
+  unit: minutes
+  per_property: Username

@@ -1,0 +1,21 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION" groupId="7" group="jsp.qradar.rulewizard.condition.page.group.functions.simple" uid="{uid}"{negate} name="com.q1labs.semsources.cre.tests.RuleMatch_Test" id="46">
+			<parameter id="1">
+				<initialText>any|all</initialText>
+				<selectionLabel>Select an option</selectionLabel>
+				<userOptions multiselect="false" source="xml" format="list">
+					<option id="any">any</option>
+					<option id="all">all</option>
+				</userOptions>
+				<userSelection>{match}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+			<parameter id="2">
+				<name>getEventRules</name>
+				<initialText>rules</initialText>
+				<selectionLabel>Select the rule(s) to match and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" method="com.q1labs.sem.ui.semservices.UISemServices.getEventRules" source="class" format="list"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionTypes></userSelectionTypes>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

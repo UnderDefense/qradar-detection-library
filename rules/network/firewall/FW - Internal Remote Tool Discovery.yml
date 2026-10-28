@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: af10f41b-2f99-42b5-825b-07e4c3474489
+name: FW - Internal Remote Tool Discovery
+description: |
+  Detects internal TCP scanning from a single host to multiple internal systems over common RMM and
+  remote shell ports (e.g., AnyDesk, TeamViewer, Radmin, VNC, Metasploit), indicating possible
+  unauthorized remote access tooling or lateral movement reconnaissance.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1046
+  - T1219
+
+tests:
+  - group: network
+    type: context
+    contexts: [local_to_remote]
+  - group: common
+    type: protocol
+    protocols: [TCP.tcp_ip]
+  - group: function_simple
+    type: rule
+    match: any
+    rules: ["BB:FW - RMM Ports", "BB:FW - Remote Shell Ports"]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 15
+    distinct: destination IP
+    within: 10
+    unit: minutes
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Internal Remote Tool Discovery
+  annotate: FW - Internal Remote Tool Discovery
+
+response:
+  new_event:
+    name: FW - Internal Remote Tool Discovery
+    description: >-
+      Detects internal TCP scanning from a single host to multiple internal systems over common RMM and
+      remote shell ports (e.g., AnyDesk, TeamViewer, Radmin, VNC, Metasploit), indicating possible
+      unauthorized remote access tooling or lateral movement reconnaissance.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Recon
+    low_cat: TCP Reconnaissance
+    annotate: FW - Internal Remote Tool Discovery
+    offense:
+      index_on: Source IP
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Rule

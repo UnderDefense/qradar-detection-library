@@ -1,0 +1,1110 @@
+# Rules and Building Blocks that IBM content extensions install, by extension and name.
+# A rule's UUID is the same on every console that has the extension, and the console must have
+# the extension before an import that refers to the rule. Generated from the system rules of a
+# reference console; the extension is known for rules found in the IBM archives listed in
+# static/qradar-ids.yml, the rest come from other IBM extensions installed there.
+extension_rules:
+  "IBM QRadar Baseline Maintenance Content Extension 1.1.0":
+    "BB:CategoryDefinition: Malicious Attacks": bc567021-947f-4582-b155-b9229c6f17d9
+    "BB:CategoryDefinition: Medium Magnitude Events": f866712c-ad99-4d17-a831-c49c810a3016
+    "BB:CategoryDefinition: SIEM User and Role Modifications": 11ecd6b6-26a9-4a58-9da5-40ff7f7affec
+    "BB:DeviceDefinition: Proxy": 41ba2a03-cd17-4cb4-986b-28140db49974
+    "BB:External Contractor Failed Events": c0779422-12b0-4cf1-b772-df433b8bd9ec
+    "BB:External Contractor Policy Violation Events": 4660c210-ffaf-41e6-9ab5-ec8a3a859727
+    "BB:Failed Events": 8d30923b-03c4-422f-ac08-a52b8eedf256
+    "BB:HostReference: DHCP Servers": c7e7dee5-a8a5-4656-8a1e-9062653d521f
+    "BB:HostReference: DNS Servers": 38bbf8ff-e374-4cf2-927c-6df53a183713
+    "BB:HostReference: Database Servers": 5e49bf4e-ec00-4443-bedf-aff5285a2b1d
+    "BB:HostReference: FTP Servers": 042d16a5-8e51-4170-bdf0-61ff233abce4
+    "BB:HostReference: LDAP Servers": 9bf7752a-36cb-4a12-bffb-092ef7257e79
+    "BB:HostReference: Mail Servers": c3eacf7c-e2da-415e-98ce-2a1cc3a0ec83
+    "BB:HostReference: Proxy Servers": 5eed76c4-d314-4008-88a9-7088c37cf424
+    "BB:HostReference: SSH Servers": 4f81bbe0-b456-489b-a98f-7865b5c23847
+    "BB:HostReference: Web Servers": 5dd9d066-f801-4bab-823d-9bb0bb311186
+    "BB:HostReference: Windows Servers": 7164b6e2-ef35-40e8-a731-84e63a80a1ca
+    "BB:IT Admin Events": d2ccd46b-8748-4482-9dda-19351efcd64f
+    "BB:Mobile Worker Failed Events": 7b1c0f64-1609-4618-a6c3-338dc979c39d
+    "BB:Mobile Worker Policy Violation Events": cc2fe982-7d2e-46cb-ae0e-de236cb9aff9
+    "BB:ReconDetected: Basic Recon Rules": 5022e221-08aa-4c78-b7c3-225509af05e0
+    "BB:Teleworker Failed Events": 3bed9d31-65f5-4597-8a98-0188b8bbb437
+    "BB:Teleworker Policy Violation Events": 2626ec82-b267-429d-86bb-5e03106bac01
+    "User Load Basic Building Blocks": 98493d0f-2963-4863-9224-1b86907a832c
+  "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6":
+    "BB:DeviceDefinition: Cloud": 290df59b-44ef-452a-9633-2d52e74dbc97
+    "BB:DeviceDefinition: Endpoint Protection Devices": 65ede0fd-20d7-4e01-a297-c759cbd1c1a5
+    "BB:NetworkDefinition: Trusted Source Network Segment": 747e59f0-f18a-4ce8-b152-a4f3eec135c7
+    "First-Time User Access to Critical Asset": 08c97199-0f21-4e65-b63d-9dd9cc0161b0
+    "Load Basic Building Blocks": a2e8a903-2cb7-4271-9720-eb8d9f218183
+  "IBM QRadar Content Extension for Container 1.1.4":
+    "Abnormal Rights Assigned to Unauthorized Users": da88a0d1-b068-428c-a9f2-928e047136d4
+    "BB:BehaviourDefinition: Abnormal Process Spawned": fb83351e-47fd-4268-abc8-87d9375be127
+    "BB:BehaviourDefinition: Abnormal Right Assigned followed by Privileged Container Creation": d6a47453-d554-4bd3-8147-2b6bf2615082
+    "BB:BehaviourDefinition: Linux Shell Spawned by a Process": 39a7a580-b8a0-4107-945d-060511403b58
+    "BB:BehaviourDefinition: Process Spawned by Utility": c598c4d0-b1da-4d24-b5ad-3adcd0517898
+    "BB:BehaviourDefinition: Unauthorized User Creating Namespaces": 1f44ce9f-5c92-4154-b3bb-a52ff717ff77
+    "BB:CategoryDefinition: Resource Creation Events": 7db081f7-b3c4-452d-ba76-e7ab18ea80d5
+    "BB:DeviceDefinition: Containers": 94fbba56-99ff-407e-a84d-827a99baf6fd
+    "BB:DeviceDefinition: Operating System": 73022aff-8dd2-4bc0-b316-d86bd7e3ac7f
+    "Command Execution in Critical Namespaces by Non-System User": 38d9c250-1617-423e-ae59-52a5d894d5bf
+    "Communication from an Insecure Port": ccd7b948-889e-4274-a804-a08c99d1b645
+    "Creation of Resources in Critical Namespaces": 18b00fca-f08c-4de7-8366-0ffd25097ae5
+    "Creation of a Privileged Container": 84a22997-c84a-4ede-b73c-4d18ca09c253
+    "Creation of a Privileged Role for Container": 85b41dbe-e5dd-4135-a3ff-703796dc4267
+    "Creation of a User with Superuser Privileges": 3507361c-4a6d-4686-9f28-e65ea532cfc3
+    "Critical File or Directory Mounted on a Container": 2803975e-abbd-4062-b3ba-6d9150074889
+    "Deletion of a Privileged Role for Container": 0b54aaeb-a346-4f96-a689-879e79b389b6
+    "Hostile Process Detected in a Container": 3a16b560-394a-4203-96b9-47c4b7bd6ac1
+    "Login Shell Overridden": acbb1cf7-c6f3-4bcb-99a9-451ef633b32c
+    "Modification to Authorized Keys File": 36d43909-f4e7-449f-a252-b181ccae11f7
+    "Multiple Failures Reading Secrets": 0f966c01-5f1b-4604-9b5c-988c36a54e6d
+    "Multiple Sensitive Containers Stopped": 8e86e51a-bc88-47f5-b81d-6111481dc5d5
+    "Multiple Sensitive Resources Deleted": c883b28c-361e-4544-b390-679fdad5adbb
+    "Namespace Created Followed by Multiple Resources Created on a Container Environment": 5938164a-f85f-4e55-b483-5c232e26101c
+    "No Password Rule Added to Sudoers File": 14396a6d-4cf4-4634-99e6-5cf844f8fc26
+    "Privilege Modification followed by Suspicious Activity": e7a8bb3e-961f-4fae-9dec-505d1fda8b70
+    "Remote Shell Execution to a Container Detected": 42d1c2b6-a803-4700-877b-7ecd8189235a
+    "Reverse or Bind Shell Detected": 7448bfd3-8af0-44a0-b67f-cff4f91b4bf8
+    "SUID or SGID Binaries Reconnaissance": 14110943-1ef0-4e43-9416-54058152f4ea
+  "IBM QRadar Data Exfiltration Content Extension 1.0.5":
+    "BB:CategoryDefinition: Countries/Regions with Restricted Access": ad6be411-b766-44a2-adfe-ecb5bf323489
+    "BB:CategoryDefinition: Link Shared Events": 3fe5895a-a61b-49bd-9eba-b83691a0cc41
+    "BB:CategoryDefinition: Object Deleted Events": d52104ba-8cf8-4a02-a7bd-d7f4dd708b67
+    "BB:DeviceDefinition: DLP Devices": 57991ff5-1cbc-4259-8804-87080973b5c3
+    "BB:Exfiltration: Files in Sensitive Directories": 7e9d4fd7-2803-4952-ac24-c215b0888ee2
+    "Database Backup or Compressed File Uploaded to a Publicly Accessible Folder": d2c21811-851e-42ea-90f6-e0c7ee1388f9
+    "Email containing Sensitive File Sent to External Host": dd77b5ad-95fc-402a-be81-bb547b7fc307
+    "Email containing Sensitive File Sent to Potentially Hostile Host": a633437e-abfb-40bd-95af-375cfda6b20a
+    "Excessive File Access Events From the Same Source IP": db7aa4b0-b810-49b8-b17b-47c6424e532f
+    "Excessive File Access Events From the Same Username": 06a9a88c-1e37-4b75-a64f-b09c718409b8
+    "Excessive File Downloads Events From the Same Source IP": ace3e218-bea7-42f8-8e10-392f285ac7f1
+    "Excessive File Downloads Events From the Same Username": 7403391d-905e-4131-90cd-9705b93a6873
+    "File Accessed or Downloaded From a Malicious IP": a81e6069-54b8-4eea-a553-d7e253579240
+    "File or Folder Shared With an Email Hosted on a Potentially Hostile Domain": 03fcadec-aac0-48bc-bb79-b8cf1e6418c3
+    "File or Folder Shared With an External Email Address": f36ff6d9-6d2c-4f78-8b8b-cf1c13015ec1
+    "Files Deleted from Sensitive File Directories": ce3ccb65-5572-41ff-81f7-31ab7e450f28
+    "Files in Sensitive File Directories": b880dda8-1555-4e75-b19c-ba9ad4671a7e
+    "QNI : Confidential Content Being Transferred": 8e0089b5-901c-4037-868b-02e8465cb6ce
+    "Sensitive File Accessed or Downloaded From Regions or Countries with Restricted Access": 6d7e3ed0-b950-436a-b36f-4aa6b57e50ee
+    "Sensitive File Permissions Allow Public Access": e4517600-3bd5-4384-bc78-4c6dac3e3dfc
+    "Sensitive File Shared with a Guest User or Group": 3bb2dc2f-2011-4b6e-98d2-d2ad40c0f047
+    "Sensitive File Uploaded to a Publicly Accessible Folder": 40d0d764-21c4-4118-8287-687255480900
+    "Suspicious Activity on Confidential Data Detected by DLP Devices": d31551a9-7f11-4b27-85c4-d65c22a47fe5
+  "IBM QRadar Endpoint Content Extension 3.3.0":
+    "Access NTDS.dit via Ntdsutil Tool": 1dfcaba2-43c3-400d-8d91-dfae5e960084
+    "Access Token Abuse": f724bde6-6217-4bdc-8c29-33aa9f494852
+    "Access to Browser Login Data": ff0ffda5-1845-4f58-bb6f-3cda00c5fef9
+    "Active Directory User Backdoor": e097c0f6-13d7-415d-ab55-9ad8bbb3630c
+    "Addition of SID History to Active Directory Object": fc343faa-4152-4fbb-87ce-9844a62f5ca2
+    "Attempt to Delete Shadow Copies": d7e4e83c-d675-4adc-95e9-c12df78a7216
+    "BB:BehaviorDefinition: Account Tampering - Suspicious Failed Logon Reasons": 59aca9fe-a4a4-4564-82d5-30db3036c1f5
+    "BB:BehaviorDefinition: Admin Privileges Added (Unix)": 19712f5f-1817-4f55-b268-4af14cbbccd7
+    "BB:BehaviorDefinition: Admin Privileges Added (Windows)": d4750153-e6f5-4a1d-9554-b3477c9e6ba8
+    "BB:BehaviorDefinition: Admin Privileges Removed (Windows)": 163d5e8a-c980-4653-a71a-a699104169a3
+    "BB:BehaviorDefinition: Administrative Share Accessed": 66067912-26f8-4899-ac0c-1c9c1a259a8c
+    "BB:BehaviorDefinition: Arbitrary Script Execution via Diskshadow.exe or Vshadow.exe": f26e2ecc-196e-45f7-87aa-1d1c939460be
+    "BB:BehaviorDefinition: Cloud Account Discovery": e301621c-5cc0-493e-a144-961108d5627c
+    "BB:BehaviorDefinition: Cloud Firewall Modified or Stopped": b1c4b8c2-fa26-4a72-9875-e7001b7e3112
+    "BB:BehaviorDefinition: Cobalt Strike Inbound Traffic": 23b8d254-b3a9-4f88-a81c-d332bafbbf95
+    "BB:BehaviorDefinition: Cobalt Strike Outbound Traffic": 81ac5e01-fc5e-46df-aa4e-c5bb80cba2f0
+    "BB:BehaviorDefinition: Cobalt Strike Port Usage": f110f769-230e-467f-bc2d-0d3ed0707d93
+    "BB:BehaviorDefinition: Cobalt Strike Process Address": 73a31e05-0ffc-48c2-8a8e-589ce0458b4d
+    "BB:BehaviorDefinition: Communication with a Potential Hostile Host (Reference Sets)": e796c0ed-7839-4997-bf7a-ca4576c25d83
+    "BB:BehaviorDefinition: Communication with a Potential Hostile Host (X-force Categorization)": 5661cc7f-324c-42e9-8112-acd9f73b023a
+    "BB:BehaviorDefinition: Communication with a Potential Hostile IP Address (Reference Sets)": afe6bea0-42c8-48e7-b5bb-f16e836605f0
+    "BB:BehaviorDefinition: Communication with a Potential Hostile IP Address (X-force Categorization)": 60f34547-2463-4c88-806d-e23f1891eb87
+    "BB:BehaviorDefinition: Component Object Model Hijacking": b6091a00-5a16-4987-9422-175bb697ce94
+    "BB:BehaviorDefinition: Component Object Model Hijacking Rules": 85cf8a29-7a67-4826-99fd-a9558987e599
+    "BB:BehaviorDefinition: Create Process with Token": bbcc1a74-b155-4f92-af88-2b13c7a788e1
+    "BB:BehaviorDefinition: Critical File Modification": 36948129-75ea-4485-823b-79c04c0e7f76
+    "BB:BehaviorDefinition: Critical Process Created": cd729d5a-847e-4e30-b02b-89fddb6c193f
+    "BB:BehaviorDefinition: Critical Process Created by Shortcut (lnk) File": 9e582cc3-2d3b-46a4-a94a-216879e4f5ee
+    "BB:BehaviorDefinition: Critical Security Tool Process Information": abfeabe4-8588-4551-b325-7d3ba020a343
+    "BB:BehaviorDefinition: Directory Discovery (Unix)": 2385eff6-2810-48ea-8150-7bb99c063ad0
+    "BB:BehaviorDefinition: Directory Discovery (Windows)": ecfe2ceb-7ef1-4496-898f-c2b0d7205275
+    "BB:BehaviorDefinition: Download Utilities in Events": 5d2969b1-7da9-4034-a358-428b8d3f74fa
+    "BB:BehaviorDefinition: Email Account Discovery from Powershell": 1eb18a36-7606-40db-b1e2-5a24755e2d37
+    "BB:BehaviorDefinition: Excessive File Modifications": a5cbcb32-3d0b-4a14-95cb-d470236f1325
+    "BB:BehaviorDefinition: File Creation and Deletion": 58c55c95-e12c-4182-bbf9-267bb29080fc
+    "BB:BehaviorDefinition: Group or Account Discovery": 7ebad559-6365-4381-8a94-d9e7f50f24a0
+    "BB:BehaviorDefinition: Hidden File or Folder Created": af8f17bf-30fb-413d-9b85-01c4a131733d
+    "BB:BehaviorDefinition: Hostname or Network Discovery": fdc2e6cf-3e29-420b-b961-d752be0bcbf9
+    "BB:BehaviorDefinition: Image Loaded from Mock System Directory": d11c5659-cf79-4df8-a4c5-f6c102dd321c
+    "BB:BehaviorDefinition: Invalid Password at Login": af52d9ee-8bd5-4b14-b514-19c79cfab703
+    "BB:BehaviorDefinition: Invalid Password during Kerberos Pre-Authentication": 5f0d30e6-2de8-4283-97b7-9aee8c6f1061
+    "BB:BehaviorDefinition: Mailbox Permission Added": 7f31a95b-5f9e-4c22-97fa-92f1736b08d4
+    "BB:BehaviorDefinition: Malware as a Service Path IOC": 43f636ed-67ee-4a02-94cc-5068e15db44f
+    "BB:BehaviorDefinition: Multiple File Deletions on Endpoint System": c98476dd-9b17-4d2e-b097-a7a2bc788285
+    "BB:BehaviorDefinition: Network Connection Listing via Get-NetTCPConnection": 4b3ae382-3fbd-439b-82da-c94d5579b5bc
+    "BB:BehaviorDefinition: New File Created in Temporary Directory": db74f8bd-bcf2-4880-8e62-faa9c697969e
+    "BB:BehaviorDefinition: New Registry Added to HKLM/HKCU (Windows)": 59a72349-bd17-48d5-bcd7-f8a779a187bd
+    "BB:BehaviorDefinition: Password Policy Discovery (Unix)": 67a049c9-823f-414a-85f5-f224eacec689
+    "BB:BehaviorDefinition: Password Policy Discovery (Windows)": 4047cc05-bdee-4f1a-a478-3c000efeda27
+    "BB:BehaviorDefinition: Potential Cobalt Strike Traffic": dbd603f7-a7c8-44bf-9ae5-8ea80e8b4774
+    "BB:BehaviorDefinition: Potential Initial Access Tasks": a9ba8c0c-0ca5-46eb-8275-dcce13a070f5
+    "BB:BehaviorDefinition: Potential StandIn Post-Compromise Defense Evasion Traffic": cadafc02-ad44-4ee2-a3a9-50667160841f
+    "BB:BehaviorDefinition: Potential StandIn Post-Compromise Enumeration Traffic": f6075501-376b-441c-8d04-14fc39b8295c
+    "BB:BehaviorDefinition: Potential StandIn Post-Compromise Persistence Traffic": 52aa4235-f078-4fd0-973d-0f2ec2dee494
+    "BB:BehaviorDefinition: Potential StandIn Post-Compromise Privilege Escalation Traffic": 1e6270e2-e34c-475d-8d36-c6a3dc2d16d5
+    "BB:BehaviorDefinition: Potential StandIn Post-Compromise Traffic": e57b3764-0884-4ac7-9f10-31719dccb17c
+    "BB:BehaviorDefinition: PowerShell File Download Activity": e3e1ad0a-5bb2-4dcd-9665-65eabcfccd67
+    "BB:BehaviorDefinition: PowerShell File Upload Activity": c8271277-58f9-431f-8346-e5160083d3e6
+    "BB:BehaviorDefinition: Process Killed": e1bd833b-e74a-4c57-b6da-a1d2d0ecdbeb
+    "BB:BehaviorDefinition: Programming Environment Started with a Privileged Account": a138d39e-431a-4911-8db4-8e0966a628a9
+    "BB:BehaviorDefinition: Regular Endpoint Administration": dd652a28-7c36-40e8-8e0b-033414acdbf1
+    "BB:BehaviorDefinition: Repeated Nslookup Usage": b4ca857e-a703-4fd5-8713-fce32944dceb
+    "BB:BehaviorDefinition: Rogue Named Pipe Impersonation": 33c15fc6-bb53-4881-a4f3-cab0cded47ba
+    "BB:BehaviorDefinition: Run as Superuser or Another User (Unix)": c558200e-8acd-4e80-a09f-b7f8b3717bb0
+    "BB:BehaviorDefinition: Run as Superuser or Another User (Windows)": 17b974b9-9f1e-4caf-b10a-9f9682c2bd37
+    "BB:BehaviorDefinition: Shortcut (lnk) File Executing a Critical Process (1)": 45aa0940-cbfd-40bf-8446-67d893d6b59e
+    "BB:BehaviorDefinition: Shortcut (lnk) File Executing a Critical Process (2)": 2fde0980-7cf5-4332-8c1f-7ec891f68917
+    "BB:BehaviorDefinition: Suspicious Changing of User Agent": f477d9b6-c2d7-46db-b306-e8f87430474c
+    "BB:BehaviorDefinition: Suspicious Endpoint Activities": cd6f89e3-ce4e-4f86-bec1-a0195b3dbf87
+    "BB:BehaviorDefinition: Suspicious Outbound SMTP Connections": eedfa092-9335-478c-bf0e-639323c54e71
+    "BB:BehaviorDefinition: Suspicious Remote Logon with Explicit Credentials": 9297e213-3440-4899-97b3-bd99cffa1e6b
+    "BB:BehaviorDefinition: UAC Bypass - DLL Hijacking (Non-System Directory)": 68f4f049-b29d-4749-ad36-d1b00b6b6b27
+    "BB:BehaviorDefinition: UAC Bypass - DLL Hijacking (System Directory)": 96a15cbb-59a7-4797-93bf-59d619c49806
+    "BB:BehaviorDefinition: UAC Bypass - Elevated COM Object": a96746d3-e082-4170-b8f7-b350317ecab4
+    "BB:BehaviorDefinition: UAC Bypass - IE Add-On Installer": 8031721a-2671-4804-9ed1-ffaa98cd4e7c
+    "BB:BehaviorDefinition: UAC Bypass - Mock System Directory (Image)": 08c21bf9-d8f4-43fb-b47d-5d544d73f199
+    "BB:BehaviorDefinition: UAC Bypass - Mock System Directory (Process)": ea3ef312-d1a8-421f-9ad8-c09565fb0698
+    "BB:BehaviorDefinition: Unsigned DLL Loaded from System Directory": e6c4565a-c675-4c67-b53b-c342001830c4
+    "BB:BehaviorDefinition: User Account Added (Unix)": eba6e5c5-c8f5-4ae3-920e-7d83df1f42bc
+    "BB:BehaviorDefinition: User Account Added (Windows)": f5fbd2d5-5812-42c1-a32d-2162cab26a1b
+    "BB:BehaviorDefinition: User Account Deleted (Unix)": a7804230-a991-4195-abbe-65a5faf56433
+    "BB:BehaviorDefinition: User Account Deleted (Windows)": 96ab922b-456c-4329-b19a-5de405354717
+    "BB:BehaviorDefinition: User Added to Local Administrators": 662495cf-a61b-4e23-801b-baad340a5268
+    "BB:BehaviorDefinition: User Agent Changed via Curl": 88ad4d45-09af-4506-a7d8-1073ef609eb0
+    "BB:BehaviorDefinition: User Agent Changed via Powershell": eda76d71-8719-454c-accf-d958c538d151
+    "BB:BehaviorDefinition: Windows Firewall Stopped": 9179b8ae-bf84-452c-a4b8-aa9dc9043584
+    "BB:CategoryDefinition: Critical Files and Directories for Endpoint": 42faa723-ea73-4f93-a4b6-e76c20d00eff
+    "BB:CategoryDefinition: Elevated Process (Windows)": af9f1ad0-da96-412b-85f0-28a8c335700e
+    "BB:CategoryDefinition: File Decode by a Utility": 19c64eb1-9fe5-4704-8083-480f3e730803
+    "BB:CategoryDefinition: File Permission Changed": ca0e9b8a-cd9a-4c39-bb2f-05d1fd0c0d70
+    "BB:CategoryDefinition: Files with Sensitive Permissions": a2e45c94-17ab-40a4-aeef-d6985aed5e06
+    "BB:CategoryDefinition: Sensitive Current Working Directory": 111cd435-82ef-4520-b63e-22a13893a046
+    "BB:CategoryDefinition: Sensitive File Accessed": 16240587-a1e3-470b-a7a6-d62fadc28ee2
+    "BB:CategoryDefinition: UAC Bypass Registry Key": 72d22596-4c49-42ba-a21d-7904d3804d6a
+    "Backup Catalog Deleted": 147a5415-5492-4971-8ef3-90ea1320447a
+    "Cobalt Strike Behaviour Detected": a500b856-5352-459e-ad68-4fc89aa325ce
+    "Communication with a Potential Hostile Host": ed72c66d-c837-49d6-9590-ea7f84f86998
+    "Communication with a Potential Hostile IP Address": c79e45a1-5381-4003-8e92-8f97be7600ab
+    "Credential Dumping Activities Discovered": 0637476c-38ce-455a-96dc-8a3846391970
+    "Critical File Deleted": 3465cf6e-9348-41f0-8743-b81944de7ed7
+    "Critical File Modified followed by Suspicious Activity": 70d5e986-5eb4-4386-a01c-0db141da6223
+    "Critical File Permission Changed": 23ea0cd6-a869-4ca5-80f3-36daf8966749
+    "Critical Security Tool Killed (Unix)": 14cd9473-1fa2-4f24-aa87-35523e75834a
+    "Critical Security Tool Stopped": 6a378fe6-bb89-45c7-b604-853e81ed6a6c
+    "DHCP Callout DLL Installation": bdb4b6f7-899a-4c0b-93ec-017078f271fd
+    "Detection of Malicious File or Process": 2f1a68c5-4567-4321-8733-64319d9efb60
+    "Detection of Malicious IOC in Events": f6d184fd-7111-4ca9-b22c-155886a35e7e
+    "Detection of Malicious IOC in Flows": be79748f-01c4-4527-b527-f02e550d445b
+    "Detection of Turla Directory and Filename IOC in Events": 84b01313-472f-434d-aeea-d5b0e9f3891e
+    "Detection of Turla Filename IOC in Events": a26e8dac-e7db-4c31-9c2d-f6a2616cffe7
+    "Detection of Turla Hash IOC in Events": 4e39d60f-3557-4736-8ecc-23980231b367
+    "Detection of Turla IP IOC in Events": 71ea0fd3-bea7-4248-ac09-14ea7c43a7a1
+    "Detection of Turla URL Host IOC in Events": 7ea95dc0-d121-4c92-948c-0116fc707a9d
+    "Detection of Turla URL IOC in Events": acbd0909-bfeb-4e86-973b-c590dc248ca7
+    "Dllhost Outbound Network Connection": 43307299-d3f0-4149-bc61-de38ef467d69
+    "Dump Credentials from Windows Credential Manager With PowerShell": bfce7e64-7ae2-4b6a-9880-9ab7f34a7a7e
+    "Encoded Command Malicious Usage in a Programming Environment": a8da84b4-884c-492e-aa86-bc61aa4301c4
+    "Enumerate Credentials from Windows Credential Manager With PowerShell": 88ef1b78-6b96-4d61-ac40-66a915d8b451
+    "Excessive Administrative Share Access Failures from the Same Host": 3b8ff4da-e5f1-453d-81e1-13dbf1adbb85
+    "Excessive File Deletion and Creation": 99a35b91-f518-4ba2-9802-f2eee42afb1a
+    "Excessive Login Failures via Network Connection": 651ba245-bdaf-49cc-8b73-b3d80361b129
+    "Excessive Login Failures via Network Connection to Multiple Machines": f2fb44fc-d976-4993-a7f1-36a9e7325590
+    "Excessive Login Failures via RDP Connection": 84348859-853e-44bf-b077-6cd2f216773b
+    "Excessive Nslookup Usage": 4b060222-2630-4721-b118-f3e748d8456a
+    "Executable file invoked from AppData folder": 75b9437f-8937-4513-b9d2-96698ba1bb84
+    "Executable run from C:Users\\\\Public": 670cff99-6c78-4e51-8611-d92ad3b27d88
+    "Executables Started in Suspicious Folder": e619f6d1-809c-4620-9f23-f2b787f62955
+    "Export Windows SAM/Security Registry Hive": 053715ff-5d96-4308-bf48-2df1f97d243c
+    "File Created with Right to Left Override": 00f3bed4-318b-41e5-a963-0da38984e651
+    "File Created with Space After Filename": e440b009-cf83-45a7-bc09-310f924cf165
+    "File Decode or Download followed by Suspicious Activity": 7ea3318d-4b63-45c2-8541-97f38eb0cc7e
+    "Impair Command History Logging Activity Detected": f92f32e8-1872-45b4-88bc-b0f1a019d1ff
+    "InvisiMole Wrapper DLL Loaded": 02b22eb5-8116-4701-bbd3-fef094183027
+    "Java Running with Remote Debugging": 0a8e9916-d5d8-4145-bd1e-b5bcfc278c9d
+    "MOVEit Transfer Vulnerability Exploit Commands": ebf08457-0c4f-48c3-a5d1-c55b9a783a78
+    "MOVEit Transfer Vulnerability Exploit Filenames": 9ae1a7df-b4fa-49ae-90d6-734ac922e6bf
+    "MOVEit Transfer Vulnerability Exploit Hashes": 420be7e6-1807-4d06-892c-2995b5895781
+    "Malicious DLL created by spoolsv": 773b1612-84a4-4e8d-9494-5d5fe278b22a
+    "Malicious PowerShell Commandlets": 31bf21c6-c2e0-46d2-8672-96980d93291f
+    "Malware as a Service Behaviour": 9bb79206-4c8d-4b3b-8bef-d5a6f2c743a6
+    "Malware as a Service Hash IOC in Events": 8bbb2bff-5ba3-4a45-85d7-5a049f6dc471
+    "Malware as a Service Hash IOC in Flows": 2ebb64bd-ba64-4e1b-ab10-8c8e0ef0c1e6
+    "Malware: Potential Dridex Traffic": 94288bed-606e-4e15-a5eb-912793d7e9dc
+    "Malware: Potential Emotet Traffic": 72333da9-0eab-4bde-924f-08b8d1844235
+    "Malware: Potential Empire Traffic": c6df1db4-e90e-42c4-90d9-776debddfa28
+    "Malware: Potential Trickbot Traffic": c08f1c25-ff27-4f64-a43a-9f368a63afe4
+    "MavInject Process Injection": c18c8a51-a3da-486d-a929-1e5b1518d135
+    "Multiple Login Failures due to Bad Password": 1ca84bc4-cfaf-4927-b259-5f55b7edecd9
+    "Multiple Login Failures from Default Accounts": 9a5b3f28-18cf-4092-8da0-11f6f8e1304c
+    "NTDS.dit Domain Hash Retrieval Activity": 1a8f0bdd-ed7b-4760-a4fa-2eee9557510d
+    "New RUN Key Pointing to Suspicious Folder": 400c0db0-47e1-4b0e-9d49-4c59171cd3a5
+    "PPID Spoofing Detected": 1b21da63-3b14-4867-bf2a-508f46e115c4
+    "Ping Hex IP": ea843bca-bf23-4c67-8b87-7e52dbd61ee9
+    "Possible Brute Force Attempt": 658776f1-0f4f-409e-b884-83df807903c9
+    "Potential Component Object Model (COM) Hijacking": 04c76e40-1ea2-494b-b9ec-1a89348d830d
+    "Potential DLL Hijacking": 0dfe1f3a-907d-4886-9442-c6ea44e8385f
+    "Potential Deletion of Windows Event Logs": 5f3bfb58-3b53-48a5-8a9e-1d5417198654
+    "Potential Exfiltration of Stored Credentials from Browsers": a0f8deff-3b73-46cd-ad78-89076406bdcd
+    "Potential Export Registry Hive System using Reg Utility": 0507c9c5-aeeb-4e3c-848e-46e3867051e9
+    "Potential LSASS.exe Credential Dumping Activity": 585ebb3f-bc6c-456a-90ad-a55759d5c84f
+    "Potential Mailto Ransomware Behavior (Windows)": e989a321-6fa9-4f54-9c93-6dd6465f14f4
+    "Potential Malicious Application Shimming": 187ca0c9-b098-491a-9a2b-182d194289d3
+    "Potential Malicious Javascript file called via CScript": a8782539-e41c-4e8e-a7a6-7d00a5d789a8
+    "Potential Malicious Javascript file called via WScript": 4fc8f366-547e-41e6-ba6d-1b33a35b0863
+    "Potential Memory Code Injection": 35030c5d-9b4b-402a-bbf8-99e580ff2b67
+    "Potential Metasploit Traffic": f5437cf5-8a2c-4221-9a6e-cb2865522cb2
+    "Potential NTDS Theft via Wbadmin Backup Utility": 74c99093-5e7d-4548-8743-19c2bef175c6
+    "Potential NTDS.dit access via WinRS Tool": 8b1556a4-d509-44b1-b8ef-1a75208a8081
+    "Potential Recon via WMIC Tool": 9785f8cc-f6dd-421f-9bd7-b38cca9f306c
+    "Potential Reconnaissance for Cached Credentials via Cmdkey.exe": 404a9c02-d2ee-47fc-97a0-6b02724069c6
+    "Potential Sharepoint ToolShell CVE-2025-53770 Exploitation": 22ae7e01-493d-4c40-b82a-2ecd218661a3
+    "Potential Sharepoint ToolShell CVE-2025-53770 Exploitation - File Path": 7069455a-6f0a-4146-9d41-d725a34e6c72
+    "Potential StandIn Post-Compromise Traffic": e0ad2c25-6e57-4e33-9f9d-a28139c4520f
+    "Potential Tor Traffic": e0b89630-d2d3-4c1f-902d-9f2921b562c1
+    "Potential UAC Bypass": 518cebbc-7793-4223-a62d-7eef2cf2d2f7
+    "Potential Windows Exploit via MSDT": acec194a-3761-492f-8740-97f24ddf4efe
+    "PowerShell Base64 Invoke Expression Suspicious Commands": d8aafe30-bc7a-4368-a2be-322cef70e41e
+    "PowerShell Called From an Executable Version Mismatch": a56984a5-f8bc-4402-b143-41adf5d0839d
+    "PowerShell Downgrade Attack": b63d9170-7a90-41cb-9a84-fe5cfae2323c
+    "PowerShell Download and Execute File": 131cda1b-aa07-4c1d-8dd3-bca3b354099a
+    "PowerShell Encoded Command": d6aca8bf-0784-43c6-abfa-17dc31966a20
+    "PowerShell Execution Policy Bypass": 888f03fb-d83a-42b6-b3fd-d5b3eb6b2240
+    "PowerShell Invoke Expression Suspicious Commands": 9aae5b64-b737-4a3c-a9a1-13b8e1b5515f
+    "PowerShell To Base64 String": 3965af3a-f479-4bd2-b823-543120435d35
+    "Process Masquerading (Unix)": 2dbd0173-49b4-4e6f-b5ce-6f9d23fad796
+    "Process Masquerading (Windows)": 42ebf95a-601f-467c-96dd-9d144f7cb154
+    "RDP Hijacking Tool Detected": 3e679e6d-d554-4954-b455-085c410db84f
+    "Ransomware Decryption Instructions Created": a6af9386-21e5-49e1-a8c8-ceb35d0caea3
+    "Ransomware Encrypted File Extension": f94185d6-5958-4984-a9b3-b4c8b8e7131e
+    "Ransomware IOCs Detected on Multiple Machines": 78537bdf-787c-469b-9d4a-5dba11e85088
+    "Ransomware: BadRabbit IOC in Events": a870a813-b308-4b8e-af79-55c1c922b7a1
+    "Ransomware: BadRabbit IOC in Flows": 3bd18ce3-3397-4808-8a60-419711e9e14a
+    "Ransomware: Maze IOC in Events": 80486fa8-a926-428a-832e-aac36369cc11
+    "Ransomware: Maze Suspicious File Transfer": 9ac2862b-343f-4b7c-be9e-b08c59ff86fa
+    "Ransomware: Petya / NotPetya IOC in Events": 316c3eab-44a4-488a-99d6-761fb8baf0d7
+    "Ransomware: Petya / NotPetya IOC in Flows": 4879d968-281c-47f7-ada3-da051a994d96
+    "Ransomware: Petya / NotPetya Payload in Flows": b4e76f31-93b2-46a3-9e5c-03e8792b30d1
+    "Ransomware: REvil IOC in Events": e7526ce0-3907-4ce4-931d-a4f768b0c4a4
+    "Ransomware: Ryuk IOC in Events": c4851152-1fcd-4965-b3a4-3d3f06b2c9e7
+    "Ransomware: Ryuk IOC in Flows": b34301f3-7dd8-464a-8221-1f611e864445
+    "Ransomware: Ryuk Potential Traffic": 4f6d2139-4a99-4827-95bf-bbb224cfa923
+    "Ransomware: Ryuk Service or Process Termination": 7851a2de-2fc7-4ef6-b8b8-74c991a5ebe8
+    "Ransomware: WCry IOC in Events": 12aeabf0-b3ad-4152-8926-e20171cd8249
+    "Ransomware: WCry IOC in Flows": 97c964d4-279e-4ba8-ae2d-1ab387af7872
+    "Ransomware: WCry Payload in Flows": d5f00220-3746-4921-b23e-d2157f649a7b
+    "Recommended Blocked Process is Running": 61fd6eae-3604-4012-b1a6-a73f29b36e74
+    "Reconnaissance Tool Detected": 1db2f2ed-a9a8-450d-be1f-981f3ca62974
+    "Recovery Disabled in Boot Configuration Data": fb01f595-7cae-4865-8f42-29d4b11df933
+    "Regsvr32 Outbound Network Connection": 81ddf771-99af-45cb-9976-940f665a3486
+    "Rubeus Hack Tool Execution": 7870df39-85de-4204-bd32-5ab2b0f0840c
+    "RunDLL32 Outbound Network Connection": 29b2bee3-adec-4e36-91c9-6025d150b60a
+    "SID History Injection": 07a78192-ed46-43b1-973f-c18db1702cfc
+    "Search for Password Files using Select-String (Windows)": 588c253c-8075-46bb-981e-c97284f0c4e6
+    "Search for Password Files using findstr (Windows)": e1fdc83a-68fb-45b0-aa06-0841eafbe4c5
+    "Search for Password Files using grep or find (Unix)": 0bccac7b-c910-4ec8-abd4-1e453786d56b
+    "Service Configured to Use Powershell": 3c17abbf-0797-4dc5-8917-6d4cbc1b4c93
+    "Service Configured to Use a Pipe": 074de08b-e5d8-4069-a0fe-24654e745efe
+    "SharpHound PowerShell Detected": 3f4015ef-1aa5-4dd6-9427-0601239a63c3
+    "Shell or Script Interpreter Spawned by a Suspicious Process": 740ffd27-8d73-40e5-a549-6d25a3a05ea2
+    "Shortcut (lnk) File Executing Commands (Windows)": e70efac3-e1c2-4c6f-baed-06ead4b33220
+    "Stored Credentials from Windows": eee15ac8-bd22-4f81-b89b-2ef91b86d003
+    "Suspicious Activity Followed by Endpoint Administration Task": a444890b-eca7-44f7-8903-962c12377715
+    "Suspicious Activity Followed by Potential Initial Access Task": 17acd5f0-26b4-418d-adad-a4cbc304777b
+    "Suspicious Amount of Files Deleted on the Same Machine": 6f433984-93de-4927-9653-5765486bfd6d
+    "Suspicious Amount of Files Renamed on the Same Machine (Windows)": 665a4510-d83b-46bc-b3e9-a8551f58c6e2
+    "Suspicious Amount of Files Renamed/Moved on the Same Machine (Unix)": b944381f-646a-458a-a15b-3d1534d790b9
+    "Suspicious PSExec Module Usage Detected": e932e293-86d3-4f88-876c-a031e8c7c549
+    "Suspicious Parent for a Process": 1512912b-6aae-42ee-8996-83f220aa3979
+    "Suspicious SSH Root Login": f0c97c53-e24c-45b0-919f-551c78e98e3d
+    "Suspicious Valid Accounts Logon": 140d9b72-b010-4c51-9d60-d1f714c2e3e3
+    "Token Impersonation via PowerShell": fabba065-551d-47f0-b182-d1426df097a8
+    "User Account Creation followed by Account Deletion (Unix)": 86096a58-f4f0-4cee-9ee2-16e8faf56414
+    "User Account Creation followed by Account Deletion (Windows)": 45e655ff-d9db-4ab2-892d-8b0e6c621d03
+    "Windows Registry Access Via PsExec64 Tool": 27bccadc-2c46-40ae-bd9d-8c88707239f2
+    "Windows Volume Shadow Copy Service Creation Via Esentutl Tool": 465eeacf-3d88-4c10-8110-16f3e959b674
+  # Removed from the extension in 1.2.1; consoles that had an earlier version still keep them.
+  "IBM QRadar Phishing and Email Content Extension before 1.2.1":
+    "BB:CategoryDefinition: Mailbox Permission Added": 19834543-ee88-4c45-9bed-f91e826cdf38
+    "BB:CategoryDefinition: Mailbox Permission Deleted": a6328959-75a8-4a98-861e-b8fe22537902
+  "IBM QRadar Phishing and Email Content Extension 1.2.2":
+    "Abnormal Number of Emails to Invalid Recipients": d000c5a4-4619-42ab-b7d7-734920da15e7
+    "BB:BehaviorDefinition: External Originating Host": 4774451f-428b-4ab2-9d7d-de287788f7aa
+    "BB:BehaviorDefinition: External Recipient Host": 943c4414-c48f-4094-8806-52aa23909d68
+    "BB:BehaviorDefinition: Potentially Hostile Originating Host": 5bda6dac-7a0d-4e86-83c4-369088100622
+    "BB:BehaviorDefinition: Potentially Hostile Recipient Host": 1e4cafae-654f-4a15-a324-472fbcfbc32b
+    "BB:CategoryDefinition: Mail Applications in Flows": 0c688149-ac7e-4a55-b3c0-d535324a31bc
+    "BB:DeviceDefinition: Mail": fa36fecd-20b2-4f91-ba12-02b89ce38b3e
+    "Email Attachment with Executable": bf92d55a-7862-43ff-97ba-02a48b1ebfa1
+    "Email Attachment with Executable Hidden in Double File Extensions": c50844b5-c39e-40d8-a070-61c734387d65
+    "Email Received From Potentially Hostile Host": b1a82f02-d5ea-4b1a-bf40-ca635f3843db
+    "Email Sent to Potentially Hostile Host": 6728f304-e08d-45bf-b3a5-52f60e44841a
+    "High Inbound Emails Containing Attachments From External Host": 95e02280-8a8c-4408-b5b4-7b0a468e9a37
+    "High Number of Emails From Unauthorized Users": bf19c997-2317-4c8d-b2cd-1fdf4dc721b3
+    "Inbound Email with Suspicious Subject": 4897fd3d-d623-4727-83a5-a5e2b4dd93e7
+    "Inbound Email with Suspicious Subject Keywords": 157d49e4-3f02-4ab8-850a-637c7d09b48a
+    "Mailbox Item Deleted by Another User": 8b271f23-a229-4c92-b383-240566e0b63d
+    "Mailbox Permission Added and Deleted in a Short Period of Time": 6d1b62d3-7026-4821-9bdf-4aa10f3d9cad
+    "Potential Leakage of Data via Email Attachment": 7fbfb114-cf71-4f19-a484-fe026ab9b96a
+    "Potential Leakage of Data via High Outbound Emails": cddc9b19-ce44-4ee4-98ec-54f65884d8cb
+    "Potential Leakage of Data via Mailbox Forwarding": 82e34dce-03c5-4357-b804-27f019997fba
+    "QNI : Email Attachment with Executable": 96f62bb3-5900-4326-a63b-d5d0527d5840
+    "QNI : Email Attachment with Executable Hidden in Double File Extensions": a5e07943-6b44-436f-8e8d-24bf83bce95f
+    "QNI : Email Received From Potentially Hostile Host": 67d1dc0a-e0c7-480b-bd75-23f3a151f729
+    "QNI : High Inbound Emails Containing Attachments From External Host": 41ac0e76-9916-4bc4-9c5e-c8e9ccf19216
+    "QNI : High Number of Emails From Unauthorized Users": 28d1ad0c-8671-4445-8fa6-0c2df729a9c2
+    "QNI : Inbound Email with Suspicious Subject": 4ff87ee4-6787-4b5b-9b1c-01b7b1bd20ff
+    "QNI : Potential Spam/Phishing Subject Detected from Multiple Sending Servers": bba8418a-72b2-43ba-b241-49e5bfe213d5
+    "QNI : Spam/Phishing URL Accessed": 3e0dcee0-4d0c-40f0-a7c2-c12833fac630
+  "IBM QRadar Security Analytics Self Monitoring 2.2.2":
+    "A Custom Property has been Disabled": 91f12598-2273-4494-942b-3665e287d0ea
+    "Generated CRE Rule For AD Rule QRadar Audit: Unusual Number of Offenses Created": ba023f5a-0eac-4b95-9e2a-49e57b056c1e
+    "QRadar Audit: Expensive CRE Rules": 5835b86c-28b9-4783-941e-cf083f3e6fe5
+    "QRadar Audit: Expensive Custom Properties": 7df94416-1892-483a-abbe-2c80eb395bc1
+    "QRadar Audit: Expensive Log Sources": 3bc0e8eb-7886-4450-9992-2e10c30ecb76
+    "QRadar Audit: High CRE Utilization": d0758e72-42ff-4aef-878b-4fc113d0c133
+    "QRadar Audit: High Parsing Utilization": b49854f7-e4c6-46ff-91e2-4b2c9acfea87
+    "QRadar Audit: Multiple Login Failures from the Same Source": f75e21a9-654f-4d30-8e6a-b3910c4b5dd0
+    "QRadar Audit: Payload Deleted or Modified": 82981122-cf3b-4bd9-a6c4-461ff842184a
+    "QRadar Audit: Potential Sensitive File Modification": c7b7a29b-7a69-431e-a1ea-7e2bc7958f02
+    "QRadar Audit: QRadar Host Unavailable": 97e0bebc-b814-4408-9724-21a07f4f6162
+    "QRadar Audit: QRadar Hosts": 8edcb9e4-5db6-4942-a8fa-53fba70c4ac0
+    "QRadar Audit: Shared Account": dea6ba31-1383-4035-b006-a9064ff92984
+    "QRadar Audit: Unusual Number of Offenses Created": 2b0d18ac-30e9-428a-91fe-70a1fe42c141
+  "IBM QRadar Security Threat Monitoring Content Extension 3.1.0":
+    "BB:BehaviorDefinition: APT User Agent": 015b46b2-49e9-43ff-8c1e-210151746ba2
+    "BB:BehaviorDefinition: Base64 Encoded User Agent": bba8e9b2-9ffd-4574-af74-aa0c58dde420
+    "BB:BehaviorDefinition: Business Email Compromise User Agents": 1b3c900d-16ef-4c87-8a96-8a949cb5d952
+    "BB:BehaviorDefinition: Communication with a Potential Hostile Host (Flows Reference Sets)": 25364d8c-8e0e-476e-bc87-d630e3098c64
+    "BB:BehaviorDefinition: Communication with a Potential Hostile Host (Flows X-Force Categorization)": 69901f9d-85ae-4681-b96d-03494c2471c4
+    "BB:BehaviorDefinition: Communication with a Potential Hostile IP Address (Flows Reference Sets)": a730ad55-e0e0-4ded-a479-02a0c6afe25e
+    "BB:BehaviorDefinition: Communication with a Potential Hostile IP Address (Flows X-Force Categorization)": 16acd79e-a26e-434e-b477-d524322118c1
+    "BB:BehaviorDefinition: CryptoMiner User Agent": 45fd9227-508c-476d-82f1-31726119dd6e
+    "BB:BehaviorDefinition: Hack Tool User Agent": 6edff980-11dd-4b48-96b4-1f163605a77f
+    "BB:BehaviorDefinition: Known Backdoor/Loader User Agent": 24d76425-c5b0-43ba-a7eb-6bb48db347f1
+    "BB:BehaviorDefinition: Known InfoStealer UserAgent": 4722159c-be81-4c9e-91b8-b2e35b8a367c
+    "BB:BehaviorDefinition: Known Malicious RAT User Agents": 89ebd590-60b5-4692-99d7-914de4dee799
+    "BB:BehaviorDefinition: Known Malware User Agent": 59b10e45-20c6-485b-90be-44e358f941a5
+    "BB:BehaviorDefinition: PowerShell User Agent": 54474d01-50fc-4c32-9972-904f3f2f9793
+    "BB:BehaviorDefinition: Suspicious User Agent": 72a17b62-d94a-485e-a976-37efbace89dd
+    "BB:CategoryDefinition: Firewall or ACL Accept Event for a FW/Router/Switch Device": 593743d3-7446-41ea-8921-c58d22a9f012
+    "BB:DeviceDefinition: Attack Surface Management": 9ce5e220-fe61-4ee8-9c3d-8da63286a5bc
+    "BB:DeviceDefinition: DNS": b7151386-d7dc-41ab-9371-e474591a5c21
+    "BB:DeviceDefinition: Web Servers": 59dbbad8-cb15-4a91-9164-5461c1ab1ce9
+    "BB:Threats: HTTP Client Status": 881680b3-e376-4183-8ed2-c07080eeb6a3
+    "BB:Threats: HTTP Server Status": 14f6f4a3-b514-4285-a8c7-f3aab124ebf9
+    "BB:Threats: HTTP Service Unavailable": faaf6048-6c80-48f5-9d9f-a597ee6caccc
+    "BB:Threats: Potential DoS Attack": 5a8e0600-6485-4175-b615-11519306c7da
+    "BB:Threats: Suspicious IP Network Traffic": 75249b45-4d52-4027-b07d-2165282fd921
+    "BB:Threats: Suspicious Network Traffic": a1d28ccd-5cc6-4342-beaf-9add54769a44
+    "BB:Threats: Unsafe HTTP Methods": 0a2108ff-8cfd-476a-a545-9da524adbc58
+    "Chained Exploit Followed by Suspicious Events on Third Host": 156da507-e940-4fa4-a796-15195476078e
+    "Chromeloader Extension Identified": 4dd8a934-fa57-4c6f-84d4-663dd08751d5
+    "Chromeloader NW.js Runtime App Installation Paths": b45cc236-b7d3-4f40-b650-025792823fac
+    "Communication with a Potential Hostile Host (Flows)": ea4334d4-273d-4f3c-ae2f-cbd06b469b1d
+    "Communication with a Potential Hostile IP Address (Flows)": 55284f51-a245-4da6-804e-1a1b125281bd
+    "Critical Temptation Target Changed to Lower Temptation": c4ffe840-d236-4bae-9b38-8c7aa7cbf50b
+    "Excessive Denied SMB Traffic From a Compromised Host": 0aee228b-d82a-42c4-8a7f-5751ba0cf4a0
+    "Failed Communication to a Malicious Website": cb68b3ed-4002-4165-994f-efcae96f40bf
+    "Generated CRE Rule For AD Rule Potential DoS Attack via Web Server Response Time": 41feef45-890f-4a0a-9764-25c2f9a7c745
+    "HTTP Request with Empty User Agent": 7c0d872e-bdb2-48a5-b955-8950f8558b3a
+    "High Priority Target Changed to Low Priority": 76db8e8b-9f2c-422c-b81a-f720b709c5e1
+    "High Temptation Target Changed to Lower Temptation": 7ee3de94-6a24-47a0-bbfb-7a2f4547d50f
+    "Known Malicious User Agents": 449d77e1-79e4-4617-95ed-076dfa49b3b3
+    "Log4Shell Base Pattern": 6e25c328-ca1e-40ce-892a-602a9a475b4b
+    "Log4Shell Base Pattern in Flows": 23d4272f-787d-40d8-a201-83f3ee8b968d
+    "Log4Shell Evasion Pattern": 7423ca54-666d-49fb-92f5-6980c2236a1e
+    "Log4Shell Evasion Pattern in Flows": 195f4b18-8f3a-4b8b-b4aa-3384a446a43f
+    "Log4Shell Hash in Events": 477bd784-5607-442a-98c4-4c4722601ca6
+    "Log4Shell Hash in Flows": 47380bbc-fa5f-498d-a595-c92820f6a181
+    "Microsoft Windows RCE Vulnerability - File Modification": 5cce7106-a4e4-4c1f-a846-66acc454b178
+    "Microsoft Windows RCE Vulnerability - Suspicious Download Using Certutil": 8964fa57-6941-4b17-a9ca-be4975fd022d
+    "Microsoft Windows RCE Vulnerability - Suspicious Files": 95c2bf9e-4bdb-41bb-88c2-5b7c8d23e14c
+    "Microsoft Windows RCE Vulnerability - Suspicious Hashes": 3c4f352f-cf70-4091-bc5a-ff94c10fd19d
+    "Microsoft Windows RCE Vulnerability - Suspicious IPs": 1aad6168-6da7-4b16-877b-d224f2c599f4
+    "Multiple Threats Detected on Same Host (by Machine Identifier)": 2267641c-c12a-4d8d-8f18-04e6648458d0
+    "Multiple Threats Detected on Same Host (by Source Address)": 9c9bfff3-99a9-4f3c-919b-a55a650cf6b7
+    "Multiple Unclean Threats Detected on Same Host (by Machine Identifier)": ba067a5e-d182-44e2-a6a0-f4d2bc1dbd8d
+    "Multiple Unclean Threats Detected on Same Host (by Source Address)": 870521b8-826f-41aa-87ca-bb467129d1aa
+    "New Critical Temptation Target Detected": 4d80dec8-ee0a-484d-b5bd-e3b6b2f6059f
+    "New High Priority Target Detected": e7bafa87-afcf-41a1-9601-1cdb8c7cddc2
+    "New High Temptation Target Detected": b8f08183-017b-4442-8097-a01182edb013
+    "Potential Continued Risky Web Server Activity": 6aabcdaf-82a6-4672-93db-aab42906177c
+    "Potential DoS Attack on a Web Server": c271a61f-ccc3-4950-9bae-8a6b1481f1d9
+    "Potential DoS Attack via Web Server Response Time": 029fbd35-a598-4378-81c8-26ff69057dd2
+    "Potential HTTP DoS Flooding": c33377c1-2b30-4ab5-a191-880847da34bf
+    "Potential Homoglyph Usage": c32fab5c-0de6-403f-b019-ae76116634a8
+    "Potential Homoglyph Usage (Flows)": 32df3f2a-cb0b-469c-978e-ee2736bd7994
+    "Potential Log4Shell Activity": 435fad23-c0e8-48d2-9a70-981164f34f44
+    "Potential Log4Shell Activity (Flows)": afd33f8a-6dec-4108-8752-67690a8eedae
+    "Potential Malicious Activity Identified by Referrer URL": d30bcbba-f915-4513-90eb-90d5d8a69cbd
+    "Potential PromptLock Activity Detected": d8f67d23-a72b-4876-95f2-40f372e3e23d
+    "Potential Website Content Update": b13cc467-5805-41fd-8a9e-7155fd2ac414
+    "SMB Traffic Permitted From a Compromised Host": 0537e562-e0b7-426c-ac45-5bf79e12e69c
+    "Same Threat Detected on Multiple Hosts (by Machine Identifier)": 05f26e76-0f2c-44c0-ba40-943c46699dc4
+    "Same Threat Detected on Multiple Hosts (by Source Address)": f6d4aab7-0468-4a27-92a5-99bbb4f844e6
+    "Same Threat Detected on Multiple Servers (by Machine Identifier)": 78b8586d-83f5-41da-9e12-95463b022693
+    "Same Threat Detected on Multiple Servers (by Source Address)": fdd1166d-3130-4932-9a0a-631973ca4e49
+    "Same Threat Detected on Same Host (by Machine Identifier)": b8305fe8-4665-4ed5-863b-af91aa13e004
+    "Same Threat Detected on Same Host (by Source Address)": 3f6c249a-caed-445c-bf49-695ab0e5b2f9
+    "Same Threat Detected on Same Network Different Hosts (by Machine Identifier)": 71f67b8a-bf46-49c1-93d2-70d90fe9542e
+    "Same Threat Detected on Same Network Different Hosts (by Source Address)": 3a4052e2-db05-4984-8718-9227a6ebb976
+    "SocGholish_Malware_WScript_Reconnaissance": db0ac76f-6350-4a7e-a829-6c3c81bfad9d
+    "SocGholish_Malware_Whoami_Reconnaissance": eebc7605-a337-41cc-8931-017ce761cbe6
+    "Successful Communication to a Malicious Website": 4a09891a-b937-4186-8f40-358edb5c96d7
+    "Successful Login From a Compromised Host": 86bbfc03-c1e5-4730-80a8-1e4868115a1b
+    "Suspicious DNS Query Length": ab0bd345-c462-40b4-ab9d-5b82b22edb19
+    "Suspicious Network Traffic to Internal Web Server": 21ee166f-6736-4755-bee6-09f6f756167e
+    "Suspicious User Agents": 055de3d3-b1a9-4ed8-ad3f-f2338d6c06b8
+    "Suspicious Web Server Activities": a209baf1-3d6e-4b55-9bfb-71d9238023b9
+    "Suspicious program initiating DNS query (Windows)": f0aec105-9619-48a3-9bde-b385d8c72c3c
+    "Website Manipulations via SQL Injection": 5e47cf3a-42b8-4f45-81c8-46c0e1fbe4c6
+    "X-Force: Internal Connection to Host Categorized as Malware": 6ecf13f9-0dcd-4c1e-a350-66a6bb553644
+    "X-Force: Internal Host Communicating with Botnet Command and Control URL": 1aa20482-bfe1-4fa0-8644-41a194f48f86
+    "X-Force: Internal Host Communicating with Host Categorized as Anonymizer": 63540699-5608-44b5-aeae-549dc31cfca1
+    "X-Force: Internal Host Communication with Malware URL": 541db5d9-5e00-43f6-90d5-835eea647353
+    "X-Force: Mail Server Sending Mail to Server Categorized as SPAM": efd63166-caf5-468d-a575-ad0dc70d27ee
+    "X-Force: Non-Mail Server Sending Mail to Servers Categorized as SPAM": 50682d28-e152-487c-b73e-8ed284c80bcb
+    "X-Force: Non-Servers Communicating with External IP Classified as Dynamic": 1de60698-201d-4b0f-b2a7-c248ec6aa4e8
+    "X-Force: Servers Communicating with External IP Classified as Dynamic": 5bd23f66-b5c3-46fc-bc37-3298b2b9a1f0
+  "IBM Security GPG13 Content 1.1.0":
+    "BB:Review Of Access Rights": c257057b-d791-4efe-872e-d3c0abcbf582
+    "BB:VMware: Session Activity": 4af72e17-705c-4a4c-a625-5ee4919c1c53
+  "IBM Security ISO 27001 Content 1.1.4":
+    "BB:Audit Tools Access": dff65144-caf2-4516-a29a-cde5b5f4626f
+    "BB:System Update Policy Violation Events": bb8bfe65-c70a-4aa5-b62e-8360fa38716c
+  "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2":
+    "Admin Role Added for Azure": 1f05fbde-72f4-43c3-9900-0269a7506910
+    "BB: AWS Cloud: API Request Has Been Denied": 9b015b6f-d277-476e-9d81-2068997eba5b
+    "BB:BehaviorDefinition: Access Key Creation for Another User (AWS)": 3a108b8b-36d6-421b-a2ca-00f52bcc494c
+    "BB:BehaviorDefinition: Change To AWS Trail Logging Configurations": f8c5883c-f35d-4fc6-a4a3-d883071c7a4e
+    "BB:BehaviorDefinition: Credential Exfiltration in Amazon GuardDuty": c04afd5c-1185-4651-b28f-6e4e0a8e4e8e
+    "BB:BehaviorDefinition: Default Policy Creation (AWS)": e60dd432-9d7f-40f7-b6fd-9d556cc17d45
+    "BB:BehaviorDefinition: Default Policy Version Modification (AWS)": c16ab523-35e5-4bf8-bb82-4c54cf2ad549
+    "BB:BehaviorDefinition: Management Role Assignment Added (Office 365)": 3e12025b-31c9-46a3-a342-9f3c6d7ee85e
+    "BB:BehaviorDefinition: Management Role Assignment Removed (Office 365)": 50ca1088-5295-4ee5-8745-40b43bc6ed6f
+    "BB:BehaviorDefinition: Medium or High Severity Virtualization Events": 479e5323-a9f5-4a7d-a2b9-d4f7d35c5a06
+    "BB:BehaviorDefinition: Regular Virtualization Administration": a3928e1a-66f1-4e1d-acb2-1e4f08afa112
+    "BB:BehaviorDefinition: Role Assigned to a Resource with Managed Identity (Azure)": b1138b4c-389e-48d5-9431-7681ad4fb687
+    "BB:BehaviorDefinition: Suspicious Virtualization Activities": 6bc4f9c5-fb7e-4d29-a5fb-46857adf0f93
+    "BB:BehaviorDefinition: Volume Detached and Attached on the Same Machine": 012b0463-2e88-48f8-a3de-a991c7e75dd8
+    "BB:BehaviourDefinition: Modification in Instance Profile (AWS)": ef204064-681d-4908-b904-cb99185284d5
+    "BB:CategoryDefinition: Cloud Object Shared (O365)": 4d2a9b22-b602-4422-81ff-15acffd3aebe
+    "BB:CategoryDefinition: Object Access Events": b0e7989e-d2da-4d61-9048-4cfdf72202f4
+    "BB:CategoryDefinition: Object Download Events": 2a75eab0-f2d8-40c4-a8dc-d3e96bc603a6
+    "BB:CategoryDefinition: Object Upload Events": d82c4f1c-0b2e-424f-abe6-e34403436682
+    "BB:CategoryDefinition: User Role Assign Events": f999f163-4926-4a3c-a976-db807e6eccc8
+    "BB:CategoryDefinition: Virtual Machine Configuration Change": 84501e1b-53ea-4e4d-b852-4cc9bae9a643
+    "BB:CategoryDefinition: Virtual Machine Created": 712eb67c-f6ac-409f-ac4c-d2b9c1ea0253
+    "BB:CategoryDefinition: Virtual Machine Deleted": 421bc201-f483-4719-806f-b94d4024149c
+    "BB:CategoryDefinition: Virtual Machine Restarted": 21edbfbc-cba8-4a07-8e4d-72310c8969c8
+    "BB:CategoryDefinition: Virtual Machine Started": 6daa32e6-6dbd-491e-924b-21bb87198e01
+    "BB:CategoryDefinition: Virtual Machine Stopped": 2042962f-df39-4627-af54-59bdca9a4280
+    "BB:DeviceDefinition: Virtualization": edf618f4-9e8c-4068-88aa-2675753eb003
+    "Credential Exfiltration and Administration Task from the Same User": d356a614-2034-4662-8596-6d0dde36aa49
+    "High Privilege User Performing Suspicious Actions": d783ab9c-9319-4055-9848-c01ec167ffe9
+    "High Privilege Virtual Machine Performing Suspicious Actions": accee85e-393f-4a15-96ca-e819cc59f4a8
+    "Hybrid Cloud Multiple Login Failures From Different Source IPs": da93d141-ae0d-4a88-8586-d77e7beba974
+    "Hybrid Cloud Multiple Login Failures from Same Source": f144b7f0-0d50-4135-bd69-f9f3c2070fca
+    "Hybrid Cloud Multiple Login Failures from Same Username": 9b23bff3-60a2-433a-b731-4973193dfbd7
+    "Logs Have Been Deleted / Disabled or Stopped": ef95fb03-ac07-492e-909f-a7c5244e1083
+    "Multi-Factor Authentication Bypass": 0bbe300f-5f9f-4b34-9f69-f7c2aeb48776
+    "Multiple Failed API Requests From Same Source IP (AWS)": a0c1712a-c382-4834-a579-f23f31c8d852
+    "Multiple Failed API Requests From The Same Username (AWS)": d650ce23-b68b-4d1b-8926-a50a770993eb
+    "Multiple Sensitive Virtual Machines Deleted within Short Period of Time": 76338cbf-d4f3-43ee-bdf5-01814f249e06
+    "Multiple Virtual Security Devices Powered Off within Short Period of Time": 702c61e2-b0e3-4eff-8a7e-0478fc4005f2
+    "Potential Privilege Escalation via Instance Profile (AWS)": 0d8d7e61-3fac-45d6-a427-b72e51ece372
+    "Same Management Policy Added and Deleted within a Short Period of Time (Office 365)": eceba149-894f-4a7f-ac07-a592db681639
+    "Security Rule Created or Deleted (Azure)": 77a125b3-4405-47ea-a30d-64391091d5f4
+    "Sensitive Virtual Machines Unavailable for a Long Period of Time": f520f62c-1640-44a9-a3c6-cf04dc6a0e31
+    "Suspicious Activity Followed by Virtualization Administration Task": ea7a89f2-4367-4259-a407-6c4a2cfcff05
+    "Suspicious Number of Modifications Made on Virtual Machines": e85007a7-e7aa-491b-a848-be9e1cce5b6f
+    "Suspicious Number of Virtual Machines Created": 87cd5073-91e7-4631-ad61-fb8193fb5c1b
+    "User Assumed a Privileged Access (AWS)": fc8c80b6-fdd0-46f2-92b2-f81f377ab5b0
+    "User Changed to High Privilege Role": 14073200-2104-4508-8a40-6f11c2bbfdb3
+    "User Changed to Low Privilege Role": 42384f44-ae4b-40e9-9852-b45ca9215335
+    "User with Temporary Access Performing Suspicious Activities (AWS)": 38e54c03-6c57-4cdd-9fc9-e529e249cf2a
+    "Virtual Machine High Privilege Role Assigned": 2249c792-0a39-4f90-a07c-ab44e75025de
+    "Virtual Machine High Privilege Role Unassigned": f5601648-5e18-469b-a840-37bcd25c638a
+    "Volume Attached and Detached on Different Machines": d1536a40-c741-4c56-bb69-5e53bc0525e4
+  "IBM Security QRadar Techniques for Turla Content Extension 1.1.1":
+    "Active Directory Group/Computer Enumeration": c0c66781-6d9f-4e83-a03b-8e3f561e5330
+    "Active Directory Kerberos DLL Loaded Via Office Application": db19001f-294c-4476-a808-03ca4a036f9d
+    "Active Directory Parsing DLL Loaded Via Office Application": 0e081239-d28b-46ce-8461-1634ddba1880
+    "Alternate Data Streams Writing Files": 9e19eb75-5665-4cd0-a1d0-fee0ce4c51aa
+    "Attempt to bypass UAC via Windows Firewall Snap-In Hijacking": ef67bc85-3f5a-4ff0-ab8f-5c0c8d5ca55c
+    "Automated Collection Commands": a837dc88-a0b4-4606-a07d-144d20452e43
+    "BB:BehaviorDefinition:  Hide Schedule Task Via Index Value Tamper": e9da1669-ec30-4afa-a3bd-c632bc992c1b
+    "BB:BehaviorDefinition: Abuse of Findstr": 736c6a6b-9576-4203-9532-4aa5bd8c56dd
+    "BB:BehaviorDefinition: Abuse of Print Executable": de3ee44f-1968-4364-9690-01ba4803946f
+    "BB:BehaviorDefinition: Application Whitelisting Bypass via Bginfo": 7fb555ff-26f8-462a-ba1b-d2d47b5cd79d
+    "BB:BehaviorDefinition: Arbitrary Command Execution Using WSL": f732eb54-64a3-4083-ba6c-b89e28e79642
+    "BB:BehaviorDefinition: Atbroker Registry Change": 78cfbd7d-32f5-43cc-b423-b0373fdc6582
+    "BB:BehaviorDefinition: Atlassian Confluence Spawning": 409f1e0c-de36-4a28-8dc8-f3d7348aed0f
+    "BB:BehaviorDefinition: Automated Collection Command PowerShell": 86afc4f3-b954-4a34-8ab1-e9d8d4e62061
+    "BB:BehaviorDefinition: Automated Collection Command Prompt": 69441c64-f39e-4a5e-8329-d516148418d5
+    "BB:BehaviorDefinition: BPFtrace Unsafe Option Usage": d910bdc8-5845-40ed-bc8e-dcddb407b8f6
+    "BB:BehaviorDefinition: C2 Session over ICMP": bee2ef4a-662c-4099-a64f-9800ae2f884e
+    "BB:BehaviorDefinition: Carbon Filenames": c93a6e91-1dd4-43f4-8849-3a4ac2ea4cde
+    "BB:BehaviorDefinition: Carbon Service Name": ed78875e-0649-484f-899f-dfa94775ae2c
+    "BB:BehaviorDefinition: Clearing Windows Console History": da47a940-da7c-4ec4-8870-135706955c16
+    "BB:BehaviorDefinition: ComRAT Registry Installation": 3468c8a4-c247-42fb-8bdf-410db0c10773
+    "BB:BehaviorDefinition: ComRAT Scheduled Task Creation": 2d55543a-985b-4944-a781-3c34658342be
+    "BB:BehaviorDefinition: Common Reconnaissance Commands": 27720927-0928-4cf7-9180-88c97d585dcb
+    "BB:BehaviorDefinition: Creation of Cron Files": f05c2351-08ff-40fc-8c61-89ae8a15f123
+    "BB:BehaviorDefinition: Crutch File Staging": 669a91a0-dc59-435a-a525-89d1f9c9c9b0
+    "BB:BehaviorDefinition: Crutch Filenames": ebb93656-ec22-4190-a733-7d7252e7fb16
+    "BB:BehaviorDefinition: Curl Start Combination and VBS Execute Arbitrary PowerShell Code": 3c3d2ae4-a44c-45da-8930-ae17d17c7ad1
+    "BB:BehaviorDefinition: DLL Execution Via Register-cimprovider.exe": f89bf4bc-c9d3-4440-8ae1-2efc46ac04c1
+    "BB:BehaviorDefinition: DLL Execution via Rasautou": d56a4f37-f52d-4f3c-9690-2831883e1c3f
+    "BB:BehaviorDefinition: Data Compressed - PowerShell": 6d0d3aad-5deb-419a-849c-895debf31fdf
+    "BB:BehaviorDefinition: Delete Application Log": 29a9bd2e-a8c5-4cae-abf4-bc271fbcfd5d
+    "BB:BehaviorDefinition: Disable of ETW Trace": 075a0ce7-b308-4492-bbd6-45f84dfbf413
+    "BB:BehaviorDefinition: Discovery Via Default Driver Altitude - Sysmon": a9703b50-2544-4f40-bb50-25addb483d2d
+    "BB:BehaviorDefinition: Dotnet.exe Exec Dll and Execute Unsigned Code LOLBIN": eb6d5897-41f8-4452-a393-6f3846d5069d
+    "BB:BehaviorDefinition: ETW Logging Tamper In .NET Processes": 72ae3485-d833-4968-8fa1-413c27701a7a
+    "BB:BehaviorDefinition: Epic Filenames": 20f04063-ef17-4c7d-a022-23ce65ec07e7
+    "BB:BehaviorDefinition: Epic Log Filenames": f85180aa-42ae-4181-acb6-3501ffa8a893
+    "BB:BehaviorDefinition: Epic Search Terms": 08cb8b13-ec32-4528-ba13-28540e1713db
+    "BB:BehaviorDefinition: Exchange Mailbox Export via PowerShell": 887aa260-250e-43bc-ae33-2aecc02ee60e
+    "BB:BehaviorDefinition: Exchange PowerShell Snap-Ins Usage": ba8dde02-1e7a-4c1d-922e-cdc54eb244da
+    "BB:BehaviorDefinition: Execute Files with Msdeploy": 62d3f455-a127-4932-b97d-13222501c74e
+    "BB:BehaviorDefinition: Execution DLL of Choice Using WAB": 5b93f963-d2e9-4df2-9e25-9405469e49ef
+    "BB:BehaviorDefinition: Execution via Diskshadow": 292faf56-9722-43fc-a380-4d21d7fbf211
+    "BB:BehaviorDefinition: Execution via WorkFolders": 0afe7f83-5191-4354-84b0-a2e6bc11e224
+    "BB:BehaviorDefinition: Execution via stordiag": 35263108-2716-42ca-b5ec-8d98d6430621
+    "BB:BehaviorDefinition: File Download Using ProtocolHandler": 03c60dd8-2c94-48b5-9ad3-cd377e99a64e
+    "BB:BehaviorDefinition: File and Directory Discovery - Linux": 02c3cb1c-c201-4162-adfa-24f821d75fa2
+    "BB:BehaviorDefinition: Fsutil Suspicious Invocation": dfae1837-e5a4-488e-993a-96c1cca0751b
+    "BB:BehaviorDefinition: Gazer Filenames": 6eefe80b-170e-421e-bf0c-c4876828b459
+    "BB:BehaviorDefinition: Gazer Registry": 182f2940-080a-41a0-9acc-d1ca851e69f5
+    "BB:BehaviorDefinition: Gazer Registry Values": 03dbbe94-22d3-42ee-aacb-e13c67e934d4
+    "BB:BehaviorDefinition: Hiding Files with Attrib.exe": d0a6ce88-d5a1-41a8-95aa-31693bebbc0a
+    "BB:BehaviorDefinition: HyperStack Filenames": c22126cf-02e9-48c1-a2c6-3080f0c0caf7
+    "BB:BehaviorDefinition: HyperStack Pipe": b07f6eb1-e9ea-47a0-b7fd-e24683f00668
+    "BB:BehaviorDefinition: HyperStack Registry": 4f6953df-ef24-4dc1-9256-4631da522672
+    "BB:BehaviorDefinition: Kazuar Registry Installation": 988c216e-df52-46e6-9210-20d5150aa599
+    "BB:BehaviorDefinition: Linux File Deletion": 7c9a14bc-b3a3-45ff-b6f0-527f7c50d2bb
+    "BB:BehaviorDefinition: Logon Scripts with UserInitMprLogonScript": 8a8ed8f6-1d13-43ac-b138-29a8a8cfaa41
+    "BB:BehaviorDefinition: Logon Scripts with UserInitMprLogonScript Registry": e6c20cd5-513e-475c-b062-443aa7c0cf8c
+    "BB:BehaviorDefinition: Lolbin PressAnyKey and Download Activity": be26d83c-5fae-4f34-b78e-20a79946dbe3
+    "BB:BehaviorDefinition: MSExchange Transport Agent Installation": 7b305de1-fe36-443a-9bdb-eb2bdc4edfd9
+    "BB:BehaviorDefinition: MSExchange Transport Agent Registration": 6e533f3d-911b-47ba-baf8-cf2d8c6aaca6
+    "BB:BehaviorDefinition: Malicious Files Written to the Fonts Folder": 4ef2e038-d0ec-4888-86b0-ad5a80cedbae
+    "BB:BehaviorDefinition: Mavinject Inject DLL Into Running Process": af4d09bd-50e3-4a94-a05a-d776ec656fb8
+    "BB:BehaviorDefinition: Microsoft Excel Template Creation": 902b5c2e-49f4-44ae-bb91-c02e5a0f59e0
+    "BB:BehaviorDefinition: Microsoft Word Template Creation": 04eebe0f-ef41-4d3a-b2b4-0c005dbea56c
+    "BB:BehaviorDefinition: Modification of Explorer Hidden Keys": 530ba1fd-b7b4-4857-abf8-f7eb05a8dd11
+    "BB:BehaviorDefinition: Mosquito Registry Installation": b6a4ccf8-54fc-4791-bfa4-5900bb7923e1
+    "BB:BehaviorDefinition: Mosquito Registry Installation (2)": e5c56806-f0d1-485f-b762-e7f6dfa86095
+    "BB:BehaviorDefinition: NTDS Exfiltration Command": f7c82218-0f22-431a-a799-3d5e34050c2e
+    "BB:BehaviorDefinition: Netcat Execution": 92686b12-8481-483d-a9ca-b4648cb28ae9
+    "BB:BehaviorDefinition: Netsh Port Forwarding": 176eae9e-928b-4109-a96d-bbfdd7a2b304
+    "BB:BehaviorDefinition: Netsh RDP Port Forwarding": 064e2373-0d2e-4707-b2d2-22e636c559a5
+    "BB:BehaviorDefinition: New Service Creation Using PowerShell": cf52b221-1c32-4e59-948a-69da1e8182cd
+    "BB:BehaviorDefinition: New Service Creation Using Sc.EXE": 39b52ca4-8b05-4a77-b4b4-2e25ea8333d4
+    "BB:BehaviorDefinition: Pass the Hash Activity in Network Logons": 56391100-6119-4989-9c22-1248008d79ea
+    "BB:BehaviorDefinition: Pass the Hash Activity in NewCredentials Logons": c11e64dd-f81a-490a-9f72-4aa068a0df34
+    "BB:BehaviorDefinition: PortProxy Registry Key": bbc4f18c-1e92-4cf9-aa94-0eda9f965523
+    "BB:BehaviorDefinition: Possible Linux Privilege Escalation": a8c4b146-f14b-4a1b-84a0-3d8738302676
+    "BB:BehaviorDefinition: Possible Unauthorized MBR Modifications": 3d6f2fb1-dfb1-4359-b86c-8188f615b5dd
+    "BB:BehaviorDefinition: Potential Equation Group Indicators": dcb438d4-2dfc-4c9c-8de2-dd01d7a18149
+    "BB:BehaviorDefinition: Powercat Execution": 42d41bca-5d67-4329-973e-034a82529348
+    "BB:BehaviorDefinition: Powershell File and Directory Discovery": 6f2f20c8-d8d1-4285-bf8a-91a2a130d4c9
+    "BB:BehaviorDefinition: Prefetch File Deletion": aa2b6d8f-5761-4256-8ae9-998180978b57
+    "BB:BehaviorDefinition: Proxy Execution Via Explorer": 3c489fb4-62ef-456e-bcb3-aff4fc751822
+    "BB:BehaviorDefinition: Regsvr32 Command Line Without DLL": 26dc60cc-af21-4bfc-b453-6cef1ab41420
+    "BB:BehaviorDefinition: Root Certificate Installed via CertMgr": ede5bf48-4cc2-45e5-85df-9b630a0ff21f
+    "BB:BehaviorDefinition: Root Certificate Installed via Certutil": 0d948560-4430-4d09-b5aa-f5154b7342d5
+    "BB:BehaviorDefinition: Runs COM Object via Verclsid": 33b505da-d01c-4887-aa17-fb254db27221
+    "BB:BehaviorDefinition: Scheduled Cron Task": 482bbcd1-17cc-438b-923a-464e110dea9e
+    "BB:BehaviorDefinition: Scheduled Cron Task/Job - Linux": 2d7e7d07-89e5-4006-a09d-231689f67f15
+    "BB:BehaviorDefinition: Scheduled Task Write to System32 Tasks": 4c8e2298-5a40-42db-bbdf-e6ce5e883a04
+    "BB:BehaviorDefinition: Scheduled Task/Job - Windows": e9f08a52-2a0c-4b47-96cf-46e98826fb30
+    "BB:BehaviorDefinition: Script Interpreter Execution From Suspicious Folder": 9e6152c5-9d26-4314-bdfa-a5bdb11fa91e
+    "BB:BehaviorDefinition: Security Software Discovery - Linux": 5f492d3e-a5ca-4760-acba-7d209e700ca0
+    "BB:BehaviorDefinition: Security Software Discovery - Powershell": b90c56ec-2669-4736-9d75-9f11650f9ee3
+    "BB:BehaviorDefinition: Set Windows System File with Attrib": 3041edd0-2ee7-40d1-8562-ce05600eb0e5
+    "BB:BehaviorDefinition: Specified Binary Execution via Devtoolslauncher or OpenWith": 179f5b67-9262-4164-a2da-b666b5d2cf87
+    "BB:BehaviorDefinition: Squirrel Lolbin": ac0d774b-fd91-4394-bfad-3b5487950864
+    "BB:BehaviorDefinition: Startup Shortcut Created": f95351a0-4869-4550-a933-328bea5efce9
+    "BB:BehaviorDefinition: Suspicious Activity in Shell Commands": 58c26527-353c-44ca-a7dd-c6755202447f
+    "BB:BehaviorDefinition: Suspicious Atbroker Execution": b6175b84-289b-430a-b53e-286173d44965
+    "BB:BehaviorDefinition: Suspicious Cabinet File Expansion": a4f5791e-d3b3-4a64-a149-e40b6f369e53
+    "BB:BehaviorDefinition: Suspicious Commands Linux": 5fc73126-accf-4510-ac75-91f928344ae8
+    "BB:BehaviorDefinition: Suspicious Delete Command": 15986a69-0c69-4251-97ba-7461d5cc023d
+    "BB:BehaviorDefinition: Suspicious Eventlog Cleared via PowerShell": 1466d363-08db-4ebb-8bd2-4bc54050a0ba
+    "BB:BehaviorDefinition: Suspicious Eventlog Cleared via WMIC": 138d9d90-cd9a-4fb4-a74e-6dd14710349d
+    "BB:BehaviorDefinition: Suspicious Eventlog Cleared via Wevtutil": e053cefe-1efa-468b-a513-dfeaa0981a7e
+    "BB:BehaviorDefinition: Suspicious Group And Account Reconnaissance Activity Using Net.EXE": 0dc352b7-3847-4bdf-82b2-90f37c97c2bb
+    "BB:BehaviorDefinition: Suspicious Load DLL and Extexport Execution": a397a667-8b2a-40d1-8256-ce59cf0c0a8d
+    "BB:BehaviorDefinition: Suspicious Load of Advapi31": 1243ee88-122a-47ff-b7ba-158b9eea0724
+    "BB:BehaviorDefinition: Suspicious Loaders": e02eb310-67bf-4ff5-9633-13b5ba0d3bb8
+    "BB:BehaviorDefinition: Suspicious Net Execution": 9acd838b-db55-4f99-b733-1e3941e7cc08
+    "BB:BehaviorDefinition: Suspicious Obfuscation Character in Commandline": 6db45d08-a78c-475d-9720-5a566da5c02e
+    "BB:BehaviorDefinition: Suspicious Registration via cscript": 6c99874b-ca8b-4236-bb12-76ab9cad492f
+    "BB:BehaviorDefinition: Suspicious Reverse Shell Command Line": 1e5865ca-4315-4f2c-a045-3d3c0c3a64c0
+    "BB:BehaviorDefinition: Suspicious Script Execution From Temp Folder": 1e3d558e-a84f-4952-a1a4-9baf1ca8a5eb
+    "BB:BehaviorDefinition: Suspicious ZipExec Execution": eba9760e-30eb-4ce0-8a85-f4b5c23b769d
+    "BB:BehaviorDefinition: Svchost Incoming Connection": ab83bd19-7020-4ebd-ace5-1593f955cd84
+    "BB:BehaviorDefinition: Sysinternals SDelete File Deletion": 0f9a12ed-2dc3-4d59-a64c-59f5a0850373
+    "BB:BehaviorDefinition: Sysmon Driver Unload": 39db027f-3709-4807-8664-51173f9b93e3
+    "BB:BehaviorDefinition: TaskCache Registry Modification": 91a6daeb-9010-408f-8644-51284987fef7
+    "BB:BehaviorDefinition: Terminal Server Client Connection History Cleared - Registry": 6caa6d18-f2ad-4ddd-9116-ffd5112956e8
+    "BB:BehaviorDefinition: Turla Group Lateral Movement": 00c36571-6fc5-4017-aa68-89d993dd42a2
+    "BB:BehaviorDefinition: Turla LightNeuron Installation": e87cc9ac-45ad-4830-9e24-c4c428ed2e67
+    "BB:BehaviorDefinition: Turla LightNeuron Objects": 5d830439-bf84-44ba-952e-62703fc1f296
+    "BB:BehaviorDefinition: WinDbg/CDB LOLBIN Usage and Application Whitelisting Bypass via Dxcap.exe": 8560aab0-9a53-487f-858c-8aaafc16d561
+    "BB:BehaviorDefinition: Windows Shell/Scripting Processes Spawning Suspicious Programs": d90f0dde-dddc-4428-a363-d79cc80106a5
+    "BB:BehaviorDefinition: Windows Software Discovery": f20939e6-82e0-4764-8dad-b7d3d18d54c2
+    "BB:BehaviorDefinition: Windows Software Discovery - PowerShell": 48e240fa-1e2f-4e5b-9f0f-a81004c70607
+    "BB:BehaviorDefinition: Windows Spooler Service Binary Load": 0ccead90-9f13-4744-a891-41483a6bf60a
+    "BB:BehaviorDefinition: Windows Spooler Service File Deletion": b7447a93-c32a-4c9b-afac-0eb98a0f5480
+    "BB:BehaviorDefinition: Windows Update Client LOLBIN": 5e4462a9-c052-4629-a612-57cc5b7425f3
+    "BB:BehaviorDefinition: Write Protect For Storage Disabled": b0dfe530-22fe-4849-ad6c-cff252b03b86
+    "BB:DeviceDefinition: Endpoint Devices": 394d38b7-9043-454a-a50a-12358b91838e
+    "CLR DLL Loaded Via Office Application": 2cb770a8-87f0-43c2-9ba6-a86bb429e52e
+    "CLR DLL Loaded Via Scripting Applications": f1b4068c-e17d-4ef7-bdd3-b621530ec9b2
+    "COM Hijacking via Sdclt": f2df3718-85d9-4519-8c34-46ebb4e9309a
+    "COM Object Downloading Cradles": a1030fec-f8fd-4330-af65-f6f1759e5541
+    "Certutil Initiated Connection": b25300d1-cad3-47f8-8336-92690c1930e2
+    "Clear Command History": 340dffd7-abf5-4d46-929a-f6d2427f4954
+    "ComRat Registry Service Installation": 7bb97193-b757-434e-8d52-91a60ec18e02
+    "Command Line Execution with Suspicious URL and AppData Strings": 143ef7c3-070e-41fe-a62c-cc768d65ec00
+    "Copying Sensitive Files with Credential Data": 04831705-869b-425a-b3c0-b0698bd114d7
+    "Creation of Outlook C2 Macro File": 694949fd-8e9d-4038-a22c-2a7c5507f7da
+    "Creation or Modification of Assistive Technology Applications": 0e2815e4-3c2d-4800-a449-06467e84c1e3
+    "Creation or Modification of a new GPO Scheduled Task or Service": 425251e9-4c2b-4d1e-be53-4bea76a85752
+    "Credential Dumping Tools Named Pipes": 3ecd188b-0b36-4ace-bff9-ec8fe49b3afc
+    "DNS Exfiltration Tools Execution": d3ad16af-8dc1-4707-9e3c-c032d049a5f6
+    "DNS Exfiltration in Powershell": ae23680c-00c1-429d-b85c-1331685a392f
+    "DarkSide Ransomware Activity Detected": 5bfeaf53-50e1-4b23-823c-0367b8031250
+    "Data Split into Pieces (Unix)": 3efcdfa7-ae2a-4e89-8875-e1fb4a01b5e2
+    "Default Accounts Used": a704d985-8492-450a-b6d3-608d6d15d956
+    "Disable Windows Defender Functionalities Via Registry Keys": 6236ee70-d327-42d7-a1a6-8f094b0017d0
+    "Dllhost.exe Execution Anomaly": aae6efa5-7932-4459-825c-3f48d1853cb7
+    "Domain Trust Discovery": 4eab35ec-eb8f-4c9d-873e-9747b5c83e3b
+    "DotNET DLL Loaded Via Office Application": c1649cfc-6cde-41af-ba75-29377e2f368a
+    "Download Payload via Console Using Edge": 0dbccdd1-47a8-444a-a26b-f504ce0221ca
+    "ETW Trace Disabled": 77d083fd-047d-47c4-b32e-3a5fb09ff37b
+    "Email Account Discovery from Powershell": df0200e4-f151-484c-907a-263a27bcc3eb
+    "Encrypted Channel Activity": 2132eafb-37ed-463d-8d57-2b842e54f783
+    "Execution of Exfiltration and Tunneling Tools": 66e1348c-08d8-4b2b-b6be-ae7275027cb4
+    "Execution of Non-DLL Using Rundll32": 48461094-a92a-43a2-9d78-b23ea9f5a937
+    "Execution of Tap Installer Software": 17225028-f335-4c92-adcb-01200c87a915
+    "File Download Via Bitsadmin": 0c6625f1-7429-4dc0-9c33-bb957db4cd0b
+    "File and Directory Permission Modification after Download": b319afa8-03ad-4e0e-928e-fbafc47f0cf7
+    "Finger Suspicious Invocation": 79d10570-4f02-43e0-8640-9170af5d8c2a
+    "Google Chrome DLL Sideloading": 1824fb51-f6f3-402e-a886-fd680dd787fb
+    "In-memory PowerShell": 29ab68ee-43eb-480d-8b71-5d549fbf3ee5
+    "Linux Doas Tool Execution": 9b761329-4b69-44b2-821f-5c59393c9644
+    "Lookup System Locale": 1ea1ffbd-4b31-470c-b88b-0f688dd4f688
+    "Malicious Base64 in Registry": a8fd5631-f759-49bb-83ea-a5b4243e3619
+    "Malicious Use of Control Panel": 1f5ac77f-5e33-4244-8527-0d2baefe3f12
+    "Masquerading Task or Service": 3bc68ef5-b91d-4b49-941f-a7a1b8ebbb48
+    "Microsoft Binary Github Communication": 3e40ee36-88b8-477d-a898-c886ab18f8a8
+    "Microsoft Binary Suspicious Communication Endpoint": 7f37b2f6-081b-412b-8e38-7286d5074707
+    "Microsoft Office DLL Sideloading": 050f640d-fc8f-497e-bf85-da570e5e19f6
+    "Microsoft Office Template Creation": 07193587-8f7a-4064-a3a3-278319ae600b
+    "Mimikatz Execution": 0fee4ffe-5f96-4f26-9b99-ea204264d6e7
+    "Network Share Discovery Activity": ef897143-c8ba-4019-9742-448213d1383e
+    "Network Sniffing Activity": eefefe5c-9f87-4e10-b664-070a06525477
+    "New Certificate Added to Certificate Store": ca840db0-eb6c-435f-afe1-272056fafd87
+    "New Port Forwarding Rule Added Via Netsh": e5657294-01d2-411c-80d9-2437130653af
+    "New Service Creation": 315031e2-bef3-4fe7-b5ae-116a5cad9fc9
+    "Outlook C2 Macro Creation": e80d42f5-b54b-4d95-9d43-7ad583e20c68
+    "Pass the Hash Activity": 69466beb-68c6-4be9-a99a-23fac68b62f1
+    "Persistence Registry Key for Recycle Bin": ff03058f-4a38-4310-8048-7f6840ef6aee
+    "Persistence and Execution at Scale via GPO Scheduled Task": e16e14c3-cace-4413-a8ce-7636b333b771
+    "Persistence via Services Registry Key": a90eacca-8a5e-495f-9b6a-aaa8e09e27b4
+    "Persistence via Startup Folder": 15a19dce-d710-450b-856c-efd583fa4e71
+    "Phishing Patterns in ISO Archive": e1d36495-9091-48ed-994c-252b0ae8e5a9
+    "Possible Turla LightNeuron Backdoor Installation": 64fcc896-3561-444f-b451-e58e99136537
+    "Potential Archive of Collected Data": 68d64709-d5fb-434d-8af4-e6adf44aa10d
+    "Potential Boot or Logon Initialization Scripts": e09fc408-0469-4f3f-a77b-996cb525f3c9
+    "Potential C2 Communication over a Non-Application Layer Protocol": fe898fd1-2944-4ed6-b082-2386d4d8a1f6
+    "Potential Carbon Activity": 1c62fb69-99e3-4fe4-afc9-4c86e9f8dc92
+    "Potential ComRAT Activity": 4cfb4c10-d0c3-4f2f-acb7-235bcf4e7cd5
+    "Potential Command and Scripting Interpreters": 43814329-979c-47b2-a52a-6dffcf66f25c
+    "Potential Configuration And Service Reconnaissance": 86860e66-cd60-4b87-a820-e41919313c47
+    "Potential Crutch Activity": 7c2e8ec3-cebf-4e24-a100-4b5cbbeee313
+    "Potential DLL Injection Pattern Detected": 2a76025e-898d-4ddc-98c2-8584991402e5
+    "Potential DLL Search Order Hijacking": bc1d5d5d-cc6d-4c12-8019-1c097ad5414f
+    "Potential Data Exfiltration Via Curl": f9fddacf-2a53-4536-85b1-46a380b7765f
+    "Potential Empire Activity": 448d6e82-b5e6-428b-88aa-0fe2c4a6371c
+    "Potential Epic Activity": 7bc488f2-3b4c-430a-9856-0f41497301cb
+    "Potential File and Directory Discovery": 3bff9e58-210a-46df-9410-9fd8476397f7
+    "Potential Flow of Execution Hijack": b5eeb078-757a-4a6f-8087-8ce526b3e08a
+    "Potential Gazer Activity": 59d4f343-e16d-443a-887d-445df4f3ffb6
+    "Potential Hidden File or Directory": 1361822d-bf2a-40be-8e95-d84458a3038c
+    "Potential HyperStack Activity": 9415cf99-18dd-4372-b572-faeeab8807a8
+    "Potential Indicator Removal Activity on Host": 74f410a2-7d9e-405f-95b4-9d4b90a3f0ee
+    "Potential Ingress Tool Transfer": dd84e41f-07cf-48e5-800f-c9a976f279f3
+    "Potential Kazuar Activity": b9991570-f2c8-4a79-8f18-7c39d5ba226e
+    "Potential LOLBIN Activity": 066d27d9-9ab3-4885-a754-88906f5b6dd5
+    "Potential Lateral Movement via PowerShell": 0f45efbc-f734-467c-817c-a2dfb947e6f3
+    "Potential MSExchange Mailbox Export": d513d9b8-5ce4-4cdc-b252-75112311a622
+    "Potential Malicious MSExchange Transport Agent Installation": 83c87e1d-d359-43a1-9c07-7fdae687374c
+    "Potential Mosquito Activity": 67d142b5-f31c-4b3f-81d1-300546d264a6
+    "Potential PowerShell ReverseShell Connection": ef7be0e4-8031-48dc-a304-7941a4a85d7b
+    "Potential Proxy Forwarding Configuration": 24413477-321b-482b-a4ea-8a6ea44b77ef
+    "Potential Registry or Environment Variable Unload": 49d351c8-e87e-4f95-8cca-429b676fe049
+    "Potential Scheduled Task Created": eda440f3-67b6-4b1a-bc59-98d71c8f3814
+    "Potential Security Software Discovery": 1f159910-4c25-4592-8df1-c29ddd1c7079
+    "Potential Svchost Memory Access": 6f311d35-4fe2-48db-803b-e64eb286ecd2
+    "Potential TinyTurla Activity": 6c259506-65a7-48ec-ac17-7f79c9eefb03
+    "Potential Turla Recon Activity": 20878973-d7b0-4de4-936c-d394ad3bdf01
+    "Potential Unix Shell Command and Scripting Interpreter": 129bfdad-d07d-4183-b067-5376ab7c17a3
+    "Potential Web Shell Dropped": ca144acd-de1f-4263-b860-8c4d35b381a2
+    "Potential WinAPI Calls Via PowerShell Scripts": 23da4e2e-bc56-4807-84cc-a3e8fec32674
+    "Potential Windows Command Shell Interpreter": ba966388-7c01-4714-be11-37b307a0feb9
+    "Potential Windows Scheduled Task Creation": 3a97d412-3182-47ee-ae7e-f9df48fc1e27
+    "Potential Windows Software Discovery": 18a88a3b-c9e9-4a75-81e5-298bbc75f676
+    "PowerShell Profile Modification": 0524d082-6310-414e-968e-646aa368a13a
+    "Powershell Keylogging Activity": a1cc8596-158e-4775-a21f-9b795d2bb4ee
+    "Powershell Local Email Collection": 35b24e5e-2e55-4905-af17-05579a49cbb1
+    "Powershell Remote Thread Creation": 62bcab9e-fe00-4323-8382-d3cd8324ec3a
+    "Psexec Accepteula Agreement Detected": 59591c61-0d50-43d7-ae7c-b7ba420be1b0
+    "RDP Communication over Loopback Address": 8ed35582-d613-4ab5-8e03-b6cd0f00c19e
+    "Reconnaissance Activity Using BuiltIn Commands": c845c1cd-b54d-46cb-aa9c-633136b42ca7
+    "Regedit Started with TrustedInstaller Privileges": 4e83509a-d0b6-4374-8a1b-81edc7b7c4cc
+    "Registry Modification of Run Keys": ac6b6db7-96df-48ba-bcce-a62177601880
+    "Remote PowerShell Session": a3a7fc8b-50d7-4cff-ae62-351afe67bcd3
+    "Remote Scheduled Task Creation": ebcf2115-872b-46aa-b889-002344967939
+    "Root Certificate Installed": 76973190-5d44-4d1d-9535-5b18fd90f43d
+    "Rundll32 with Suspicious Process Lineage": c77c172f-97cb-4ce4-a3e9-c120a570d82b
+    "SMB Create Remote File Admin Share": 9b7b2c44-3ea6-4dbc-8900-f9f33579bba8
+    "SSH Firewall Configuration": 5fb5a75a-1b25-4753-bde0-531b5236a12f
+    "Script Initiated Connection": 545cbffa-6232-4f97-b580-ddab8d88b632
+    "Service Dll Hijacking": 47a8d8f7-4c38-42dc-a164-fbe2df91f46d
+    "Service Registry Permissions Weakness Check": affaf7c8-51ab-47f5-b4f6-e64f568fe3cf
+    "SetupComplete.cmd Exploitation": 38a255b9-66ef-41e2-9907-3bf5b8a8fae6
+    "Shells Spawned by Web Servers": 79d51987-bd2a-43a4-8eb3-837cb10b1af0
+    "Snatch Ransomware Activity Detected": 00295c90-6fc3-4342-ac04-98fd3a387c82
+    "Static Mimikatz Driver Name Detected": a6749afd-c341-460a-a248-18d9e1baaf68
+    "Steganography Embedding Files": 17723685-2dd6-4aec-a295-b6a70181c85f
+    "Steganography Extracting Files": 6d6361a9-a43d-4be8-9740-4d8873765fd6
+    "Suspicious Behavior by SOURGUM Actor": 6f314ec4-f76e-4f4a-a08f-bbaaf7cd6286
+    "Suspicious Binary DLL Execution": 088c5ce2-3fd8-49fc-bc35-75af28edc5c7
+    "Suspicious Binary Load and Execution": 7ea5a9e6-5409-4280-96d0-21c058c55403
+    "Suspicious CLR Logs Creation": af07e9e0-ae00-4a97-ab12-b350fb20113a
+    "Suspicious Creation of Get-Variable File": ea6f4bbb-7c63-48fb-9f9e-f92ed08be593
+    "Suspicious Cron Scheduled Task/Job": 746e2f5e-9d77-4df0-b373-1a86de253e0b
+    "Suspicious Curl Download": 49ac3ca1-f03a-4e0a-b225-d6f9b389b275
+    "Suspicious Double File Extension Process": 66bbd573-43cb-4fbd-b30f-b6f6fb6a2702
+    "Suspicious EventLog Cleared": bdd8940f-3669-481c-b381-4bc639a46226
+    "Suspicious Execution of Outlook from Temporary Directory": ea948081-5149-4d2f-b413-7c4be92aac2f
+    "Suspicious Execution with Colorcpl": 2b041bab-4431-4a01-bbe3-9ad33e3ad5f5
+    "Suspicious File Created by Office Application": 17f7eb8c-d01b-4103-ab59-e7ed896a0025
+    "Suspicious File Download Using Office Application": 78bf6d29-edd5-4bc5-9e0f-2c1561d7249d
+    "Suspicious GetTypeFromCLSID ShellExecute": 2e1174e2-b33a-4c07-b852-6840f8971b07
+    "Suspicious Group And Account Reconnaissance Activity": e914c113-771c-4d79-8440-a2a81f1454df
+    "Suspicious Host File Deletion Activity": 2dd37be1-f152-4365-b94d-4262696b233d
+    "Suspicious In-Memory Module Execution": 7596d67c-c27a-44c6-81fc-630c665a5a5f
+    "Suspicious Linux Log Cleared": 6ea10e83-cbf1-4c30-b412-2bdfe9516d72
+    "Suspicious Mac System Log Cleared": 9f9de9f3-f144-4f82-a4ed-2a1c86363084
+    "Suspicious Microsoft OneNote Child Process": ae940526-e29d-4476-b0d5-821aa45656ec
+    "Suspicious NTDS Process Patterns Exfiltration": 3babcd24-5c64-4d40-b1f0-3ef33ff08f28
+    "Suspicious New Instance of an Office COM Object": 6296c69b-a65b-488b-b6db-84755c25eadc
+    "Suspicious Process from Microsoft HTML Help": a5f5810f-0c5a-40d4-a8ee-0fdadd4d502d
+    "Suspicious Program Location with Network Connections": 3384272f-358e-4a2c-8d39-b7fc55b6bea7
+    "Suspicious Proxy Binary Execution": c1eb8ca0-849e-4fec-88e6-fed3452427c6
+    "Suspicious PsExec Activity": 827faa4f-2681-4a00-b4da-eb97e17c6298
+    "Suspicious Remote Named Pipe": 11f0c609-3489-446e-a1ed-2155f5ea9f17
+    "Suspicious Svchost Execution Anomaly": 71c476bb-ff42-4931-aed9-06acebfc2bb6
+    "Suspicious TCP Tunnel Via PowerShell Script": b66aa157-ea29-4133-a984-31e55e6146cc
+    "Suspicious WebDav Client Execution": 124dce22-6286-40db-aa5c-f5896b69d854
+    "Symlink to passwd Created": 2354cce4-54e9-4146-b0e8-99c37626bd18
+    "System Owner or User Discovery (Windows)": 6f65e2d1-f6a7-4ab2-9cdd-f3edddcaea37
+    "System Time Discovery Activity": 2783f464-8321-4e08-afb1-ba7b1c68fb56
+    "Transferring Files with Credential Data via Network Shares": 91d80480-4bda-4314-8aec-557461633d1a
+    "Turla Service Installed": 782e6a4c-52a5-499d-b86e-f0b97feaba2b
+    "UAC Remote Restrictions Disabled": 153520b3-b825-43e0-97b2-e9df6fc1d0d5
+    "Uncommon Process Spawned from HWP": c8e0b0a3-df04-4994-8932-68b03aa6f302
+    "Unusual Child Process from Different Processes": 8f0e4fd1-8d9a-4ab8-a621-b0bc730b4cdd
+    "User Authenticating via Multiple Explicit Credentials": 97f09c55-3649-4c79-9744-cfff5285507e
+    "VBA DLL Loaded Via Office Application": 036bd50e-dee1-4019-9e1b-e7433599e1ff
+    "WMI Event Consumer Persistence": 2e33aa65-a0e7-4763-8302-2c839b1b4a34
+    "WScript or CScript Dropping File": dd82258f-8e49-43c9-b61a-7f2f4b6f2b98
+    "Windows Event Logging Disabled Via Registry": 37b729da-3e63-4233-aed6-06c9d3bda588
+  "QRadar Network Insights Content 1.6.0":
+    "QNI : Access to Improperly Secured Service - BitTorrent Handshake Verification Failure": 83a14005-dfa8-47b6-8080-58d5d5c048e7
+    "QNI : Access to Improperly Secured Service - Certificate Expired": c25a9d6f-bc9b-4486-bad7-e23ef4167e01
+    "QNI : Access to Improperly Secured Service - Certificate Invalid": 2f27093b-57cf-4907-97e1-fc8f2f6031ee
+    "QNI : Access to Improperly Secured Service - Deprecated TLS Version in Use": 0058d2f9-c030-49af-86f4-93684dedb4cb
+    "QNI : Access to Improperly Secured Service - Kerberos Deprecated or Unknown Cipher Suite in use": 65b6f0b8-0a3b-498e-b459-074fd8a24006
+    "QNI : Access to Improperly Secured Service - RDP Session Without Encryption": d3a64cb8-1da1-47b7-94fd-047fd4694f76
+    "QNI : Access to Improperly Secured Service - RDP Session Without Enhanced RDP Security": fc7a40ce-df36-4e45-a087-ebcab1aebb11
+    "QNI : Access to Improperly Secured Service - SSL in Use": 924369c6-aa5f-4608-84dc-22de2b119e77
+    "QNI : Access to Improperly Secured Service - Self Signed Certificate": a58ea91f-f34a-4d0c-af33-c50ebe577dcd
+    "QNI : Access to Improperly Secured Service - Signature Algorithm Does Not Match To-Be-Signed Signature Algorithm": 57012c0b-78e1-4cfa-af96-3a32056f75c6
+    "QNI : Access to Improperly Secured Service - TLS Unrecommended Cipher Suite in Use": 3e47654a-c6e6-45cd-ab24-e273266a7d7d
+    "QNI : Access to Improperly Secured Service - Weak Public Key Length": d293b655-a8fd-4ce8-bf7f-16167dcdfe9b
+    "QNI : Confidential Content Being Transferred to Foreign Geography": f0269390-d924-44e1-9d1b-3ae6e08e01fd
+    "QNI : Embedded Script Detected": 4358cc86-0372-406f-89bc-7250b67790be
+    "QNI : File Extension / Content Type Verification": 09c65177-c260-4e2a-b3f4-1d81b8c049c7
+    "QNI : Observed File Hash Associated with Malware Threat": e7f90768-1946-4e55-9922-f94bb3d635b7
+    "QNI : Same Threat Detected on Multiple Hosts": 76337229-ccc7-4b2a-82ff-261ecdaaf1ab
+    "QNI : Suspicious Website Access": 49321001-ac4b-4e96-9dbb-992864e8d277
+  "User Behavior Analytics Access and Authentication Content 5.1.0":
+    "BB:UBA : Access Denies": 4a57352e-09e4-476c-9755-bd4f107b356d
+    "BB:UBA : Application Denies": e4c7213a-753b-47d0-ab3e-be7120559598
+    "BB:UBA : Detecting Authentication Bruteforce Attempts (Horizontal)": 213cd380-5f87-455a-bed8-857376843f3a
+    "BB:UBA : Detecting Authentication Bruteforce Attempts (Vertical)": 1e0355d4-c840-47a4-9a75-a14fa2311519
+    "BB:UBA : GoToMyPC and OpenVPN ports": a8cbc069-7ef4-4da6-a67b-6783f7d6a6a9
+    "BB:UBA : Gotomypc Process Creation and Openvpn File Creation": 59ec1156-60f2-49c9-9938-53436ba19ec6
+    "BB:UBA : Unusual Times, Evening": 5fc3b7bd-434a-420d-9612-983cf319ce84
+    "BB:UBA : Unusual Times, Overnight": e22c0c5b-dae4-4e06-9561-e2cb133914e1
+    "BB:UBA : VPN Login Failed": 91aa03b6-e94d-4b86-8551-ea98850bb528
+    "BB:UBA : VPN Login Successful": 0e75461e-461d-47eb-81e6-3c5e8feeb00b
+    "BB:UBA : VPN Mapping (logic)": 0ebee01a-da91-47c2-ac75-3a60658414df
+    "BB:UBA : Windows Process Created": 70434114-5f8e-4549-822a-a10242451c93
+    "BB:UBA : Workstation Locked": dc6f2608-77e3-428c-b735-a22ebd64331e
+    "BB:UBA : Workstation Unlocked": 406d04a7-a42c-42c5-85e7-3fb981565b4b
+    "UBA : Login Anomaly": b4397bc8-8541-4f61-a2b9-4369cc3b3689
+    "UBA : Populate Multiple VPN Accounts Logged In from Single IP": 52d085dd-b9dd-4216-8c4b-1d0f813f3aa6
+    "UBA : Repeat Unauthorized Access": 173957e1-3887-4295-bf9b-ab34387c62e3
+    "UBA : Subject_CN and Username Map Update": 9348761c-a85f-43ca-bdb8-4c5511f13066
+    "UBA : Subject_CN and Username Mapping": 19e4af4c-588b-4d3b-9fb5-3c291bfc312b
+    "UBA : Terminated User Activity": 19c24abb-5109-4273-a737-88fc25ee9eb6
+    "UBA : User Access from Multiple Hosts": 820d697e-fc89-479f-ad58-31c3b15fc60e
+    "UBA : VPN Access By Service or Machine Account": 4ba4b96c-fac4-4f7f-93c0-a34250352716
+    "UBA : VPN Certificate Sharing": 7dedde69-4330-4ee0-bd88-ac06d4178436
+    "UBA : Windows Access with Service or Machine Account": 29896c20-b6d1-40c5-abcb-663506a6873f
+    "UEBA : Bruteforce Authentication Attempts": a7445ea9-88eb-4d0d-b8b3-f8bf2032cb26
+    "UEBA : Critical Systems Users Seen Update": 83beb577-a03a-471a-9a3a-ce7312de4135
+    "UEBA : Detected Activity from a Locked Machine": 25ea2626-1fdd-4aee-a962-016792758ec3
+    "UEBA : Executive only asset accessed by non-executive user from external network": 621a7865-f862-40e1-abcf-9618058aa694
+    "UEBA : Executive only asset accessed by non-executive user from internal network": d6b1685c-2be2-4f11-8b7a-70581dbf3ad5
+    "UEBA : First Access to Critical Assets": 0e27f762-bdf6-4cc4-b542-4b59cd33020f
+    "UEBA : High Risk User Access to Critical Asset": 02d032e4-3669-42be-aeec-73e858dcfa83
+    "UEBA : Large number of denied access events towards external domain": 9c79abee-e8d8-4db1-9b6e-f81691b29551
+    "UEBA : Multiple VPN Accounts Failed Login from Single IP": 4cc0499a-5b28-4a58-8a89-7453e56e4810
+    "UEBA : Multiple VPN Accounts Logged In from Single IP": 9a6de816-e4b1-43f0-af05-d09bb9cf1615
+    "UEBA : Populate Multiple VPN Accounts Failed Login from Single IP": 3e2a3b98-c0c2-4e47-a20a-7210230901ea
+    "UEBA : Remote access hole in corporate firewall": 466f2d9d-76f8-4a9f-bf82-d183ef91dd9d
+    "UEBA : UNIX/Linux System Accessed With Service or Machine Account": 5d79b55d-b4b0-4196-8404-f4714427d18b
+    "UEBA : Unauthorized Access": 9c1c3036-1dcb-4972-88cd-fba31c440a82
+    "UEBA : User Access - Failed Access to Critical Assets": 09349955-1776-4545-bdc4-8aeee6bfb0f7
+    "UEBA : User Access at Unusual Times": 90fd4769-6bb5-4534-b233-e4b0503eaf3e
+    "UEBA : User Access to Internal Server from Jump Server": 8743da1f-6cff-48be-8b55-f78ce0e41bda
+    "UEBA : User Accessing Account from Anonymous Source": 52dca274-5833-42af-9c5d-00b7369106ba
+  "User Behavior Analytics Accounts and Privileges Content 5.1.0":
+    "BB:UBA : Authentication User or Group or Policy Added": 84fc557e-f26e-47a2-86da-e80927528a60
+    "BB:UBA : Authentication User or Group or Policy Changed": c5d4f530-15f3-4202-8bd8-e452303538bc
+    "BB:UBA : Disabled Accounts (Kerberos)": 394fdb44-4a42-49da-8ff0-8ea7ea8eaf71
+    "BB:UBA : Expired Accounts (Kerberos)": 35440839-fa5f-4ee8-85a2-65d759865c44
+    "BB:UBA : Privileged Activity": ea27230a-2ab3-48b0-a512-c27311e8c66e
+    "BB:UBA : Privileged User, First Time Privilege Use (logic)": 2e836902-1398-415a-90af-f164032cd208
+    "BB:UBA : User Account Created": ef826f3a-4acb-46a6-8829-1fb3c4671eeb
+    "BB:UBA : User Account Deleted": a17e7f35-1d6a-426e-87f4-6de55f6502ca
+    "BB:VMware: User Account, Role and Permission Created Activity": 88a260e2-74a4-463b-aaab-f3659991b4ef
+    "BB:VMware: User Account, Role and Permission Removal Activity": de9666ec-3c73-4527-b401-2dd38a038930
+    "BB:VMware: User Account, Role and Permission Updated Activity": f147d837-a095-4a5f-be3d-7a646600f166
+    "UBA : Account or Group or Privileges Added": 069ef417-aaae-4442-83eb-989f8c94dacf
+    "UBA : DoS Attack by Account Deletion": 424d4cdb-1cd9-4e94-b5b4-6d87491a2648
+    "UBA : New Account Use Detected": 4e825ded-329f-4a41-a576-2eada9005a2f
+    "UBA : Recent User Activity Update (privileged)": 1225bfc5-8272-4355-8cc3-90ca1e7d2fe0
+    "UBA : Username to User Accounts, Privileged, Observed": ef5fe30c-90e7-4069-9c6f-87b78a4e56f7
+    "UEBA : Account or Group or Privileges Modified": 8927074a-581f-41ae-93b0-3ea054bdca50
+    "UEBA : Dormant Account Use Attempted": 35729450-d697-4789-a805-4869af580eca
+    "UEBA : Dormant Account Used": 08787241-c480-48ce-9f2a-295977435977
+    "UEBA : Expired Account Used": 139772e4-9ecb-4e96-8f7b-2cb8fe28887c
+    "UEBA : First Privilege Escalation": 94b5576c-9bf8-4ccc-9eae-cf2c87bd422b
+    "UEBA : Suspicious Privileged Activity (First Observed Privilege Use)": 9e46149e-fc43-4262-8a55-3db33f1c10a0
+    "UEBA : Suspicious Privileged Activity (Rarely Used Privilege)": e9726a50-9352-4eaf-ad6a-bc8eecc40c9a
+    "UEBA : User Account Created and Deleted in a Short Period of Time": fa609090-598b-4058-9a3e-daed5d574320
+    "UEBA : User Attempt to Use Disabled Account": 09d27d0d-b159-41a6-93a0-97d11d75db56
+    "UEBA : User Attempt to Use a Suspended Account": 3f0d006c-74ee-47de-bcff-46240e982345
+  "User Behavior Analytics Browsing Behavior Content 5.1.0":
+    "BB:UBA : URL Category Filter": bb5c167e-584c-4c1b-99f5-7f987026d28b
+    "UBA : Browsed to Business/Service Website": 817bc501-efaf-43b9-8027-c96cef117076
+    "UBA : Browsed to Communications Website": 6211ae91-2517-43b2-8171-b196c5de30e6
+    "UBA : Browsed to Education Website": 1a987732-a4c7-4663-8602-d74e183c35ba
+    "UBA : Browsed to Entertainment Website": 06ba2b99-6997-464f-b1ee-1a48d1de3673
+    "UBA : Browsed to Government Website": 8ab7903e-56f6-4b21-8453-0e8de6551e22
+    "UBA : Browsed to Information Technology Website": 803380f8-0c94-4202-adde-d1c3d175d804
+    "UBA : Browsed to Job Search Website": e8bfe413-9726-4a5e-88c6-49280e1417d2
+    "UBA : Browsed to Malicious Website": 22a95fda-b76a-488d-adc6-10cf2ac60821
+    "UBA : Browsed to Mixed Content/Potentially Adult Website": 8a68eca1-6c92-4d42-8f84-bc77336ff51a
+    "UBA : Browsed to Phishing Website": c9d01cfb-9b0d-4f38-a835-aff3847c3d49
+    "UBA : Browsed to Religious Website": 9dc6283b-5a6f-483d-8b9c-a9b509f9996b
+    "UBA : Browsed to Scam/Questionable/Illegal Website": eb59a2ad-864c-4978-8635-491123aca19a
+    "UBA : Browsed to Social Networking Website": d399a8a9-e12c-4cce-9045-1c9d0c92ed22
+    "UBA : User Accessing Risky URL": 7e5c136a-f68d-4b18-83c6-12e509c5b311
+    "UEBA : Browsed to Gambling Website": a4f4f8fb-7bd9-4a42-8775-9f67bac55229
+    "UEBA : Browsed to LifeStyle Website": fdd7b1c6-02da-43b9-b582-011a1b80af2b
+    "UEBA : Browsed to Pornography Website": 0f34a730-1f1d-4a56-b3f2-3f9e9749a198
+    "UEBA : Browsed to Uncategorized Website": e72c4b95-90b0-41eb-9545-da431268781c
+    "X-Force Risky URL": 45c9503c-9a97-4de5-85cc-705adfd9b65a
+  "User Behavior Analytics Cloud Content 5.1.0":
+    "BB:UBA : Add Mailbox Permission Succeeded": d69fda0c-1608-497d-8866-e19f42b5c26c
+    "BB:UBA : Mailbox Login Success": 0d8e19bb-e162-468a-b752-2a61a139e0cc
+    "BB:UBA : Multiple Mailbox Login Failed in a Short Period of Time": a6576d1c-c75d-4fa3-8110-bead4002ee75
+    "BB:UBA : Remove Mailbox Permission Succeeded": 9d30d366-5550-4fa2-9865-c92c90a8a241
+    "UBA : AWS Console Accessed by Unauthorized User": d42e7e8d-1de1-4855-a623-58a0d1684651
+    "UBA : External User Failed Mailbox Login": 3eb1a508-ed2f-4d11-ad89-e10640e13b88
+    "UBA : Failed to Set Mailbox Audit Logging Bypass": a3c7ab5c-639c-41ea-beec-9396bafa5062
+    "UBA : Internal User Failed Mailbox Login Followed by Success": 575bd52f-2a1d-4190-bee4-0296882f1476
+    "UBA : Mailbox Permission Added and Deleted in a Short Period of Time": ff3fb68e-5540-455a-b4d8-4007cf0cecf0
+    "UBA : Non-Standard User Accessing AWS Resources": 7f6d58f6-c80e-4869-bd53-f39c20bc5012
+    "UBA : Sharing Link Sent to Guest": b27026c9-f011-4d1f-9799-e17f435d0da8
+    "UBA : Sharing Policy Changed or Shared External (SharePoint/OneDrive)": 901f76bf-36b7-4cfb-a274-685f5d463ba0
+    "UBA : User Added to a Group on SharePoint or OneDrive by Site Admin": ae53db2d-09ea-4ed3-9246-83a7394edfc7
+    "UBA : User Failed to be Added to Role": b6baea2a-e50c-48b8-8e8e-9048e7912609
+    "UEBA : Anonymous User Accessed a Resource": 2200203d-5526-453a-9aaa-cad467f6722f
+    "UEBA : Inbox Set to Forward to External Inbox": 75d2fd36-f7f3-4ba0-84c1-b654e1559ebe
+  "User Behavior Analytics DNS Analyzer Content 3.8.0":
+    "BB:UBA : DNS Common Filter": 1d0dd7d8-bb01-47f4-bfd1-0a558beca882
+    "UBA : Potential Access to Blocklist Domain": 7de9119e-731e-4744-b45b-0a13bf97174d
+    "UBA : Potential Access to DGA Domain": 6ea2c3e1-e757-48b6-b5d0-733543999a9d
+    "UBA : Potential Access to Squatting Domain": fd1c6c92-33ee-4c7d-a775-867d13756e14
+    "UBA : Potential Access to Tunneling Domain": d2978678-9d64-4cb4-97b0-5d3e5b350428
+  "User Behavior Analytics Domain Controller Content 5.1.0":
+    "BB:UBA : Kerberos Authentication Failures": e6240535-3b5b-43b7-b54d-72d783ee2561
+    "BB:UBA : TGT PAC Forgery Patched Server": a3971a53-4ad9-4761-9c31-5c1116c0d296
+    "BB:UBA : TGT PAC Forgery Unpatched Server": 5e6b6e33-5620-49f4-a3f4-a514cca10a33
+    "UBA : DPAPI Backup Master Key Recovery Attempted": 5e1495f0-4725-43e0-bdfd-cf765b143fe8
+    "UBA : Kerberos Account Mapping": d9d1afd9-112f-4225-97fb-6e5dce13f98b
+    "UBA : Multiple Kerberos Authentication Failures from Same User": 53e0f8fd-a766-4b5a-923d-4239bdee3544
+    "UBA : Non-Admin Access to Domain Controller": 4f29c6bc-54d3-4bf5-b160-a52124432005
+    "UBA : Pass the Hash": b3b0e94a-a3b5-4230-b4e0-f559b08b834f
+    "UBA : Possible Directory Services Enumeration": 632d920a-93bc-45e1-b167-2dac76889447
+    "UBA : Possible SMB Session Enumeration on a Domain Controller": d6905448-7592-49a5-bebd-dc90173df610
+    "UBA : Possible TGT Forgery": de2c6138-8a12-42d0-9e06-4a22a264090e
+    "UBA : Possible TGT PAC Forgery": 8ab43be4-8868-4425-9a9a-f7da0eca47ea
+    "UBA : Replication Request from a Non-Domain Controller": fa41bbc6-e7b5-4aaa-8491-107ccc03a637
+    "UEBA : Kerberos Account Enumeration Detected": 1126c35c-540c-4e5b-ac40-cc7079a59684
+    "UEBA : TGT Ticket Used by Multiple Hosts": 3753ef9f-4c9e-4f54-a32c-ebfac6040f9e
+  "User Behavior Analytics Endpoint Content 5.1.0":
+    "BB:PortDefinition: BGP Ports": 031f08f5-f26c-49ce-a933-664b01328ca5
+    "BB:PortDefinition: FTP OverTSL/SSL Ports": f7d13a6f-cd8b-438b-8351-87ae5eb76374
+    "BB:PortDefinition: TFTP Ports": 83987bc1-4a4e-46e3-9ad2-f9a128eff270
+    "BB:PortDefinition: Telnet Ports": f80ed253-1b07-4cb1-9ac8-6df3d8a3a70e
+    "BB:UBA : Application or Service Installed": bdb7814a-60d8-41b5-94e6-4235d6ca6aee
+    "BB:UBA : Insecure Ports": c853d370-7b32-4167-ab33-06f3f71ffa1e
+    "BB:UBA : SSH Session Closed": 946559d7-07a0-4bb7-a89b-129332e27256
+    "BB:UBA : SSH Session Opened": f3635a23-629e-4d27-a5f2-278e991ff40e
+    "UBA : Internet Settings Modified": a8b574ea-63eb-4484-8b9e-36c64692d5ed
+    "UBA : Malware Activity - Registry Modified In Bulk": 22c102ce-f9bd-4ffd-8ed9-16d3b2622521
+    "UBA : Netcat Process Detection (Linux)": fcc0adbb-bbc3-4ec0-93af-38a1841e719e
+    "UBA : Netcat Process Detection (Windows)": cf677d8c-9e16-4dda-a7c6-9c555b60fdfe
+    "UBA : Populate Authorized Applications": 450eb89b-af3f-463a-a531-212a8f038919
+    "UBA : Process Executed Outside Gold Disk Allowlist(Linux)": 7ba889da-28de-4445-b97b-0bb522cdd4f9
+    "UBA : Process Executed Outside Gold Disk Allowlist(Windows)": 7081c34d-7564-4dee-9222-70c62521f60b
+    "UBA : User Installing Suspicious Application": 24b8afa5-7748-45e9-82e8-641968e4b183
+    "UBA : Volume Shadow Copy Created": 49fb94ee-5caf-499a-843e-7a96b22360d8
+    "UEBA : Detect Insecure Or Non-Standard Protocol": 8b94418d-54f9-40dd-ae3c-81d1f20f063d
+    "UEBA : Detect Persistent SSH session": f626ca0a-a5f6-4b14-806e-557e5b178a71
+    "UEBA : Ransomware Behavior Detected": 414254ef-9678-4060-a87e-73db8bdcd732
+    "UEBA : Restricted Program Usage": 9a065b9e-314e-4dbf-ac58-5e296d4c0ecd
+  "User Behavior Analytics Exfiltration Content 5.0.0":
+    "BB:UBA : Blocked File Transfer": a698202a-7ff2-451a-bd32-ed2dbc722dd8
+    "BB:UBA : Compromised Account - Execution": adf601c5-b563-4a34-8818-ae43b7eee8c5
+    "BB:UBA : Compromised Account - Exfiltration": 2d7183f2-339c-4826-a10a-ef6d374510e0
+    "BB:UBA : Compromised Account - Initial Access": 989cb025-0928-4a85-9ab9-2e340035a9a1
+    "BB:UBA : Data Exfiltration": fc0172fa-78d4-4a9d-b747-5f1cca72cff1
+    "BB:UBA : Data Loss Categories": 0ae61ead-1646-4cbe-ab8e-f4d61afa3d38
+    "BB:UBA : Data Loss Devices": 0bfc4895-8ea8-442e-8a5c-bb0f56d8cf12
+    "BB:UBA : Data Loss Events": f38934fd-a05c-40ec-8b99-25162c78eef8
+    "BB:UBA : File Transfer to CD": 12567cb0-ef0d-44d7-a8a3-302238e1a53e
+    "BB:UBA : File Transfer to Cloud services": e54a0b13-631d-41ea-b814-e661c847d246
+    "BB:UBA : File Transfer to Print": b336cfa0-5111-4d7a-b57d-abdcf05ce5fe
+    "BB:UBA : File Transfer to USB": b82e7abf-6c19-4795-afe7-94e470636beb
+    "BB:UBA : Multiple Blocked File Uploads": 0fb19a99-f328-4cbf-b38f-01c9ccdd2bf1
+    "BB:UBA : Successful File Transfer": b0ae736a-2d80-4e87-a957-a59f60a9f3b5
+    "BB:UBA : Successful File Upload": 7b851b26-adfb-42f8-bbe8-1bea35824211
+    "UEBA : Data Exfiltration by Cloud Services": b5aad029-7558-43fa-978b-682bf0ec0456
+    "UEBA : Data Exfiltration by Print": 4c880a7e-e373-4dae-b900-123357a12953
+    "UEBA : Data Exfiltration by Removable Media": 55459a17-c082-448c-bbd2-523e1e503993
+    "UEBA : Data Loss Possible": a730cca3-9200-4eee-aa23-f54a42b39c17
+    "UEBA : Initial Access Followed by Suspicious Activity": a52dab00-45f6-40a4-a349-157e60a6304a
+    "UEBA : Large Outbound Transfer by High Risk User": ea3e15b4-95c8-4e08-a726-5c0b324a9711
+    "UEBA : Multiple Blocked File Transfers Followed by a File Transfer": 00345c9e-2da3-40a0-ae21-eb5dbfdc6e2c
+    "UEBA : Multiple blocked file uploads followed by a successful upload": 8696e4d2-9c6c-45da-a9f7-2c2b700eb957
+    "UEBA : Potentially Compromised Account": ab79000b-c83b-421f-9a65-8d888f3ff477
+    "UEBA : Suspicious Access Followed by Data Exfiltration": 58d07018-14df-40bc-b20c-ac92aea382cf
+    "UEBA : Suspicious Activity Followed by Exfiltration": 6730ed76-c04c-4193-9b3b-157d8b697d1d
+    "UEBA : User Potentially Phished": ef9d8ab7-5ee9-44a1-beaa-3ca9ff9e8300
+  "User Behavior Analytics Geography Content 5.1.0":
+    "BB:UBA : Cloud Endpoints": eaab6c66-5e92-4bbd-88cf-055f45c50e31
+    "BB:UBA : Excluded Geographic Locations": 5ee6fcf9-2c17-4c59-8797-533542c06992
+    "BB:UBA : Unusual Source Locations": b0cb9a75-185f-44e2-8877-1aaf1aafc72e
+    "UBA : Anomalous Account Created From New Location": 71a7e38f-9f0e-41a7-8b22-09b6465bb1a7
+    "UBA : Anomalous Cloud Account Created From New Location": d4d4f824-8e36-4375-8c74-bce00d838923
+    "UBA : User Access from Multiple Locations": 9cafdd9d-72a4-4d23-9a53-0273cbccfcd0
+    "UBA : User Access from Unusual Locations": ae5e3db1-a8fa-4e01-8bde-2619fd49cef8
+    "UBA : User Geography Map": 9c9e9cd7-a797-413f-9bb4-278409844293
+    "UEBA : User Access from Prohibited Location": 013863bb-b98c-48f4-a011-7f0ef803cf67
+    "UEBA : User Access from Restricted Location": 89ee68bc-a2cc-45b9-9b08-0361e0a58b50
+    "UEBA : User Geography Change": 06bd0239-ae61-4846-8685-6f48bbe760db
+  "User Behavior Analytics MaaS360 Security Content 4.1.2":
+    "UBA : MaaS360 URL access blocked": c91467d8-5025-4aaf-aaa3-2af22be851fb
+    "UBA : MaaS360 detected device with low encryption level": 96c0c23c-1ad9-4863-b0e4-bb9a5c1340c0
+    "UBA : MaaS360 device out of compliance due to OS version": a360b938-2efb-4688-bba2-ff0681b262f0
+    "UBA : MaaS360 device out of compliance due to device being rooted": 15a30ab4-4ec7-448f-b0d7-ef0171ed7175
+    "UBA : MaaS360 device out of compliance due to encryption level": 8d4f5b6c-a10d-49c6-bb00-e504327b0088
+    "UBA : MaaS360 device out of compliance due to non-roaming data usage": dca938f3-5d6b-4cfe-a823-941fb8e5ada2
+    "UBA : MaaS360 malicious SMS received": a89323ba-12ca-4a8b-8873-fd4068f2325d
+    "UBA : MaaS360 malicious URL accessed": d2aa01bb-cf3c-4720-b580-761bc63ed858
+    "UBA : MaaS360 malicious email received": a200d382-4f0f-47fb-8ef0-16887187dc85
+    "UBA : MaaS360 malware application installed": 9b229567-c3dd-4931-ac0f-470793bdb208
+  "User Behavior Analytics Network Traffic and Attacks Content 5.1.0":
+    "UBA : Network Traffic : Capture Monitoring and Analysis Program Usage": bf60ff4f-16e6-4f77-904b-4e4aea2b8d3f
+    "UBA : Potential Lateral Movement": f19b96cf-81dd-4fad-ab71-9cb9c2d2b70a
+    "UEBA : D/DoS Attack Detected": 97f323b2-7ac6-47b3-bcca-de9057a39d73
+    "UEBA : Honeytoken Activity": 55cef486-13f4-4c76-ab5c-b5b716eeb180
+  "User Behavior Analytics Threat Intelligence Content 5.1.0":
+    "BB:UBA : Detect Locky Using IP": a8ed072a-f9f2-49ec-83a0-a7029fc3f2f0
+    "BB:UBA : Detect Locky Using URL": f579d0d6-1e6a-4f5b-b840-9450e33c71ec
+    "BB:UBA : Detect WannaCry Using Hashes": 744d274f-88d6-4cb1-92c2-31f0be63ffb6
+    "BB:UBA : Detect WannaCry Using IP": eff4e017-280c-4112-a083-c9088d2031c0
+    "BB:UBA : Detect WannaCry Using URL": 73b878ec-5543-46e1-b5ed-fc52b0ab8d0e
+    "UBA : Detect IOCs For Locky": a4640527-0453-4fb8-be41-417a5b9fcb1e
+    "UBA : Multiple Sessions to Monitored Log Sources (NIS Directive)": 050a184e-fbae-489a-a457-346e6603cebf
+    "UBA : ShellBags Modified By Ransomware": 9e055bf7-6215-4cdd-8713-b4fae2d510c7
+    "UBA : User Accessing Risky IP Botnet": c2a687d1-fc37-4153-b7fc-4bc152d271e0
+    "UEBA : Detect IOCs for WannaCry": a44a3793-89bf-48ec-8a4a-af5edc180d02
+    "UEBA : User Accessing Risky IP Anonymization": 4ee42a67-7204-4997-988b-fbb83438ff9f
+    "UEBA : User Accessing Risky IP Dynamic": 55004f9b-2fdf-4ec8-bafc-a9e3340e30a7
+    "UEBA : User Accessing Risky IP Malware": a0865f81-85a2-46b7-8fcb-5243c7d8ded4
+    "UEBA : User Accessing Risky IP Spam": 4413d83e-66a9-430b-99a3-cc62f118ecc0
+    "X-Force Risky IP, Anonymization": a218c871-518b-42dc-bda9-a5d139338b23
+    "X-Force Risky IP, Botnet": ecfd5d63-ba5e-4852-941b-dd31970332f5
+    "X-Force Risky IP, Dynamic": 7e94a235-b873-4f0b-8016-3faa43600fe7
+    "X-Force Risky IP, Malware": d08bb1b9-6805-42d8-90b6-a66228b06c4e
+    "X-Force Risky IP, Spam": d38d36fe-73bf-4942-ab72-0c88f12c318d
+  "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0":
+    "BB:UBA : Common Event Filters": aefca8e3-0782-4321-98f0-1ee3497c7a80
+    "BB:UBA : Common Log Source Filters": c18f0605-67d5-4100-8710-885ca7a393f7
+    "UBA : Create Offense": 533c9470-e2ec-4726-b9c5-67585d50a7e1
+    "UEBA : Create Offense for Entity": 4ca3d5df-ca08-4862-ab19-f2339bd06ab2
+  # The RFISI Content Extension rules, now part of the Threat Intelligence app
+  # (https://www.ibm.com/docs/en/qradar-common?topic=extensions-rfisi).
+  "Threat Intelligence – QRadar 7.5.0 UP7+ 2.6.0":
+    "RFISI: Internal Communication with a Malware URL": 6e0232af-5010-4218-a799-ba35f333bda4
+    "RFISI: Internal Connection to Address Hosting Malware": a3ab7f1d-28e7-43b9-a993-8142d2e8287d
+    "RFISI: Internal Connection with Botnet Command and Control": 02f380c4-e578-4b50-bd10-0cda73a2114d
+    "RFISI: Internal Hosts Communicating with Anonymizer Host": 439f5140-2bc5-4ffa-87aa-16b3f64c2100
+    "RFISI: Mail Server Sending Mail to SPAM Servers": 5d79e870-f241-4a3d-915a-4c44666e139c
+    "RFISI: Phishing Email sent to Internal Mail Server": 71676643-bd19-4418-9960-ecee526198fa
+  "IBM QRadar SOAR Plugin 5.x Content Pack 1.0.0":
+    "OffenseClosed": 3aea0ea5-f9bf-4dd0-bd69-f1001d5bffe9
+    "OffenseCreated": 1e6c4a9e-4c30-43fd-b71b-49e0c1c6e3aa
+    "OffenseModified": bafd68b9-fe38-4433-8229-636df71da521
+  # Confirmed by the console owner; not checked against a UEBA 6.0.0 archive.
+  "User Entity Behavior Analytics 6.0.0":
+    "BB:UBA : Critical Service Ports": a1b2c3d4-0000-4000-8000-000000115002
+    "BB:UBA : Internal Lateral Movement Activity": a1b2c3d4-0000-4000-8000-000000101032
+    "BB:UBA : Lateral Movement Ports": a1b2c3d4-0000-4000-8000-000000115001
+    "BB:UBA : Outbound Connection to External IP": a1b2c3d4-0000-4000-8000-000000101031
+    "BB:UBA : Server Identification": a1b2c3d4-0000-4000-8000-000000115003
+    "EBA : Excessive Connection Attempts to High Risky Remote Access Ports": a1b2c3d4-0000-4000-8000-000000101029
+    "EBA : Host Infection Pattern": a1b2c3d4-0000-4000-8000-000000101034
+    "EBA : Multiple Hosts Communicating with Suspicious External IP": a1b2c3d4-0000-4000-8000-000000101035
+    "EBA : Potential Host Lateral Movement Detected": a1b2c3d4-0000-4000-8000-000000115000
+    "EBA : Potential Port Scanning Behavior Detected": a1b2c3d4-0000-4000-8000-000000120001
+    "EBA : Rare External Destination Access by Server": a1b2c3d4-0000-4000-8000-000000101030
+    "EBA : Web Device Using Lateral Movement Protocols": a1b2c3d4-0000-4000-8000-000000101038

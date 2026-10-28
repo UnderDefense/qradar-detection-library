@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: d90a9e8b-70cf-43ee-bede-ebfff2e99ad3
+name: FW - External External Scan
+description: |
+  The rule identifies inbound or transit reconnaissance activity by detecting scanning behavior in
+  Remote-to-Local and Remote-to-Remote traffic targeting multiple internal service categories.
+  It triggers when external or remote systems attempt to enumerate or scan services across a broad
+  range of server and application types, including Windows services, SMB, RPC, LDAP, SSH, FTP, mail
+  services, DNS, web services, database services, proxy services, SNMP, DHCP, instant messaging (IM),
+  IRC, P2P, gaming services, as well as ICMP, UDP-based activity, and uncommon or non-standard ports.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1595
+
+tests:
+  - group: network
+    type: context
+    contexts: [remote_to_local, remote_to_remote]
+  # Traffic the firewall did not let through.
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Action (custom)
+        operator: is_any_of
+        values: [deny, close]
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: Source IP
+        operator: is_any_of
+        values: [10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 127.0.0.1]
+  # Port scans on common services (UD scanner Building Blocks, without direction).
+  - group: function_simple
+    type: rule
+    match: any
+    rules:
+      - "BB:FW - Database Scanner"
+      - "BB:FW - DHCP Scanner"
+      - "BB:FW - DNS Scanner"
+      - "BB:FW - FTP Scanner"
+      - "BB:FW - IM Server Scanner"
+      - "BB:FW - IRC Server Scanner"
+      - "BB:FW - LDAP Server Scanner"
+      - "BB:FW - Mail Server Scanner"
+      - "BB:FW - P2P Server Scanner"
+      - "BB:FW - Proxy Server Scanner"
+      - "BB:FW - RPC Server Scanner"
+      - "BB:FW - SNMP Scanner"
+      - "BB:FW - SSH Server Scanner"
+      - "BB:FW - Uncommon Port Scanner"
+      - "BB:FW - Web Server Scanner"
+      - "BB:FW - Windows Server Scanner"
+  - group: function_counter
+    type: same_properties
+    count: 20
+    properties: [Destination IP]
+    within: 60
+    unit: minutes
+
+action:
+  severity: { set: 2 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - External External Scan
+
+response:
+  new_event:
+    name: FW - External External Scan
+    description: >-
+      The rule identifies inbound or transit reconnaissance activity by detecting scanning behavior in
+      Remote-to-Local and Remote-to-Remote traffic targeting multiple internal service categories.
+      It triggers when external or remote systems attempt to enumerate or scan services across a broad
+      range of server and application types, including Windows services, SMB, RPC, LDAP, SSH, FTP, mail
+      services, DNS, web services, database services, proxy services, SNMP, DHCP, instant messaging (IM),
+      IRC, P2P, gaming services, as well as ICMP, UDP-based activity, and uncommon or non-standard ports.
+    severity: 2
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Darknet Address
+    annotate: FW - External External Scan
+    offense:
+      index_on: Source IP
+      new_offense: true

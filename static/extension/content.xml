@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+	<qradarversion>{qradar_version}</qradarversion>
+	<fgroup_type>
+		<name>rule</name>
+		<description>rule</description>
+		<id>3</id>
+		<class_name>com.q1labs.core.shared.group.RuleGroupFactory</class_name>
+	</fgroup_type>
+{fgroups}
+{offense_types}
+{reference_data}
+{qids}
+{custom_rules}
+</content>

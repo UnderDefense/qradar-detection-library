@@ -1,0 +1,499 @@
+# QRadar IDs and keys the extension builder needs, by the names the rules use.
+# Only values that are the same on every QRadar console belong here. Sources:
+#   log_source_types      GET /api/config/event_sources/log_source_management/log_source_types
+#   low_level_categories  GET /api/data_classification/low_level_categories  (key: "High / Low")
+#   everything else       IBM content extensions (Endpoint 3.1.0 and 3.3.0, Hybrid Cloud 2.3.2, Sysmon 1.3.2,
+#                         Threat 3.1.0, Recon 1.0.3, Network Anomaly 1.1.1, Email 1.2.2,
+#                         Container 1.1.4, Cryptomining 1.1.1, Data Exfiltration 1.0.5,
+#                         Baseline Maintenance 1.1.0 and 2.2.6, Turla 1.1.1, Network Insights 1.6.0,
+#                         Self Monitoring 2.2.2, GPG13 1.1.0, ISO 27001 1.1.4, UBA 5.0.1 and 5.1.0
+#                         with its 12 bundled content packs, Threat Intelligence app 2.6.0,
+#                         SOAR Plugin 5.x Content Pack 1.0.0), the console's system rules and
+#                         Use Case Manager exports
+log_source_types:
+  Fortinet FortiGate Security Gateway: 73
+  Microsoft Entra ID: 445
+  Microsoft Office 365: 397
+  Microsoft Windows Security Event Log: 12
+
+low_level_categories:
+  Access / Access Denied: 4015
+  Access / Access Permitted: 4014
+  Access / Firewall Permit: 4002
+  Audit / Command Execution Success: 19250
+  Audit / Object Access Success: 19081
+  Authentication / Group Member Added: 3036
+  Authentication / User Account Changed: 3032
+  Authentication / User Login Failure: 3116
+  Authentication / User Right Assigned: 3023
+  Authentication / Web Service Login Succeeded: 3012
+  Exploit / Password Guess/Retrieve: 5014
+  Malware / Malware Infection: 6018
+  Malware / Unknown Malware: 6001
+  Recon / Host Port Scan: 1008
+  Recon / TCP Reconnaissance: 1020
+  Suspicious Activity / Darknet Address: 7060
+  Suspicious Activity / Misc Suspicious Event: 7023
+  Suspicious Activity / Potential RPC Vulnerability: 7040
+  Suspicious Activity / Potential SMB Vulnerability: 7030
+  Suspicious Activity / Potential SNMP Vulnerability: 7042
+  Suspicious Activity / Suspicious Activity: 7006
+  Suspicious Activity / Suspicious Windows Events: 7036
+  Suspicious Activity / Suspicious Packet: 7005
+  Suspicious Activity / Unknown Evasion Event: 7011
+  Suspicious Activity / Web Protocol Anomaly: 7020
+  System / Privilege Access: 8059
+  System / Process Creation Attempt: 8112
+  System / Process Creation Success: 8110
+  System / System Configuration: 8003
+  System / Task Creation Attempt: 8108
+  System / Task Creation Success: 8106
+
+# Offense types travel inside the extension. Import matches a custom one by property_name
+# (the custom property identifier) and maps `id` to the console's own offense type.
+# A rule limiter "per <name>" uses the same entry: its hostType is limiter_string.
+offense_types:
+  Source IP:
+    {id: 0, database: common, legacy: true, nva_name: by-attacker, custom: false, name: BY_ATTACKER,
+     limiter_string: ATTACKER, default_label: Source IP, property_name: sourceIP}
+  Destination IP:
+    {id: 1, database: common, legacy: true, nva_name: by-target, custom: false, name: BY_TARGET,
+     limiter_string: TARGET, default_label: Destination IP, property_name: destinationIP}
+  Username:
+    {id: 3, database: events, legacy: true, nva_name: by-username, custom: false, name: BY_USERNAME,
+     limiter_string: BY_USERNAME, default_label: Username, property_name: userName}
+  Rule:
+    {id: 14, database: common, legacy: true, nva_name: by-rule, custom: false, name: BY_RULE,
+     limiter_string: ALL, default_label: Rule, property_name: partialOrMatchList}
+  Machine Identifier (custom):
+    {id: 51, database: events, legacy: false, nva_name: by-machine-id, custom: true, name: BY_REG_MACHINE_ID,
+     limiter_string: MACHINEIDENTIFIER, default_label: Machine Identifier,
+     property_name: 002a5618-8f44-41bc-b5aa-bc02153a7d84}
+
+
+# Keys of standard (not "(custom)") properties. A custom property is referenced by its name
+# without " (custom)". event_fields keys (UISemServices.getEventDatabaseFields) serve counters,
+# regex and reference set tests and responses. Search filters use the same keys: every key seen
+# in a search filter so far (userName, destinationIP, destinationPort, qidEventId,
+# qidEventCategory, qidNumber, sourceGeographic, sourceIP, qid) is also an event field.
+# Keys marked "search filter key" below are known only from search filter use.
+properties:
+  search_filter:
+    Destination IP: destinationIP
+    Destination Port: destinationPort
+    Event Category: qidEventCategory
+    Event ID: qidEventId
+    # Values are QID numbers, which can be custom and differ per console: in the library,
+    # match by name with an AQL test, QIDNAME(qid) IN ('...'), instead.
+    Event Name: qid
+    Payload Contains: payloadContains
+    Payload Matches Regular Expression: payloadMatches
+    Protocol: protocol
+    QID Number: qidNumber
+    Source Geographic Country/Region: sourceGeographic
+    Source IP: sourceIP
+    Source IPv6: sourcev6
+    Source Port: sourcePort
+    Username: userName
+  event_fields:
+    Destination IP: destinationIP
+    Destination Port: destinationPort
+    Event Category: qidEventCategory
+    Event ID: qidEventId
+    Event Name: qid
+    QID Number: qidNumber
+    Source Geographic Country/Region: sourceGeographic
+    Source IP: sourceIP
+    Source IPv6: sourcev6  # search filter key
+    Source Port: sourcePort  # search filter key
+    Source or Destination IP: sourceOrDestinationIPColumn
+    Username: userName
+
+# Reference set element_type by the type suffix the Rule Wizard shows: "<name> - <type>".
+# The code is the position in the console's Type list; 0, 2, 3, 4 and 6 are also seen in exports.
+reference_set_types:
+  AlphaNumeric: 0
+  Numeric: 1
+  IP: 2
+  Port: 3
+  AlphaNumeric (Ignore Case): 4
+  Date: 5
+  CIDR: 6
+
+# Reference set type in add/remove responses, by the same suffix.
+reference_set_response_types:
+  AlphaNumeric: ALN
+  IP: IP
+  AlphaNumeric (Ignore Case): ALNIC
+  CIDR: CIDR
+
+# Rules of IBM content extensions: static/qradar-extension-rules.yml
+
+# Rules and Building Blocks that ship with QRadar, by name. Their UUIDs (SYSTEM-nnnn) are the
+# same on every console. From the console's system rules (origin SYSTEM) export.
+system_rules:
+  "All Exploits Become Offenses": SYSTEM-1238
+  "Anomaly: Excessive Firewall Accepts Across Multiple Hosts": SYSTEM-1219
+  "AssetExclusion: Exclude DNS Name By IP": SYSTEM-1610
+  "AssetExclusion: Exclude DNS Name By MAC Address": SYSTEM-1611
+  "AssetExclusion: Exclude DNS Name By NetBIOS Name": SYSTEM-1612
+  "AssetExclusion: Exclude IP By DNS Name": SYSTEM-1607
+  "AssetExclusion: Exclude IP By MAC Address": SYSTEM-1609
+  "AssetExclusion: Exclude IP By NetBIOS Name": SYSTEM-1608
+  "AssetExclusion: Exclude MAC Address By DNS Name": SYSTEM-1617
+  "AssetExclusion: Exclude MAC Address By IP": SYSTEM-1616
+  "AssetExclusion: Exclude MAC Address By NetBIOS Name": SYSTEM-1618
+  "AssetExclusion: Exclude NetBIOS Name By DNS Name": SYSTEM-1614
+  "AssetExclusion: Exclude NetBIOS Name By IP": SYSTEM-1613
+  "AssetExclusion: Exclude NetBIOS Name By MAC Address": SYSTEM-1615
+  "Attack followed by Attack Response": SYSTEM-1458
+  "Auditing Services Changed on Compliance Host": SYSTEM-1564
+  "BB:BehaviorDefinition: Compromise Activities": SYSTEM-1325
+  "BB:BehaviorDefinition: Post Compromise Activities": SYSTEM-1451
+  "BB:BehaviorDefinition: Remote Desktop Access from a Remote Host": SYSTEM-1055
+  "BB:BehaviorDefinition: VNC Activity from a Remote Host": SYSTEM-1056
+  "BB:CategoryDefinition: Any Flow": SYSTEM-1473
+  "BB:CategoryDefinition: Application or Service Installed or Modified": SYSTEM-1565
+  "BB:CategoryDefinition: Auditing Changed": SYSTEM-1563
+  "BB:CategoryDefinition: Authentication Failures": SYSTEM-1201
+  "BB:CategoryDefinition: Authentication Success": SYSTEM-1220
+  "BB:CategoryDefinition: Authentication User or Group Added or Changed": SYSTEM-1309
+  "BB:CategoryDefinition: Authentication to Disabled Account": SYSTEM-1286
+  "BB:CategoryDefinition: Authentication to Expired Account": SYSTEM-1351
+  "BB:CategoryDefinition: Countries/Regions with no Remote Access": SYSTEM-1270
+  "BB:CategoryDefinition: DDoS Attack Events": SYSTEM-1303
+  "BB:CategoryDefinition: Database Access Denied": SYSTEM-1449
+  "BB:CategoryDefinition: Exploits Backdoors and Trojans": SYSTEM-1204
+  "BB:CategoryDefinition: Firewall or ACL Accept": SYSTEM-1208
+  "BB:CategoryDefinition: Firewall or ACL Denies": SYSTEM-1217
+  "BB:CategoryDefinition: High Magnitude Events": SYSTEM-1272
+  "BB:CategoryDefinition: IRC Detected Based on Application": SYSTEM-1474
+  "BB:CategoryDefinition: IRC Detected Based on Event Category": SYSTEM-1475
+  "BB:CategoryDefinition: IRC Detection Based on Firewall Events": SYSTEM-1541
+  "BB:CategoryDefinition: Key Loggers": SYSTEM-1305
+  "BB:CategoryDefinition: Logout Events": SYSTEM-1600
+  "BB:CategoryDefinition: Mail Policy Violation": SYSTEM-1236
+  "BB:CategoryDefinition: Malware Annoyances": SYSTEM-1241
+  "BB:CategoryDefinition: Network DoS Attack": SYSTEM-1289
+  "BB:CategoryDefinition: Post DMZ Jump": SYSTEM-1463
+  "BB:CategoryDefinition: Post Exploit Account Activity": SYSTEM-1297
+  "BB:CategoryDefinition: Pre DMZ Jump": SYSTEM-1462
+  "BB:CategoryDefinition: Pre Reverse DMZ Jump": SYSTEM-1465
+  "BB:CategoryDefinition: Privileged Escalation Failed": SYSTEM-1571
+  "BB:CategoryDefinition: Privileged Escalations": SYSTEM-1570
+  "BB:CategoryDefinition: Recon Event Categories": SYSTEM-1480
+  "BB:CategoryDefinition: Recon Events": SYSTEM-1202
+  "BB:CategoryDefinition: Recon Flows": SYSTEM-1479
+  "BB:CategoryDefinition: Reverse DMZ Jump": SYSTEM-1464
+  "BB:CategoryDefinition: Service DoS": SYSTEM-1235
+  "BB:CategoryDefinition: Service Started": SYSTEM-1537
+  "BB:CategoryDefinition: Successful Communication": SYSTEM-1472
+  "BB:CategoryDefinition: Successful Database Connections": SYSTEM-1425
+  "BB:CategoryDefinition: Superuser Accounts": SYSTEM-1554
+  "BB:CategoryDefinition: Suspicious Event Categories": SYSTEM-1478
+  "BB:CategoryDefinition: Suspicious Events": SYSTEM-1179
+  "BB:CategoryDefinition: Suspicious Flows": SYSTEM-1477
+  "BB:CategoryDefinition: System Configuration": SYSTEM-1313
+  "BB:CategoryDefinition: System Errors and Failures": SYSTEM-1211
+  "BB:CategoryDefinition: System or Device Configuration Change": SYSTEM-1561
+  "BB:CategoryDefinition: Unidirectional Flow": SYSTEM-1548
+  "BB:CategoryDefinition: Unidirectional Flow DST": SYSTEM-1547
+  "BB:CategoryDefinition: Unidirectional Flow SRC": SYSTEM-1546
+  "BB:CategoryDefinition: Virus Detected": SYSTEM-1312
+  "BB:CategoryDefinition: Windows Compliance Events": SYSTEM-1308
+  "BB:CategoryDefinition: Worm Events": SYSTEM-1234
+  "BB:ComplianceDefinition: GLBA Servers": SYSTEM-1261
+  "BB:ComplianceDefinition: HIPAA Servers": SYSTEM-1260
+  "BB:ComplianceDefinition: PCI DSS Servers": SYSTEM-1310
+  "BB:ComplianceDefinition: SOX Servers": SYSTEM-1258
+  "BB:Database: System Action Allow": SYSTEM-1299
+  "BB:Database: System Action Deny": SYSTEM-1437
+  "BB:Database: User Addition or Change": SYSTEM-1439
+  "BB:DeviceDefinition: Consumer Grade Routers": SYSTEM-1333
+  "BB:DeviceDefinition: Database": SYSTEM-1317
+  "BB:DeviceDefinition: Devices to Monitor for High Event Rates": SYSTEM-1300
+  "BB:DeviceDefinition: FW / Router / Switch": SYSTEM-1322
+  "BB:DeviceDefinition: IDS / IPS": SYSTEM-1321
+  "BB:DeviceDefinition: VPN": SYSTEM-1316
+  "BB:FalseNegative: Events That Indicate Successful Compromise": SYSTEM-1329
+  "BB:FalsePositive: All Default False Positive BBs": SYSTEM-1263
+  "BB:FalsePositive: Broadcast Address False Positive Categories": SYSTEM-1429
+  "BB:FalsePositive: DHCP Server False Positive Categories": SYSTEM-1370
+  "BB:FalsePositive: DHCP Server False Positive Events": SYSTEM-1392
+  "BB:FalsePositive: DNS Server False Positive Categories": SYSTEM-1354
+  "BB:FalsePositive: DNS Server False Positive Events": SYSTEM-1347
+  "BB:FalsePositive: Database Server False Positive Categories": SYSTEM-1394
+  "BB:FalsePositive: Database Server False Positive Events": SYSTEM-1393
+  "BB:FalsePositive: Device and Specific Event": SYSTEM-1348
+  "BB:FalsePositive: FTP Server False Positive Categories": SYSTEM-1390
+  "BB:FalsePositive: FTP Server False Positive Events": SYSTEM-1389
+  "BB:FalsePositive: Firewall Deny False Postive Events": SYSTEM-1311
+  "BB:FalsePositive: Global False Positive Events": SYSTEM-1205
+  "BB:FalsePositive: LDAP Server False Positive Categories": SYSTEM-1388
+  "BB:FalsePositive: LDAP Server False Positive Events": SYSTEM-1387
+  "BB:FalsePositive: Large Volume Local FW Events": SYSTEM-1334
+  "BB:FalsePositive: Local Source to Local Destination False Positives": SYSTEM-1223
+  "BB:FalsePositive: Local Source to Remote Destination False Positives": SYSTEM-1242
+  "BB:FalsePositive: Mail Server False Positive Categories": SYSTEM-1373
+  "BB:FalsePositive: Mail Server False Positive Events": SYSTEM-1386
+  "BB:FalsePositive: Network Management Server Recon": SYSTEM-1381
+  "BB:FalsePositive: Proxy Server False Positive Categories": SYSTEM-1385
+  "BB:FalsePositive: Proxy Server False Positive Events": SYSTEM-1350
+  "BB:FalsePositive: RPC Server False Positive Categories": SYSTEM-1384
+  "BB:FalsePositive: RPC Server False Positive Events": SYSTEM-1383
+  "BB:FalsePositive: Remote Source to Local Destination False Positives": SYSTEM-1243
+  "BB:FalsePositive: Reversed Flows": SYSTEM-1576
+  "BB:FalsePositive: SNMP Sender or Receiver False Positive Categories": SYSTEM-1368
+  "BB:FalsePositive: SNMP Sender or Receiver False Positive Events": SYSTEM-1382
+  "BB:FalsePositive: SSH Server False Positive Categories": SYSTEM-1380
+  "BB:FalsePositive: SSH Server False Positive Events": SYSTEM-1379
+  "BB:FalsePositive: Source IP and Specific Event": SYSTEM-1349
+  "BB:FalsePositive: Syslog Sender False Positive Categories": SYSTEM-1415
+  "BB:FalsePositive: Syslog Sender False Positive Events": SYSTEM-1417
+  "BB:FalsePositive: Virus Definition Update Categories": SYSTEM-1409
+  "BB:FalsePositive: Web Server False Positive Categories": SYSTEM-1378
+  "BB:FalsePositive: Web Server False Positive Events": SYSTEM-1327
+  "BB:FalsePositive: Windows AD Source Authentication Events": SYSTEM-1492
+  "BB:FalsePositive: Windows Server False Positive Categories Local": SYSTEM-1367
+  "BB:FalsePositive: Windows Server False Positive Events": SYSTEM-1203
+  "BB:Flowshape: Inbound Only": SYSTEM-1016
+  "BB:Flowshape: Outbound Only": SYSTEM-1017
+  "BB:HostDefinition: Consultant Assets": SYSTEM-1499
+  "BB:HostDefinition: DHCP Servers": SYSTEM-1369
+  "BB:HostDefinition: DMZ Assets": SYSTEM-1497
+  "BB:HostDefinition: DNS Servers": SYSTEM-1357
+  "BB:HostDefinition: Database Servers": SYSTEM-1374
+  "BB:HostDefinition: FTP Servers": SYSTEM-1391
+  "BB:HostDefinition: Host with Port Open": SYSTEM-1237
+  "BB:HostDefinition: LDAP Servers": SYSTEM-1375
+  "BB:HostDefinition: Local Assets": SYSTEM-1503
+  "BB:HostDefinition: Mail Servers": SYSTEM-1356
+  "BB:HostDefinition: MailServer Assets": SYSTEM-1504
+  "BB:HostDefinition: Network Management Servers": SYSTEM-1224
+  "BB:HostDefinition: Protected Assets": SYSTEM-1498
+  "BB:HostDefinition: Proxy Servers": SYSTEM-1222
+  "BB:HostDefinition: RPC Servers": SYSTEM-1376
+  "BB:HostDefinition: Regulatory Assets": SYSTEM-1500
+  "BB:HostDefinition: Remote Assets": SYSTEM-1502
+  "BB:HostDefinition: SNMP Sender or Receiver": SYSTEM-1366
+  "BB:HostDefinition: SSH Servers": SYSTEM-1377
+  "BB:HostDefinition: Servers": SYSTEM-1358
+  "BB:HostDefinition: Syslog Servers and Senders": SYSTEM-1416
+  "BB:HostDefinition: VA Scanner Source IP": SYSTEM-1151
+  "BB:HostDefinition: VPN Assets": SYSTEM-1501
+  "BB:HostDefinition: Virus Definition and Other Update Servers": SYSTEM-1251
+  "BB:HostDefinition: VoIP PBX Server": SYSTEM-1284
+  "BB:HostDefinition: Web Servers": SYSTEM-1277
+  "BB:HostDefinition: Windows Servers": SYSTEM-1216
+  "BB:NetworkDefinition: Broadcast Address Space": SYSTEM-1288
+  "BB:NetworkDefinition: DMZ Addresses": SYSTEM-1341
+  "BB:NetworkDefinition: Darknet Addresses": SYSTEM-1181
+  "BB:NetworkDefinition: Honeypot like Addresses": SYSTEM-1271
+  "BB:NetworkDefinition: NAT Address Range": SYSTEM-1244
+  "BB:NetworkDefinition: Server Networks": SYSTEM-1254
+  "BB:NetworkDefinition: Trusted Destination Network Segment": SYSTEM-1558
+  "BB:NetworkDefinition: Undefined IP Space": SYSTEM-1256
+  "BB:NetworkDefinition: Watch List Addresses": SYSTEM-1323
+  "BB:Policy Violation: Application Policy Violation: NNTP to Internet": SYSTEM-1066
+  "BB:Policy Violation: Compliance Policy Violation: Clear Text Application Usage": SYSTEM-1068
+  "BB:Policy Violation: IRC IM Policy Violation: IM Communications": SYSTEM-1061
+  "BB:Policy Violation: IRC IM Policy Violation: IRC Connection to Internet": SYSTEM-1063
+  "BB:Policy Violation: Mail Policy Violation: Outbound Mail Sender": SYSTEM-1059
+  "BB:PortDefinition: Authorized L2R Ports": SYSTEM-1328
+  "BB:PortDefinition: Common Worm Ports": SYSTEM-1326
+  "BB:PortDefinition: DHCP Ports": SYSTEM-1183
+  "BB:PortDefinition: DNS Ports": SYSTEM-1229
+  "BB:PortDefinition: Database Ports": SYSTEM-1226
+  "BB:PortDefinition: FTP Ports": SYSTEM-1227
+  "BB:PortDefinition: Game Server Ports": SYSTEM-1246
+  "BB:PortDefinition: IM Ports": SYSTEM-1249
+  "BB:PortDefinition: IRC Ports": SYSTEM-1233
+  "BB:PortDefinition: LDAP Ports": SYSTEM-1245
+  "BB:PortDefinition: Mail Ports": SYSTEM-1228
+  "BB:PortDefinition: P2P Ports": SYSTEM-1247
+  "BB:PortDefinition: Proxy Ports": SYSTEM-1250
+  "BB:PortDefinition: RPC Ports": SYSTEM-1230
+  "BB:PortDefinition: SNMP Ports": SYSTEM-1231
+  "BB:PortDefinition: SSH Ports": SYSTEM-1248
+  "BB:PortDefinition: Syslog Ports": SYSTEM-1273
+  "BB:PortDefinition: Web Ports": SYSTEM-1225
+  "BB:PortDefinition: Windows Ports": SYSTEM-1232
+  "BB:ProtocolDefinition: Windows Protocols": SYSTEM-1287
+  "BB:Suspicious: Local: Unidirectional UDP or Misc Flows": SYSTEM-1150
+  "BB:Suspicious: Remote: Unidirectional UDP or Misc Flows": SYSTEM-1139
+  "BB:Threats: DoS: Potential Multihost Attack": SYSTEM-1035
+  "BB:Threats: Port Scans: Host Scans": SYSTEM-1046
+  "BB:Threats: Port Scans: UDP Port Scan": SYSTEM-1070
+  "BB:Threats: Scanning: Empty Responsive Flows High": SYSTEM-1041
+  "BB:Threats: Scanning: Empty Responsive Flows Low": SYSTEM-1043
+  "BB:Threats: Scanning: Empty Responsive Flows Medium": SYSTEM-1044
+  "BB:Threats: Scanning: ICMP Scan High": SYSTEM-1036
+  "BB:Threats: Scanning: ICMP Scan Low": SYSTEM-1037
+  "BB:Threats: Scanning: ICMP Scan Medium": SYSTEM-1038
+  "BB:Threats: Scanning: Potential Scan": SYSTEM-1045
+  "BB:Threats: Scanning: Scan High": SYSTEM-1042
+  "BB:Threats: Scanning: Scan Low": SYSTEM-1039
+  "BB:Threats: Scanning: Scan Medium": SYSTEM-1040
+  "BB:Threats: Suspicious IP Protocol Usage: Illegal TCP Flag Combination": SYSTEM-1071
+  "BB:Threats: Suspicious IP Protocol Usage: Large DNS Packets": SYSTEM-1524
+  "BB:Threats: Suspicious IP Protocol Usage: Large ICMP Packets": SYSTEM-1053
+  "BB:Threats: Suspicious IP Protocol Usage: Long Duration Outbound Flow": SYSTEM-1052
+  "BB:Threats: Suspicious IP Protocol Usage: Suspicious ICMP Type Code": SYSTEM-1047
+  "BB:Threats: Suspicious IP Protocol Usage: TCP or UDP Port 0": SYSTEM-1048
+  "BB:Threats: Suspicious IP Protocol Usage: Unidirectional ICMP Flows": SYSTEM-1051
+  "BB:Threats: Suspicious IP Protocol Usage: Unidirectional ICMP Replys": SYSTEM-1137
+  "BB:Threats: Suspicious IP Protocol Usage: Zero Payload Bidirectional Flows": SYSTEM-1133
+  "BB:Threats: Suspicious IP Protocol Usage:Unidirectional TCP Flows": SYSTEM-1050
+  "BB:Threats: Suspicious IP Protocol Usage:Unidirectional UDP and Misc Flows": SYSTEM-1049
+  "Botnet: Potential Botnet Connection (DNS)": SYSTEM-1372
+  "Chained Exploit Followed by Suspicious Events": SYSTEM-1545
+  "Communication with a web site known to aid in distribution of malware": SYSTEM-1528
+  "Communication with a web site known to be a phishing or fraud site": SYSTEM-1532
+  "Communication with a web site known to be associated with the Russian business network": SYSTEM-1529
+  "Communication with a web site known to be delivering code which may be a trojan": SYSTEM-1531
+  "Communication with a web site known to be involved in botnet activity": SYSTEM-1530
+  "Communication with a web site that has been involved in previous SQL injection": SYSTEM-1534
+  "Communication with a web site that is listed on a know blacklist or uses fast flux": SYSTEM-1533
+  "Compliance Events Become Offenses": SYSTEM-1279
+  "Context is Local to Local": SYSTEM-1014
+  "Context is Local to Remote": SYSTEM-1004
+  "Context is Remote to Local": SYSTEM-1001
+  "DDoS Attack Detected": SYSTEM-1445
+  "DDoS Events with High Magnitude Become Offenses": SYSTEM-1444
+  "Database Attempted Configuration Modification by a remote host": SYSTEM-1432
+  "Database Concurrent Logins from Multiple Locations": SYSTEM-1441
+  "Database Failures Followed by User Changes": SYSTEM-1440
+  "Database Groups Changed from Remote Host": SYSTEM-1436
+  "Database Remote Login Failure": SYSTEM-1433
+  "Database Remote Login Success": SYSTEM-1434
+  "Database User Rights Changed from Remote Host": SYSTEM-1435
+  "Default-Response-E-mail: Offense E-mail Sender": SYSTEM-1210
+  "Default-Response-Syslog: Offense SYSLOG Sender": SYSTEM-1209
+  "Destination Asset Exists": SYSTEM-1006
+  "Destination Asset Port is Open": SYSTEM-1012
+  "Destination Asset Weight is High": SYSTEM-1010
+  "Destination Asset Weight is Low": SYSTEM-1008
+  "Destination Asset Weight is Medium": SYSTEM-1011
+  "Destination Vulnerable to Detected Exploit": SYSTEM-1290
+  "Destination Vulnerable to Detected Exploit on a Different Port": SYSTEM-1355
+  "Destination Vulnerable to Different Exploit than Attempted on Targeted Port": SYSTEM-1430
+  "Device Stopped Sending Events": SYSTEM-1296
+  "Device Stopped Sending Events (Firewall, IPS, VPN or Switch)": SYSTEM-1527
+  "Devices with High Event Rates": SYSTEM-1443
+  "DoS Events with High Magnitude Become Offenses": SYSTEM-1414
+  "Excessive Database Connections": SYSTEM-1431
+  "Excessive Failed Logins to Compliance IS": SYSTEM-1346
+  "Excessive Firewall Denies from Local Host": SYSTEM-1197
+  "Excessive Firewall Denies from Remote Host": SYSTEM-1198
+  "Excessive Firewall Denies from Single Source": SYSTEM-1412
+  "Exploit Followed by Suspicious Host Activity": SYSTEM-1298
+  "Exploit/Malware Events Across Multiple Destinations": SYSTEM-1185
+  "Exploit: Exploits Followed by Firewall Accepts": SYSTEM-1339
+  "Exploits Events with High Magnitude Become Offenses": SYSTEM-1413
+  "FalsePositive: False Positive Rules and Building Blocks": SYSTEM-1207
+  "Flow Source Stopped Sending Flows": SYSTEM-1542
+  "Host Port Scan Detected by Remote Host": SYSTEM-1152
+  "Increase Magnitude of High Rate Scans": SYSTEM-1269
+  "Increase Magnitude of Medium Rate Scans": SYSTEM-1268
+  "Large Outbound Transfer High Rate of Transfer": SYSTEM-1526
+  "Large Outbound Transfer Slow Rate of Transfer": SYSTEM-1525
+  "Local Flood (TCP)": SYSTEM-1512
+  "Local Host Sending Malware": SYSTEM-1340
+  "Local L2L Database Scanner": SYSTEM-1188
+  "Local L2L FTP Scanner": SYSTEM-1397
+  "Local L2L IRC Server Scanner": SYSTEM-1196
+  "Local L2L LDAP Server Scanner": SYSTEM-1400
+  "Local L2L SSH Server Scanner": SYSTEM-1191
+  "Local L2L Scanner Detected": SYSTEM-1360
+  "Local L2L Suspicious Probe Events Detected": SYSTEM-1180
+  "Local L2R Database Scanner": SYSTEM-1585
+  "Local L2R FTP Scanner": SYSTEM-1592
+  "Local L2R IRC Server Scanner": SYSTEM-1587
+  "Local L2R LDAP Server Scanner": SYSTEM-1595
+  "Local L2R RPC Server Scanner": SYSTEM-1577
+  "Local L2R SSH Server Scanner": SYSTEM-1586
+  "Local L2R Scanner Detected": SYSTEM-1589
+  "Local L2R Windows Server Scanner": SYSTEM-1579
+  "Local Mass Mailing Host Detected": SYSTEM-1190
+  "Local host on Botnet CandC List (DST)": SYSTEM-1551
+  "Local host on Botnet CandC List (SRC)": SYSTEM-1550
+  "Local: Clear Text Application Usage": SYSTEM-1126
+  "Local: FTP Detected on Non-Standard Port": SYSTEM-1110
+  "Local: SSH or Telnet Detected on Non-Standard Port": SYSTEM-1111
+  "Login Failure to Disabled Account": SYSTEM-1427
+  "Login Failure to Expired Account": SYSTEM-1428
+  "Login Failures Followed By Success from the same Source IP": SYSTEM-1365
+  "Login Failures Followed By Success to the same Destination IP": SYSTEM-1510
+  "Login Failures Followed By Success to the same Username": SYSTEM-1544
+  "Malware or Virus Clean Failed": SYSTEM-1567
+  "Multiple Database Failures Followed by Success": SYSTEM-1438
+  "Multiple Exploit Types Against Single Destination": SYSTEM-1408
+  "Multiple Failed Logins to a Compliance Asset": SYSTEM-1553
+  "Multiple Login Failures from the Same Source": SYSTEM-1407
+  "Multiple Login Failures from the Same Source (Windows)": SYSTEM-1599
+  "Multiple Login Failures to the Same Destination": SYSTEM-1467
+  "Multiple Vector Attack Source": SYSTEM-1182
+  "Network DoS Attack Detected": SYSTEM-1362
+  "Policy: Host has well-known vulnerability": SYSTEM-1178
+  "Policy: New Host Discovered": SYSTEM-1294
+  "Policy: New Host Discovered in DMZ": SYSTEM-1306
+  "Policy: New Service Discovered": SYSTEM-1295
+  "Policy: New Service Discovered in DMZ": SYSTEM-1307
+  "Possible Local IRC Server": SYSTEM-1476
+  "Possible Local Worm Detected": SYSTEM-1184
+  "Potential Botnet Events Become Offenses": SYSTEM-1278
+  "Potential Connection to a Known Botnet CandC": SYSTEM-1489
+  "Potential DDoS Against Single Host (TCP)": SYSTEM-1520
+  "Potential Honeypot Access": SYSTEM-1411
+  "Potential Local Port Scan Detected": SYSTEM-1494
+  "Recon Followed by Accept": SYSTEM-1405
+  "Remote Database Scanner": SYSTEM-1159
+  "Remote FTP Scanner": SYSTEM-1189
+  "Remote Flood (TCP)": SYSTEM-1513
+  "Remote IRC Server Scanner": SYSTEM-1161
+  "Remote LDAP Server Scanner": SYSTEM-1162
+  "Remote Proxy Server Scanner": SYSTEM-1164
+  "Remote RPC Server Scanner": SYSTEM-1165
+  "Remote SSH Server Scanner": SYSTEM-1166
+  "Remote Scanner Detected": SYSTEM-1363
+  "Remote Windows Server Scanner": SYSTEM-1168
+  "Remote: Clear Text Application Usage based on Flows": SYSTEM-1093
+  "Remote: Client Based DNS Activity to the Internet": SYSTEM-1094
+  "Remote: IRC Connections": SYSTEM-1097
+  "Remote: Local P2P Server connected to more than 100 Clients": SYSTEM-1508
+  "Remote: Long Duration Flow Detected": SYSTEM-1100
+  "Remote: Remote Desktop Access from the Internet": SYSTEM-1103
+  "Remote: VNC Access from the Internet": SYSTEM-1108
+  "Repeat Non-Windows Login Failures": SYSTEM-1485
+  "Repeat Windows Login Failures": SYSTEM-1484
+  "Service DoS Attack Detected": SYSTEM-1371
+  "Source Address is a Bogon IP": SYSTEM-1013
+  "Source Address is a Known Questionable IP": SYSTEM-1009
+  "Source Asset Exists": SYSTEM-1002
+  "Source Asset Weight is High": SYSTEM-1007
+  "Source Asset Weight is Low": SYSTEM-1003
+  "Source Asset Weight is Medium": SYSTEM-1005
+  "Source Vulnerable to any Exploit": SYSTEM-1292
+  "Source Vulnerable to this Exploit": SYSTEM-1291
+  "Successful Inbound Connection from a Known Botnet CandC": SYSTEM-1549
+  "Successful Signature Compromise": SYSTEM-1459
+  "System: Notification": SYSTEM-500
+  "Treat Backdoor Trojans and Virus Events as Offenses": SYSTEM-1304
+  "Treat Key Loggers as Offenses": SYSTEM-1446
+  "Treat Non-Spyware Malware as Offenses": SYSTEM-1239
+  "Treat Spyware and Virus as Offenses": SYSTEM-1240
+  "User-BB-FalsePositive: User Defined False Positives Tunings": SYSTEM-1264
+  "User:BB:FalsePositives: User Defined Server Type 1 False Positive Categories": SYSTEM-1419
+  "User:BB:FalsePositives: User Defined Server Type 1 False Positive Events": SYSTEM-1418
+  "User:BB:FalsePositives: User Defined Server Type 2 False Positive Categories": SYSTEM-1421
+  "User:BB:FalsePositives: User Defined Server Type 2 False Positive Events": SYSTEM-1420
+  "User:BB:FalsePositives: User Defined Server Type 3 False Positive Categories": SYSTEM-1423
+  "User:BB:FalsePositives: User Defined Server Type 3 False Positive Events": SYSTEM-1422
+  "User:BB:HostDefinition: Server Type 1 - User Defined": SYSTEM-1276
+  "User:BB:HostDefinition: Server Type 2 - User Defined": SYSTEM-1275
+  "User:BB:HostDefinition: Server Type 3 - User Defined": SYSTEM-1274
+  "Vulnerabilities: Vulnerability Reported by Scanner": SYSTEM-1302
+  "Worm Detected (Events)": SYSTEM-1215
+  "WormDetection: Successful Connections to the Internet on Common Worm Ports": SYSTEM-1470
+  "X-Force: Successful Inbound connection from a Remote Proxy or Anonymization Service": SYSTEM-1575
+  "X-Force: Successful Outbound Connection to a Remote Proxy or Anonymization Service": SYSTEM-1496

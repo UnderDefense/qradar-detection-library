@@ -1,0 +1,119 @@
+# yaml-language-server: $schema=../static/rule-schema.json
+id: 3f6c2a1e-8b4d-4c9a-9e2f-1a7b5d0c4e81
+name: Log Source Type - Example Rule
+description: |
+  Detects QRadar rule example.
+type: event # flow / common / offense
+enabled: true
+groups:
+  - Example Group
+mitre:
+  - T1000
+author: Example Author
+status: experimental # test / stable / deprecated
+created: 2026-10-26
+modified: 2026-10-26
+references:
+  - https://www.ibm.com/docs/en/qradar-common
+false_positives:
+  - Example benign activity
+
+# All tests are joined with AND. `negate: true` turns a test into AND NOT.
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Office 365]
+  - group: common
+    type: aql
+    filter: INCIDR('127.0.0.0/8', sourceip)
+  - group: datetime
+    type: time
+    operator: after # before / at
+    time: "01:00" # always quote: unquoted 13:30 is a number in YAML
+  - group: event
+    type: qid
+    qids: [0]
+  - group: common
+    type: regex
+    negate: true
+    properties: [Severity (custom)]
+    regex: "[6-9]"
+  - group: function_counter
+    type: same_properties
+    count: 5
+    properties: [Source IP]
+    within: 10
+    unit: minutes
+  # Any test that has no typed form yet: paste the Rule Wizard sentence.
+  - group: host_profile
+    type: raw
+    text: when the destination is vulnerable to current exploit attempts
+
+action:
+  severity: { set: 5 } # or { increase: 1 } / { decrease: 1 }
+  credibility: { increase: 1 }
+  relevance: { decrease: 1 }
+  offense:
+    index_on: Source IP
+    annotate: offense annotation
+    include_events: 300 # seconds
+  annotate: event annotation
+  bypass: true
+
+response:
+  new_event:
+    name: Test Event
+    description: Test Event description.
+    severity: 0
+    credibility: 0
+    relevance: 0
+    high_cat: Access
+    low_cat: Access Denied
+    annotate: New Event annotation
+    offense:
+      index_on: Source IP
+      include_events: 300
+      naming: not_contribute # contribute / set_or_replace
+
+  email:
+    emails: [admin@test.com]
+    template: Default Template
+
+  syslog: true
+
+  forward: [Forwarding destination]
+
+  notify:
+    use_event_severity: true
+
+  add_to_reference_set:
+    property: Source IP
+    reference_set: Ref set (Ignore Case)
+
+  # Exactly one of: reference_map / reference_map_of_sets / reference_map_of_maps / reference_table
+  add_to_reference_data:
+    reference_table:
+      object: Ref table (Ignore Case)
+      outer_key: Source IP
+      inner_keys:
+        - key: source ip
+          value: Source IP
+
+  remove_from_reference_set:
+    property: Source IP
+    reference_set: Ref set (Ignore Case)
+
+  remove_from_reference_data:
+    reference_map_of_maps:
+      object: Ref map of maps (Ignore Case)
+      key_1: Source IP
+      key_2: Source IP
+      value: Source IP
+
+  execute_custom_action: test_script
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Rule

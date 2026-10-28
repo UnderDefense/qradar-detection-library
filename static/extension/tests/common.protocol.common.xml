@@ -1,0 +1,9 @@
+		<test requiredCapabilities="EventViewer.RULECREATION|SURVEILLANCE.RULECREATION"{negate} group="Common Property Tests" uid="{uid}" name="com.q1labs.semsources.cre.tests.IPProtocol_Test" id="2">
+			<parameter id="1">
+				<initialText>protocols</initialText>
+				<selectionLabel>Select a desired protocol and click 'Add'</selectionLabel>
+				<userOptions multiselect="true" source="ProtocolTree" format="Tree"/>
+				<userSelection>{selection}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

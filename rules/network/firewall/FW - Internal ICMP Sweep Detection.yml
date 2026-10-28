@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 52223d77-5591-4fd4-b1cb-a57d1c6140c6
+name: FW - Internal ICMP Sweep Detection
+description: |
+  Detects internal ICMP connection from a single IP to more than 60 internal IPs during a short
+  period of time, indicating port sweep scan via tools like nmap, masscan or fping.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Firewall
+mitre:
+  - T1018
+
+tests:
+  - group: network
+    type: context
+    contexts: [local_to_local]
+  - group: common
+    type: protocol
+    protocols: [ICMP.icmp_ip]
+  - group: function_counter
+    type: rule_threshold
+    rules: ["BB:CategoryDefinition: Recon Events", "BB:CategoryDefinition: Suspicious Events"]
+    same: source IP
+    times: 5
+    across: 59
+    distinct: destination IP
+    within: 10
+    unit: minutes
+  # Mobile devices sweep the local network on their own.
+  - group: common
+    type: search_filter
+    negate: true
+    filters:
+      - property: OS Name (custom)
+        operator: is_any_of
+        values: [Android, iOS]
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Source IP
+    new_offense: true
+    annotate: FW - Internal ICMP Sweep Detection
+  annotate: FW - Internal ICMP Sweep Detection
+
+response:
+  new_event:
+    name: FW - Internal ICMP Sweep Detection
+    description: >-
+      Detects internal ICMP connection from a single IP to more than 60 internal IPs during a short
+      period of time, indicating port sweep scan via tools like nmap, masscan or fping.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Access
+    low_cat: Access Permitted
+    annotate: FW - Internal ICMP Sweep Detection
+    offense:
+      index_on: Source IP
+      new_offense: true
+
+limiter:
+  times: 1
+  per_unit: 30
+  unit: minutes
+  per_property: Source IP

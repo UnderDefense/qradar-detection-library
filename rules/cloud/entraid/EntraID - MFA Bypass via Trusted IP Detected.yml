@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: bbf202a3-1654-4d59-aeaa-da6fea609e73
+name: EntraID - MFA Bypass via Trusted IP Detected
+description: |
+  Detects when a trusted IP address is added or modified in Azure AD MFA settings, which can be used
+  to bypass multi-factor authentication for specific network locations.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.EntraID
+mitre:
+  - T1556.006
+
+tests:
+  - group: event
+    type: qid
+    events: ["Set Company Information-success"]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Payload Contains
+        operator: is
+        values: [StrongAuthenticationPolicy]
+
+action:
+  severity: { set: 7 }
+  offense:
+    index_on: Username
+    new_offense: true
+    annotate: EntraID - MFA Bypass via Trusted IP Detected
+
+response:
+  new_event:
+    name: EntraID - MFA Bypass via Trusted IP Detected
+    description: >-
+      Detects when a trusted IP address is added or modified in Azure AD MFA settings, which can be used
+      to bypass multi-factor authentication for specific network locations.
+    severity: 7
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Activity
+    annotate: EntraID - MFA Bypass via Trusted IP Detected
+    offense:
+      index_on: Username
+      new_offense: true

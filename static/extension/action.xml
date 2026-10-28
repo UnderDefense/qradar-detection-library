@@ -1,0 +1,1 @@
+	<actions offenseMapping="{offense_mapping}" forceOffenseCreation="{force_offense}" includeAttackerEventsInterval="0" flowAnalysisInterval="0"{drop}>{metrics}{event_annotation}{offense_annotation}</actions>

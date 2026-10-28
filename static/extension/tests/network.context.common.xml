@@ -1,0 +1,14 @@
+		<test{negate} group="Event Property Tests" uid="{uid}" name="com.q1labs.semsources.cre.tests.AttackContext_Test" id="25">
+			<parameter id="1">
+				<initialText>this context</initialText>
+				<selectionLabel>Select a context</selectionLabel>
+				<userOptions multiselect="true" source="xml" format="list">
+					<option id="l2l">Local to Local</option>
+					<option id="l2r">Local to Remote</option>
+					<option id="r2l">Remote to Local</option>
+					<option id="r2r">Remote to Remote</option>
+				</userOptions>
+				<userSelection>{selection}</userSelection>
+				<userSelectionId>0</userSelectionId>
+			</parameter>
+		</test>

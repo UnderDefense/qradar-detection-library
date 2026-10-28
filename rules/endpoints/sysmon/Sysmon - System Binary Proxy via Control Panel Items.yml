@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../../static/rule-schema.json
+id: 41c1f408-53af-43e9-8e9e-cad863da58e8
+name: Sysmon - System Binary Proxy via Control Panel Items
+description: |
+  Detects abuse of control.exe to proxy execution of malicious payloads. The Windows Control Panel
+  process binary handles execution of Control Panel items loaded from non-standard directories
+  or via unusual file types such as dat, inf, or lnk files.
+type: event
+scope: local
+enabled: true
+groups:
+  - UnderDefense.Sysmon
+mitre:
+  - T1218.002
+
+tests:
+  - group: log_source
+    type: log_source_type
+    log_source_types: [Microsoft Windows Security Event Log]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event Category
+        operator: is_any_of
+        values: [Microsoft-Windows-Sysmon/Operational]
+  - group: common
+    type: search_filter
+    filters:
+      - property: Event ID
+        operator: is_any_of
+        values: [1] # Process Create
+  - group: common
+    type: aql
+    filter: >-
+      ("Process Name" ILIKE 'control.exe' AND ("Command" ILIKE '%.dat%' OR "Command" ILIKE '%.inf%'
+      OR "Command" ILIKE '%.txt%' OR "Command" ILIKE '%.jpg%' OR "Command" ILIKE '%.lnk%'))
+      OR ("Command" ILIKE '%.cpl%' AND "Command" NOT ILIKE '%system32%'
+      AND "Command" NOT ILIKE '%shell32.dll%')
+
+action:
+  severity: { set: 4 }
+  offense:
+    index_on: Machine Identifier (custom)
+    new_offense: true
+    annotate: Sysmon - System Binary Proxy via Control Panel Items
+
+response:
+  new_event:
+    name: Sysmon - System Binary Proxy via Control Panel Items
+    description: >-
+      Detects abuse of control.exe to proxy execution of malicious payloads. The Windows Control Panel
+      process binary handles execution of Control Panel items loaded from non-standard directories
+      or via unusual file types such as dat, inf, or lnk files.
+    severity: 4
+    credibility: 10
+    relevance: 10
+    high_cat: Suspicious Activity
+    low_cat: Suspicious Windows Events
+    annotate: Sysmon - System Binary Proxy via Control Panel Items
+    offense:
+      index_on: Machine Identifier (custom)
+      new_offense: true
