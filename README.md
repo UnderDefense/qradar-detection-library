@@ -32,6 +32,7 @@ static/rule-schema.json              schema for rule and Building Block files
 static/reference-data-schema.json    schema for reference-data.yml
 static/qradar-ids.yml                QRadar IDs and keys that are the same on every console
 static/qradar-extension-rules.yml    rules that IBM content extensions install, by name
+static/qradar-custom-properties.yml  custom properties of IBM extensions and what they parse
 static/extension/                    XML templates the builder fills in
 docs/                                guides
 ```

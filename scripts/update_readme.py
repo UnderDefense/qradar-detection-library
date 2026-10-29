@@ -5,7 +5,8 @@ Usage: python3 scripts/update_readme.py
 
 - README.md: the rule count badges between <!-- badges:start --> and <!-- badges:end -->.
 - rules/<pack>/README.md: the pack overview between <!-- pack:start --> and <!-- pack:end -->
-  (rules, log source types, custom properties, reference sets, what the console needs).
+  (rules, log source types, custom properties and where they come from, reference sets,
+  what the console needs).
   Text outside the markers is kept; a missing README is created.
 """
 import re
@@ -20,6 +21,7 @@ README = ROOT / "README.md"
 RULES = ROOT / "rules"
 IDS = ROOT / "static" / "qradar-ids.yml"
 EXTENSION_RULES = ROOT / "static" / "qradar-extension-rules.yml"
+CUSTOM_PROPERTIES = ROOT / "static" / "qradar-custom-properties.yml"
 BADGES = ("<!-- badges:start -->", "<!-- badges:end -->")
 PACK = ("<!-- pack:start -->", "<!-- pack:end -->")
 CUSTOM_SUFFIX = " (custom)"
@@ -119,7 +121,25 @@ def rule_row(rule):
     return f"| {name} | {kind} | {severity if severity is not None else '-'} | {mitre} |"
 
 
-def pack_body(pack, rules, ids, extension_rules):
+def property_row(name, known, log_sources):
+    """Where a custom property comes from and whether IBM parses it for the pack's log sources."""
+    entries = known.get(name[: -len(CUSTOM_SUFFIX)])
+    if not entries:
+        return f"| {name} | not in IBM extensions: create it on the console | - |"
+    packages = {}
+    for p in entries:
+        for package, parsed in p["extensions"].items():
+            packages.setdefault(package, set()).update(parsed)
+    parsing = sorted(p for p, parsed in packages.items() if log_sources & parsed)
+    if parsing:
+        return f"| {name} | {'<br>'.join(parsing)} | yes |"
+    # Nothing parses it here: name the packages that define it, the dictionary first.
+    defining = sorted(packages, key=lambda p: ("Dictionary" not in p, p))[:2]
+    status = f"no: needs an expression for {', '.join(sorted(log_sources))}" if log_sources else "-"
+    return f"| {name} | {'<br>'.join(defining)} | {status} |"
+
+
+def pack_body(pack, rules, ids, extension_rules, known):
     names = {r["name"] for r in rules}
     log_sources, custom, aql, sets, needs = set(), set(), set(), set(), {}
     for rule in rules:
@@ -147,8 +167,9 @@ def pack_body(pack, rules, ids, extension_rules):
     out += ["| Rule | Type | Severity | MITRE ATT&CK |", "|---|---|---|---|"]
     out += [rule_row(r) for r in sorted(rules, key=lambda r: (bool(r.get("building_block")), r["name"]))]
     if custom:
-        out += ["", "**Custom properties** the console must have:", ""]
-        out += [f"- {p}" for p in sorted(custom)]
+        out += ["", "**Custom properties** the console must have:", "",
+                "| Property | IBM package | Parsed for this log source |", "|---|---|---|"]
+        out += [property_row(p, known, log_sources) for p in sorted(custom)]
     if aql:
         out += ["", "**Properties in AQL filters** (custom or built-in): " + ", ".join(sorted(aql))]
     if sets:
@@ -163,12 +184,13 @@ def pack_body(pack, rules, ids, extension_rules):
 def update_packs(packs):
     ids = yaml.safe_load(IDS.read_text(encoding="utf-8")) or {}
     extension_rules = (yaml.safe_load(EXTENSION_RULES.read_text(encoding="utf-8")) or {}).get("extension_rules", {})
+    known = (yaml.safe_load(CUSTOM_PROPERTIES.read_text(encoding="utf-8")) or {}).get("custom_properties", {})
     for pack, rules in sorted(packs.items()):
         path = RULES / pack / "README.md"
         if not path.exists():
             title = PACKS.get(pack, (pack,))[0]
             path.write_text(f"# {title}\n\n{PACK[0]}\n{PACK[1]}\n", encoding="utf-8")
-        text = replace_block(path.read_text(encoding="utf-8"), PACK, pack_body(pack, rules, ids, extension_rules),
+        text = replace_block(path.read_text(encoding="utf-8"), PACK, pack_body(pack, rules, ids, extension_rules, known),
                              str(path.relative_to(ROOT)))
         path.write_text(text, encoding="utf-8")
         print(f"{path.relative_to(ROOT)}: {len(rules)} rules and BBs")

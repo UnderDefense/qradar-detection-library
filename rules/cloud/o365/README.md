@@ -24,14 +24,16 @@ IBM content extensions:
 
 **Custom properties** the console must have:
 
-- Action (custom)
-- Action Type (custom)
-- Affected Workload (custom)
-- Group Name (custom)
-- Object Name (custom)
-- Sender (custom)
-- Target Username (custom)
-- User Right (custom)
+| Property | IBM package | Parsed for this log source |
+|---|---|---|
+| Action (custom) | IBM QRadar Custom Properties Dictionary 1.4.1<br>IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1 | no: needs an expression for Microsoft Office 365 |
+| Action Type (custom) | not in IBM extensions: create it on the console | - |
+| Affected Workload (custom) | IBM Security QRadar Custom Properties for Office 365 1.4.1 | yes |
+| Group Name (custom) | IBM Security QRadar Custom Properties for Office 365 1.4.1 | yes |
+| Object Name (custom) | IBM QRadar Custom Properties Dictionary 1.4.1<br>IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | no: needs an expression for Microsoft Office 365 |
+| Sender (custom) | IBM QRadar Custom Properties Dictionary 1.4.1 | no: needs an expression for Microsoft Office 365 |
+| Target Username (custom) | IBM Security QRadar Custom Properties for Office 365 1.4.1 | yes |
+| User Right (custom) | IBM QRadar Custom Properties Dictionary 1.4.1<br>IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | no: needs an expression for Microsoft Office 365 |
 
 **Reference sets** (created empty by the extension unless `reference-data.yml` fills them):
 

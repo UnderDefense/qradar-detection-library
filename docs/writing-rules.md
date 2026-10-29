@@ -110,7 +110,10 @@ the right one.
       operator: is_not_na
 ```
 
-- Custom properties keep the ` (custom)` suffix, exactly as the Rule Wizard shows them.
+- Custom properties keep the ` (custom)` suffix, exactly as the Rule Wizard shows them. Check the
+  name in `static/qradar-custom-properties.yml`: it lists the custom properties of IBM
+  extensions and the log source types they parse them for. The pack README marks properties
+  that IBM does not parse for the pack's log source; a console needs its own expression for them.
 - Operators: `is`, `is_not`, `greater_than`, `greater_than_or_equal`, `less_than`,
   `less_than_or_equal` (one value); `is_any_of`, `is_not_any_of`, `contains_any_of`,
   `matches_any_of`, `not_matches_any_of` (a list; `matches` takes regular expressions);

@@ -1,0 +1,3330 @@
+# Custom properties that IBM content extensions define, by name.
+# id: the property identifier. extensions: each package that defines the property, with the log
+# source types it ships an extraction expression for (empty: the package only defines it). A
+# property with no expression for a log source needs one made on the console.
+# Generated from the IBM custom property extensions and content extensions.
+custom_properties:
+  "Access Allowed":
+    - id: DEFAULT_ACCESS_ALLOWED
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Access Intent":
+    - id: DEFAULT_ACCESS_INTENT
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": []
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Access Key ID":
+    - id: 0b0f6ed8-8223-4f36-8fdc-11055ab25b9b
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+  "Access Mask":
+    - id: cf7a776f-2bae-494f-bcab-36db10c3f11f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Access Origin":
+    - id: DEFAULT_UNIX_ACCESS_ORIGIN
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Accesses":
+    - id: DEFAULTCUSTOMEVENT18
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": []
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Account Domain":
+    - id: DEFAULTCUSTOMEVENT16
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security GPG13 Content 1.1.0": ["Microsoft Windows Security Event Log"]
+  "Account Name":
+    - id: a8dee00c-b85f-4b15-bb68-fc8c83f82530
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Account Security ID":
+    - id: b2a8a248-9317-4911-8f7c-71947e875d72
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "AccountID":
+    - id: DEFAULTCUSTOMEVENT14
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security GPG13 Content 1.1.0": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "AccountName":
+    - id: DEFAULTCUSTOMEVENT15
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Accounts and Privileges Content 5.1.0": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Cloud Content 5.1.0": ["Microsoft Office 365"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Action":
+    - id: 0d4c7a57-4f38-4de5-bea3-d1a89cd716d1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "Action Result":
+    - id: d37140ac-3de9-49cc-9a2f-d1ea5308191d
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "ActionType":
+    - id: 8fe114e4-c7a3-4aa3-9870-f781369ef3b7
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Active Offense Count":
+    - id: f445f3e1-4851-4ddf-9130-fa7bc0c67e5b
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+  "Administrator ID":
+    - id: 186cd48f-cfb1-4073-a564-383f3275f31a
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Administrator Name":
+    - id: 8117dc6e-b65a-43f2-8938-967292ec4fd3
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Affected Workload":
+    - id: 599c5cb6-2e9d-4991-b516-f6a1c5a9ce81
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Agent Version":
+    - id: 4f6e9610-c7f5-462a-87fe-fbf77dc4753a
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["WinCollect"]
+  "Agent Version Major":
+    - id: 218bf8ca-a85e-4def-b48d-5f08479ecad0
+      type: numeric
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["WinCollect"]
+  "Alert":
+    - id: 7797041c-ad3f-4107-aa05-d7942a1098c9
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Alert Category":
+    - id: 8d064e99-13b6-4200-9c55-2f83c68a7b1f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Alert Description":
+    - id: 02e3f26f-04b8-4a85-83c9-3f74dbb68710
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Alert ID":
+    - id: 51ee71ce-b586-452e-afbc-369a61c4b22d
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Alert Severity":
+    - id: cfa63d4b-ee3c-40b6-bb3b-1913a35cdb23
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud"]
+  "Alert SQL DB Name":
+    - id: ad70c725-4013-4f9c-b5e7-1505565b8aed
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Alert SQL Username":
+    - id: bede61b6-0cc6-4cff-80b6-cb9683680e59
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "analyticName":
+    - id: c76c2e4f-2e36-4493-8749-c23d897eb25b
+      type: string
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "Analyzer":
+    - id: 339de349-4479-495f-aede-e2782215b673
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Analyzer Hostname":
+    - id: 0f43b2c9-6ac4-419e-91c4-d7761e4b40e6
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Analyzer Name":
+    - id: 88db4972-417e-4a4f-bcdd-d063eeda3c91
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Analyzer Type":
+    - id: 2be53d85-21cd-4d0b-93fe-7165f781db1f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "API Path":
+    - id: fd68855f-b785-4bf1-9e07-4e331e3d3c5a
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "API Search ID":
+    - id: 2c13e5b5-d3b4-4640-99a3-0cf374ec8af5
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Application":
+    - id: DEFAULTCUSTOMEVENT31
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "Application Category":
+    - id: DEFAULTCUSTOMEVENT29
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Application Classification":
+    - id: 649bc779-14fc-44e6-ba5d-44e28c67fc2b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "Application name":
+    - id: DEFAULT_APPLICATION_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google G Suite Activity Reports"]
+  "Application Protocol":
+    - id: a3b3b824-4b9b-4ef0-ae01-6e2f84065f22
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "Application Type":
+    - id: afd60a44-15ad-4b92-ac64-e4b27cd91ad9
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Architecture":
+    - id: f3debe90-1ae1-4217-993e-7f6f249c4a1f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Archived File Disposition":
+    - id: 155e0f5c-8132-4e34-b38b-38b2f9cb336d
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+  "Archived File SHA256 Hash":
+    - id: 163287ec-5b07-4ca0-b2ff-96409841b946
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+  "Asset ID":
+    - id: 11c85222-2093-4d78-b997-c97cd70d72c0
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["Asset Profiler"]
+  "Attribute New Value":
+    - id: deb9b7c5-3efb-436f-b61e-30f75195fe30
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Attribute Old Value":
+    - id: 00db7eed-0bf7-455d-9910-1d25053420a2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Audit Flags":
+    - id: 7de45307-aa14-4269-bcf4-050377dbc5f4
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Audit ID":
+    - id: 82f452d8-e7f3-4d36-97fc-15a0618cfda1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Audit Object ID":
+    - id: 24de3b95-28ec-4a5d-aa43-8864038bd4bc
+      type: string
+      extensions:
+        "IBM Security GPG13 Content 1.1.0": ["SIM Audit"]
+  "Authentication Package":
+    - id: 2f0382b6-76bc-428b-a228-e32b297dd485
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Authentication Type":
+    - id: 186b21e8-a30c-4c06-995e-43ab328f9d25
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "Blocked":
+    - id: d0eca8d2-910c-4ad7-9f0c-cf5dc6d92faa
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Browser Info":
+    - id: d22fdf49-edcc-4ddc-8ae7-b98796f88847
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Bypass Request":
+    - id: be134a93-f296-401b-820e-58b728cf20ce
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Bytes":
+    - id: DEFAULTCUSTOMEVENT22
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "BytesReceived":
+    - id: DEFAULTCUSTOMEVENT11
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+        "User Behavior Analytics Exfiltration Content 5.0.0": ["Blue Coat SG Appliance", "Citrix NetScaler", "Fortinet FortiGate Security Gateway", "Juniper SRX Series Services Gateway", "Microsoft ISA", "Pulse Secure Pulse Connect Secure"]
+  "BytesSent":
+    - id: DEFAULTCUSTOMEVENT12
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+        "User Behavior Analytics Exfiltration Content 5.0.0": ["Blue Coat SG Appliance", "Citrix NetScaler", "Fortinet FortiGate Security Gateway", "Juniper SRX Series Services Gateway", "Microsoft ISA", "Pulse Secure Pulse Connect Secure"]
+  "Call Trace":
+    - id: 76b36c8a-f3aa-42c4-8da4-7953249168ba
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Call Type":
+    - id: 0aa55f4e-b447-45c5-9cd9-8401702b6d53
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Called Station ID":
+    - id: fdc84cfa-ac47-46c4-a1eb-59dd9dfd3112
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Calling Station ID":
+    - id: cc86e09f-8b85-4e0f-b7b4-6efbc95ec831
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Category Number":
+    - id: 75d32eb1-036e-407f-90a4-71a362f4cc80
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Changed Attributes":
+    - id: DEFAULTCUSTOMEVENT19
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security GPG13 Content 1.1.0": ["Microsoft Windows Security Event Log"]
+  "Channel":
+    - id: 8db5d22d-63a5-4c32-9016-6bca44dc7d1c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Classification":
+    - id: c949f9c4-4c44-4194-a927-714e9be471f6
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+        "IBM Security QRadar Custom Properties for Snort 1.1.0": ["Snort Open Source IDS"]
+  "Command":
+    - id: 23a48353-c265-482e-b2ca-9b082c0fee32
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Carbon Black", "Linux OS", "Microsoft Windows Security Event Log"]
+    - id: DEFAULT_COMMAND
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Command Arguments":
+    - id: f608edb4-4dba-42e8-82eb-906f79db50a7
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Completion Code":
+    - id: DEFAULT_COMPLETION_CODE
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Completion Status":
+    - id: DEFAULT_COMPLETION_STATUS
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Computer":
+    - id: 96fcd565-c89a-4af3-8cc2-dea562bde048
+      type: string
+      extensions:
+        "IBM Security GPG13 Content 1.1.0": ["Microsoft Windows Security Event Log"]
+    - id: 566f98b8-2586-4aa9-be31-01d3194a1acd
+      type: string
+      extensions:
+        "User Behavior Analytics Access and Authentication Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Computer Name":
+    - id: b30ceb37-a5b7-48e5-9a7e-85efba5d2c85
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+  "Connection Direction":
+    - id: a1756689-0cd2-4694-8d3f-c487b73db6f5
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "Consumer Destination":
+    - id: 2bb17a2c-332e-4ea1-96b0-598a8b0277ff
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Container ID":
+    - id: 5683b22b-66ff-4e3f-96ab-f9841d1357b8
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Container Image":
+    - id: 4f7e95ce-a187-4135-b0dc-6d041852e605
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Container Image ID":
+    - id: e802701b-a713-4014-b792-04f4940ccf53
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Container Name":
+    - id: 84b58b39-2351-4836-9709-78a6b4a8067a
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Content Information":
+    - id: 163b7826-3785-4c9a-b1a5-9cba3e289ec2
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Content Type":
+    - id: 81b1a04b-f5c2-4018-afa8-ca48bdb0aeda
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+  "CPU Usage":
+    - id: defe371c-dda5-41a6-ae1c-e269e3fd14d6
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "CRE Description":
+    - id: 5908ee61-6cb3-486f-93bf-e3d744ba4396
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "CRE Name":
+    - id: b92a0a2c-38e4-44ac-8b99-5679b8d2c558
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+        "IBM Security ISO 27001 Content 1.1.4": ["Custom Rule Engine"]
+  "Criticality Score":
+    - id: 55992699-530d-43bd-8e45-ba5d07fbc670
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "Current SQL ID":
+    - id: DEFAULT_CURRENT_SQL_ID
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Data Definition":
+    - id: DEFAULT_DD_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Data Set Name":
+    - id: DEFAULT_DATA_SET_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Database Name":
+    - id: 099a75f0-693f-427d-8950-b3860e1a3122
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Database Username":
+    - id: 9bd5476b-53bc-4732-8b44-312f4392bbe6
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Date_Time":
+    - id: DEFAULTCUSTOMEVENT21
+      type: string
+      extensions:
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+  "Delegation":
+    - id: 9dbdae29-4973-4421-897d-138673b21ae0
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Deployment ID":
+    - id: 309c4258-ea7d-48ff-a186-bb84d71ea132
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Description":
+    - id: de483535-1480-43b2-8ec0-89172946e2ab
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Destination Hostname":
+    - id: DEFAULT_DESTINATION_HOSTNAME
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Bit9 Security Platform"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Destination Interface":
+    - id: b95e14af-71c7-450a-9092-2a3a14a3df31
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Destination Interface UUID":
+    - id: 5e4b6764-4458-4d1b-8862-86e904f9ee07
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Destination Mount Point":
+    - id: 70cf787b-a265-4371-b8d7-5b0a90877f56
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Destination of Risk":
+    - id: 0bb0c42b-3f5e-4c72-bbb9-b45baf83de76
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Destination Zone":
+    - id: APPTRACK_DST_ZONE
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "Detection Engine Type":
+    - id: 381e1e04-f433-4da9-ad7d-23f2c6778aaa
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Device Name":
+    - id: 36343a8b-d689-43c9-927c-da819db88c96
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Disposition":
+    - id: f69846af-a67c-4413-bcda-d3c9c3c050e2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "Distinguished Name":
+    - id: 093df78c-64f2-4c2a-8990-0e8cb5673254
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "DLP Dictionary":
+    - id: ac899a62-94fc-4584-b886-d5c4c7051968
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "DLP Engine":
+    - id: 425adefb-d6cc-4e41-b344-adf942dc738e
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "DNS Host Name":
+    - id: 6789be17-a719-46a6-ac96-b002711bff8c
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "DNS Request Domain":
+    - id: 2209a900-ce5f-4df5-aa7f-720286ccc653
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "DNS Request Type":
+    - id: b3225a22-4f8b-45d0-aa28-a82af26a5b95
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["BlueCat Networks Adonis", "ISC BIND", "Infoblox NIOS", "Microsoft DNS Debug"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "Domain":
+    - id: 2de3a7bb-05f0-48c1-b29e-1f30db7a9486
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Dormant Offense Count":
+    - id: 1e1de407-c136-442d-9f70-1fc50b97cf1b
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+  "Duration_Seconds":
+    - id: DEFAULTCUSTOMEVENT4
+      type: numeric
+      extensions:
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+  "Effective Group ID":
+    - id: 1413a73f-40bb-4e87-9e4a-8eb05a49ec73
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+  "Effective User ID":
+    - id: c015b34d-c25d-43a0-943d-0319f928b41a
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Elapsed Time":
+    - id: 29ef1c48-f222-4211-9d6b-e51913349a6f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+  "Element":
+    - id: 9c09733e-de28-4d21-8e15-730d5c59bfed
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["Health Metrics"]
+  "Email Subject":
+    - id: bd2e34ae-104f-4633-a09c-f1248d8c1197
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Encoded Argument":
+    - id: d111927d-d4eb-4920-ab60-46bc6288ec4f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Encoded Command":
+    - id: 73ab582c-9d9e-48d5-9ca6-758e708f773e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Encoded File Directory":
+    - id: 80e85008-3e0a-4b94-b955-65276c808c06
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["SIM Generic Log DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+  "Encoded Filename":
+    - id: 7e8f2aa4-e565-45a2-be93-f2e788e998ce
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Engine Version":
+    - id: 72bcfadf-f06c-4579-90cc-085d6fb6adb0
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Error Code":
+    - id: 0910c4a3-d92e-489b-934b-c61bda2b087c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["Microsoft DNS Debug"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Event Detail Link":
+    - id: ed905980-e833-44d2-8813-7be15179b350
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for SAP Enterprise Threat Detection 1.0.2": ["SAP Enterprise Threat Detection"]
+  "Event Summary":
+    - id: DEFAULT_EVENT_SUMMARY
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["IBM Resource Access Control Facility (RACF)"]
+  "Event Type":
+    - id: 00aa0cc0-f6e5-4d24-9583-67ecf679bef1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "EventID":
+    - id: DEFAULTCUSTOMEVENT8
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Events per Second Coalesced - Average 1 Min":
+    - id: 41a97dee-0d4d-4fec-a8ce-6b8231084b4d
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["System Notification"]
+  "Events per Second Coalesced - Peak 1 Sec":
+    - id: 055bfbc2-0251-401b-b7ee-8b982cfa877c
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["System Notification"]
+  "Events per Second Raw - Average 1 Min":
+    - id: 84a8a092-f12a-4a49-a97e-2946e81061ec
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["System Notification"]
+  "Events per Second Raw - Peak 1 Sec":
+    - id: c6c98c4d-154f-45fe-aac5-636293cb3cfa
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["System Notification"]
+  "Extended Error Code":
+    - id: 6ba9540e-a477-47c9-890b-c6c2adfc1ced
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "ExternalAccess":
+    - id: 65cfec4b-5187-4397-8664-186495ad1458
+      type: string
+      extensions:
+        "User Behavior Analytics Cloud Content 5.1.0": ["Microsoft Office 365"]
+  "Federated User":
+    - id: dd20b033-cc8b-446f-b242-a46c0673b0b3
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+  "File Classification":
+    - id: 4d792583-e083-45e0-9075-668ce7ae59c5
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "File Direction":
+    - id: 58fddc78-ac62-4edc-988e-a01fdce244d2
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "File Directory":
+    - id: f7a8e3d5-1902-4acf-afe3-e2c4b928d90e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google G Suite Activity Reports"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "File Extension":
+    - id: 230ecc1f-bef2-49d0-81c4-98918a1e6d1a
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "File Hash":
+    - id: DEFAULT_FILE_HASH
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM", "Kaspersky Security Center"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Bit9 Security Platform", "FireEye", "Lastline Enterprise", "Microsoft Windows Security Event Log"]
+  "File ID":
+    - id: DEFAULT_FILE_ID
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google G Suite Activity Reports"]
+  "File Path":
+    - id: DEFAULT_FILE_PATH
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Bit9 Security Platform"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "File Permissions":
+    - id: a24bb21b-1d18-4344-8605-08a222c63262
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "File Size":
+    - id: 5b7b76c8-fa9d-4ad2-91bf-6d69000fbaaf
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "File Type":
+    - id: aa4e40b2-2ce5-414e-acf9-650488566971
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google G Suite Activity Reports"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "File_Hash":
+    - id: 60fef2f1-0429-4351-9803-39c118cf4661
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "Filename":
+    - id: DEFAULT_FILENAME
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google G Suite Activity Reports"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Custom Properties for VMware 1.1.0": ["EMC VMWare"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Fortinet FortiGate Security Gateway", "Linux OS"]
+        "User Behavior Analytics Network Traffic and Attacks Content 5.1.0": ["Fortinet FortiGate Security Gateway", "Linux OS"]
+  "Finding ID":
+    - id: 083498fb-f91a-40c9-b09e-340653772c7c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Fingerprint UUID":
+    - id: 8b34d48e-624c-432d-b353-4bb6786913e3
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Flow Source":
+    - id: 6997251a-0dee-4201-94ec-9d30c5cd5d20
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+  "Flows per Second - Average 15 Min":
+    - id: 9d87cadf-7692-4a30-ae87-019dd960b673
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+  "Flows per Second - Peak 1 Min":
+    - id: 10e12fe0-4c09-44b5-b869-281e1137a1a7
+      type: numeric
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+  "Full Name":
+    - id: 2194b6b0-b8d5-4048-b2e6-64aad70ad262
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Function":
+    - id: DEFAULT_UNIX_FUNCTION
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Function Code":
+    - id: DEFAULT_FUNCTION_CODE
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "FwdDomain":
+    - id: d2284a23-42f4-412c-bf6a-cd2363a6f78f
+      type: string
+      extensions:
+        "User Behavior Analytics Cloud Content 5.1.0": ["Microsoft Office 365"]
+  "Granted Access":
+    - id: 82b68ac7-6e18-4c3c-a657-68d2c8853222
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Group Domain":
+    - id: 507657c6-d092-4fb9-96e8-55ebd72d127f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Group ID":
+    - id: DEFAULTCUSTOMEVENT17
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM Security GPG13 Content 1.1.0": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Group Name":
+    - id: cbea4bef-be53-49ba-ac62-32b81fcd0aaf
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud", "Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Group Security ID":
+    - id: 6065a1df-fdec-405e-b232-6beaafddd6eb
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "Home Directory":
+    - id: 776939f3-5a72-490c-bdb7-e2e268655bf4
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Host Status":
+    - id: 7608deed-186b-4e1e-80e2-372a773f1246
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Host Version":
+    - id: 55d248db-ef40-4710-841c-4102780bd2c1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Hostname":
+    - id: 5dd98447-34af-4d0a-9a81-6146a77a5ab3
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+  "HTTP Content-Type":
+    - id: 7711b5a8-847b-450e-8a0e-c2919abf47af
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "HTTP GET Request":
+    - id: d9639f0a-79e8-48d4-b119-839606f2b415
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "HTTP Host":
+    - id: 64ea1834-1b36-41d1-b962-53e4e0b4f0e3
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "HTTP Referer":
+    - id: 8ec63842-5242-4696-a789-ddef47aa89f3
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "HTTP Server":
+    - id: 9e36e515-c30e-4e30-b12b-1123ff33ffad
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "HTTP User-Agent":
+    - id: 5e29d161-89c8-4754-be09-823c2f739e57
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": []
+  "Image":
+    - id: b5b23343-2c07-42b6-bfae-8be65fb0af25
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "Image ID":
+    - id: 05c45bec-fd56-42ce-bd19-095c4d92a3ed
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+  "Image Tag":
+    - id: 5cde3bec-45e5-48b7-88f7-c222b46fa846
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "ImageLoadedTempPath":
+    - id: 2c8786e6-d4cc-40fd-bea6-74aaab19d4e9
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "ImageName":
+    - id: daeeeef8-bcc3-4424-ac4b-bc94f77e1c7e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "ImageTempPath":
+    - id: 475a8160-fbcc-47f1-b062-d49d38af1ffe
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "IMP Hash":
+    - id: 1521c6d7-c412-43b1-9cd7-4491031c19bb
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Impact":
+    - id: cbdf98ef-3fd3-4487-bffd-8eea65ae9e46
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Snort 1.1.0": ["Snort Open Source IDS"]
+  "Impact Level":
+    - id: c08ff1e3-55e2-47ef-b4ed-dfce4c39da45
+      type: numeric
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Impersonation Level":
+    - id: bdd234a1-09a2-4aa4-83d7-142525d65036
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Incident Detail":
+    - id: 29338901-2a1c-4711-b6a4-a29e2033a430
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Initiated":
+    - id: bc22f4b4-1c02-480e-9f3e-cfe7353fb98f
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Initiator Username":
+    - id: 40d41417-9594-4e68-be99-7ccd5a828f4c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Instance Size Type":
+    - id: 10308b00-3a6c-4e55-aea2-a1e0651e6122
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+  "Instance State":
+    - id: 0c0f2be8-d185-4736-9ba6-cf96564f6874
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+  "InstanceID":
+    - id: 79e605b9-d7b1-4fd9-a255-f2c2554aedb1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+  "Integrity Level":
+    - id: d062be07-bcf2-4347-a636-34e79e88f7be
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Interactive Session":
+    - id: 686db92a-d340-43f6-a910-7d376a6cf375
+      type: string
+      extensions:
+        "User Behavior Analytics Access and Authentication Content 5.1.0": ["Linux OS"]
+  "IOC Name":
+    - id: 83177dce-5c57-41e5-b59b-0d844fdc5a50
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "IOC Value":
+    - id: 8eaf1625-f9db-41ec-955f-e1efe92f5288
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Job Name":
+    - id: DEFAULT_JOB_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Job Number":
+    - id: DEFAULT_JOB_NUMBER
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Job Tag":
+    - id: fcd3f3cc-ebd9-46ca-9286-a38a14824c78
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Key Length":
+    - id: c732c6c4-3e1d-4116-88c5-b2df0782f711
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+    - id: 69cbfa11-9012-46c6-b7f6-57cdb93f14a2
+      type: numeric
+      extensions:
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "LDAP Display Name":
+    - id: 97e88fa5-c411-4522-8253-45191438d5e3
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Local Network Gateway":
+    - id: 7d60cefb-27b7-4856-8897-b082e38f5054
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Location":
+    - id: 7cd6e0fd-b341-4251-90ce-28c6afc4f341
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Log Record Source":
+    - id: 204f332c-7db2-4623-bb7c-d04a9b3af5cd
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Log Source Hostname":
+    - id: 6c23bab5-0a36-4fb3-b269-576f7980e146
+      type: string
+      extensions:
+        "IBM Security GPG13 Content 1.1.0": ["SIM Audit"]
+  "Log String":
+    - id: DEFAULT_LOG_STRING
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Login ID":
+    - id: c7ef3d15-f15b-42f9-8f9e-77148d9378b8
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Login Risk Score":
+    - id: 43c7d5ff-9d28-4fac-9701-d24fcf49f77c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Login Type":
+    - id: 7764aa20-fd26-4ec2-bde1-8b4ccea0a825
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Logon Account Domain":
+    - id: 6a3e4557-cb97-41a2-a16d-50590348e89f
+      type: string
+      extensions:
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Logon Account Name":
+    - id: 239a2d53-8fd0-4a9b-a665-a04b0dd8932e
+      type: string
+      extensions:
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Logon ID":
+    - id: 2ac5a201-c111-44bb-9360-57b64c392286
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+  "Logon Process":
+    - id: 58347c18-61d1-4954-b213-a7e55ea13ff6
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Logon Type":
+    - id: fbd2dc2c-1db2-4805-9c5a-fc41016d99d7
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+    - id: edddf5a4-8cda-400a-80d6-d3ac9d8a73f7
+      type: string
+      extensions:
+        "User Behavior Analytics Access and Authentication Content 5.1.0": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Machine Identifier":
+    - id: 002a5618-8f44-41bc-b5aa-bc02153a7d84
+      type: string
+      extensions:
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit", "Google Cloud Platform Firewall"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for VMware 1.1.0": ["EMC VMWare"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["WinCollect"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Malware Event Type":
+    - id: 388fdc9f-ed38-4f61-9a80-424f74f4c623
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "MD5 Hash":
+    - id: e7244b36-ad80-438f-8290-d79dc1059198
+      type: string
+      extensions:
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Message":
+    - id: DEFAULT_MESSAGE
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for SAP Enterprise Threat Detection 1.0.2": ["SAP Enterprise Threat Detection"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud"]
+  "Message ID":
+    - id: 9d9a57de-99bd-4495-83a3-11e0502cda9a
+      type: string
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+  "Message Size":
+    - id: 41ef9df8-5ecb-461a-92eb-bd9833841e11
+      type: numeric
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+  "Method":
+    - id: c68fac53-7fce-48e6-a98b-5d640c58be75
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+  "Metric ID":
+    - id: aa4da34c-5b8c-453f-91b4-f205442d235a
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["Health Metrics"]
+  "MFA Used":
+    - id: ec0f587e-a6e6-44c4-aac7-e993a5b3554b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google G Suite Activity Reports"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "Mitre Attack ID":
+    - id: bf87a416-f643-4c09-9e76-626957e8d7bd
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "modelName":
+    - id: e3c48980-1600-414a-9e92-5f16367dae0a
+      type: string
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "Module Name":
+    - id: 91121476-b9b8-45d3-9751-d54c7a580022
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Namespace":
+    - id: 14f0286a-7cc6-41b7-97a3-a55c33d88738
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+  "Network Interface":
+    - id: 21fcb564-61db-44c6-a860-81e6a764b254
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Network Security Group":
+    - id: d349214a-d794-427b-a47e-fa5b70cbf979
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Network Watcher":
+    - id: 743c7ca8-3f3d-4f25-b652-fb0a19d9aff6
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Number of Recipients":
+    - id: 6cbb211b-ebaa-4370-8e72-e7202c9147e1
+      type: numeric
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+  "OAuth Actor":
+    - id: 28230a7a-a1b6-4b73-a93f-f4b5fc3f6a57
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Object Class":
+    - id: 603cfca9-9c2d-4d8f-936d-2d738fd86675
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Object ID":
+    - id: 99a3781b-e65c-4474-8142-a4c0f495044b
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Entra ID"]
+  "Object Name":
+    - id: ce2040b0-30a5-42a6-b97b-947fb192f22e
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "Object Name Lowercase":
+    - id: c67ed20e-5b5f-4bab-b400-2687475d9d92
+      type: unknown
+      extensions:
+        "IBM QRadar Endpoint Content Extension 3.1.0": []
+        "IBM QRadar Endpoint Content Extension 3.3.0": []
+  "Object Type":
+    - id: DEFAULTCUSTOMEVENT13
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Object type(s)":
+    - id: DEFAULT_OBJECT_TYPES
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "ObjectName":
+    - id: 542c2197-6bed-4403-ae33-5fa566c1d73f
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Universal DSM"]
+        "IBM Security ISO 27001 Content 1.1.4": ["Microsoft Windows Security Event Log", "Universal DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "User Behavior Analytics Accounts and Privileges Content 5.1.0": ["Microsoft Windows Security Event Log", "Universal DSM"]
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Microsoft Windows Security Event Log", "Universal DSM"]
+        "User Behavior Analytics Network Traffic and Attacks Content 5.1.0": ["Microsoft Windows Security Event Log", "Universal DSM"]
+  "Offense Closed Comment":
+    - id: 748c75fb-fb4d-4739-b9a7-662910312cd1
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Offense Closed Reason":
+    - id: ab353941-a3b8-4071-aecd-9831c25137c1
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Offense ID":
+    - id: a1f38e0f-dde4-4559-855e-0924935597a3
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Offense Owner":
+    - id: be030812-8800-4692-ab55-3ab1a64f94d1
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Old Data Set Name":
+    - id: DEFAULT_OLD_DATA_SET_NAME_
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Operation ID":
+    - id: c6bffb1f-61a0-4ac4-a6f0-57e78e1d4ced
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Operation Name":
+    - id: b45749f3-827d-43b7-b08b-7302736c4818
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "Operation Type":
+    - id: 3fd656aa-a5d0-47a8-932b-968a6ca85bc2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Originating_User":
+    - id: c5496d4e-dd49-46ab-b6dc-04a892757a23
+      type: string
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "OS Name":
+    - id: eb55da5b-65cc-4248-837c-4f98a6f135e9
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["WinCollect"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "OS Patch Level":
+    - id: f7452cc0-6062-4c82-9f4e-a72f8b84abe9
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "OS Vendor":
+    - id: 7f11cf19-30c8-4d85-9897-28fda4308e13
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "OS Version":
+    - id: 9f57ed0f-f3f7-4f18-8832-225561b77bc2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Packet Type":
+    - id: abd191c5-adc7-46d8-99ae-a3b7cd23b55b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "Packets":
+    - id: 4d616180-00d0-4ba0-b423-bfb54e1b8677
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "Packets Received":
+    - id: DEFAULTCUSTOMEVENT27
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Packets Sent":
+    - id: DEFAULTCUSTOMEVENT32
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Parent":
+    - id: 8eb82a2c-bba7-478f-9248-69fba8baf8c7
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["System Notification"]
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["System Notification"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Parent Command":
+    - id: 167c29dc-0ca1-4556-8058-a7f6496d7f7e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Parent Content Information":
+    - id: 6676c50e-e78e-4b10-a678-f8754778e014
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Parent Disposition":
+    - id: 529d1f23-4207-444e-9e3f-0270cb8892bb
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+  "Parent File Directory":
+    - id: 56c2b8b5-63f9-4c63-9674-921da4f469f0
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Parent File Extension":
+    - id: 4e178adc-903f-4718-9f4f-0c8e5a9f9f9c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Parent Filename":
+    - id: d6dd5112-1d4a-471a-b3d0-f33fbbbe6e3b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Parent GUID":
+    - id: f5e20647-fad8-48fd-a2e3-fc14f5965a14
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Parent Hash":
+    - id: a8d95f61-adcf-40c3-8f2e-27a89e4110a8
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Parent MD5":
+    - id: 13171ee9-c797-40e1-81e0-fb09c5d7a912
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Parent Object Type":
+    - id: 3286dc16-8164-418c-aa2e-759660e4566f
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Parent Path":
+    - id: bd750e4b-710e-48c5-afb9-f3647b0516da
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Parent Process GUID":
+    - id: f2b6fd22-e55e-44ab-abd5-b406a7fac28b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Parent Process ID":
+    - id: 51dbf8ea-62d7-485f-a6e9-7cc3c4ed30ac
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Parent Process Name":
+    - id: 1aaa2e1c-66eb-4107-a26c-2cd98bdb51f3
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Parent Process Path":
+    - id: 6f8d2b3a-6da8-41da-bc27-e8d5149cc520
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Parent SHA1 Hash":
+    - id: 14c9bf4a-bcda-489e-85e1-1476f0a381e7
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Parent SHA256 Hash":
+    - id: c48c5cdf-ec92-4b58-84fc-ad2e3af45384
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "ParentImage":
+    - id: 812c32ed-8b76-4539-bce0-0fe31bcad36b
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "ParentImageName":
+    - id: 425472be-b48b-40c2-bc68-b542906f97a6
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "Pipe Name":
+    - id: cb6bc695-4367-4008-bbfe-b588c7ea505a
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Policy":
+    - id: DEFAULTCUSTOMEVENT6
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+  "Policy Category":
+    - id: 81b5fdce-959b-48e7-b9fc-b31cbb5514ab
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Policy Classification":
+    - id: b0ba6fea-0e71-400e-9128-f11014a54504
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Policy ID":
+    - id: bb0c2231-e41b-4e4c-9d33-78e64d950665
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Policy Name":
+    - id: b1b66c85-0180-434c-9fa9-330c20fc238b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Policy Violation ID":
+    - id: 5fff0da6-8257-4f82-b70c-821951d13f4c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Port of Entry":
+    - id: DEFAULT_PORT_OF_ENTRY
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Previous CRE Name":
+    - id: 240a478c-e83e-4b58-b049-808b92b67db5
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Previous Rule Filters":
+    - id: 65f71568-286d-4306-bcb8-3313703a77a5
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Previous Rule Notes":
+    - id: dd1d91d5-a323-43eb-8ca2-dfc569e3eef1
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Priority":
+    - id: 02727d71-bdc3-4d84-a136-a8595199c74c
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Snort 1.1.0": ["Snort Open Source IDS"]
+  "Privileged Container":
+    - id: 1eaf62ad-ff63-419d-b772-3c05017c801a
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Privileged Container Name":
+    - id: de52aa43-a36b-4d38-9ffc-12b9853847bf
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+  "Process Direction":
+    - id: bd98747c-9a7a-4582-80f4-133264d1cffc
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+  "Process File Size":
+    - id: 721b95d5-595e-46b7-b091-a2a8f4399d5e
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Process GUID":
+    - id: 95d2bd09-95a3-4d28-861e-922d3cd89665
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Process ID":
+    - id: c3615010-0cb6-43b5-b921-4bcf7737b8ea
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+  "Process Name":
+    - id: 60f5cd01-7f06-40ca-8e7b-6c8796c9bbd6
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Carbon Black", "FireEye", "Linux OS", "Microsoft Windows Security Event Log"]
+  "Process Path":
+    - id: 7f294bb1-58d4-4d76-b71b-b512377c8afa
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Process SHA1 Hash":
+    - id: cb7fe6ea-363a-42fa-9590-28e8570b8300
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Process SHA256 Hash":
+    - id: a6af632b-b638-46a2-b8be-d79bc3fe73d1
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Profile":
+    - id: b48b40f2-1caa-486c-8806-552af457cc03
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+  "ProgramName":
+    - id: 663d5f45-0bad-4acc-b263-d9fa778ea09c
+      type: string
+      extensions:
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Properties":
+    - id: 1f748b20-22c8-41c1-a1c4-9e3d1523bbbd
+      type: string
+      extensions:
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Proxy Status Code":
+    - id: 65d0b2e4-fd58-416b-b2cd-d723de0d8b37
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Public IP Name":
+    - id: 831a2820-3bae-4799-885c-be11b74e0a4c
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Public Permission":
+    - id: c13b4acf-ecc9-412c-ad45-a2ab7467bbbf
+      type: string
+      extensions:
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+  "QidMap Description":
+    - id: 4c9319bf-723b-449e-935d-932629045fef
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "QidMap ID":
+    - id: 0f9df378-e08d-44b3-a285-842cbc3d45f2
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "QidMap Name":
+    - id: ee3fc246-02a5-4d7d-9f2b-f315fd136dc8
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Realm":
+    - id: DEFAULTCUSTOMEVENT5
+      type: string
+      extensions:
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Juniper Networks Infranet Controller", "Microsoft Windows Security Event Log", "Pulse Secure Pulse Connect Secure"]
+  "Reason":
+    - id: f8bad375-115d-4fea-82af-f6d45be05bc0
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "Recipient Host":
+    - id: 8e6d344e-62cc-4ab9-a530-d5ec21688606
+      type: string
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Recipients":
+    - id: dee5377f-f33a-438c-b206-fdaf2a93e1c5
+      type: string
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Record Number":
+    - id: 962748a7-c42b-4d47-b978-3d14683aa27d
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Reference Link":
+    - id: 3112b8b4-57b6-44e5-b855-9f6df7d1d955
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "ReferrerURL":
+    - id: 318c3628-513d-498c-86f0-4b8f0391c632
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Region":
+    - id: 1db461ba-8e64-4df6-b586-2580eda89ae7
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit", "Google Cloud Platform Firewall"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud", "Microsoft Entra ID"]
+  "Registry Key":
+    - id: 2f454996-2ac6-41f6-ace1-552b0f2b39ca
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Registry Value Data":
+    - id: 6b33b8a6-4fd0-4b63-8dd9-f3f0c4de4b5d
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Registry Value Name":
+    - id: 26dd16f0-3b25-4a67-a2d7-33f4baace4c2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "RegistryObject":
+    - id: 38d7e88e-03a9-4f70-b9ea-8db108585c4c
+      type: string
+      extensions:
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "RegistryObjectName":
+    - id: 04d2cfe8-4a49-4e58-968c-f7148deaab39
+      type: string
+      extensions:
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Relative Target Name":
+    - id: 750b63b4-55ea-4ff9-a31a-35daf8c687a7
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Reported By":
+    - id: c699b241-7cc3-445b-b5d7-5ae47c1193f3
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Request Site":
+    - id: a25db1b2-fe2c-4e1d-8564-055a2ef46703
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Request URI":
+    - id: f0222d00-2ef1-4299-be8c-586b11a8858c
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Resource":
+    - id: DEFAULTCUSTOMEVENT7
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+  "Resource ID":
+    - id: 47207f2d-dce6-4304-aba3-ad24cfd09827
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Entra ID"]
+  "Resource Name":
+    - id: 620a4448-6c25-4cf8-86d3-dd480c37fc9f
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit", "Google Cloud Platform Firewall"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+  "Resource Sensitivity":
+    - id: DEFAULT_RESOURCE_SENSITIVITY
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Response Code":
+    - id: 783b8dba-9a8b-4987-91fd-d451497e30e1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+  "ResultStatus":
+    - id: 3690e9ac-e423-44a9-b465-b99df2fd8843
+      type: string
+      extensions:
+        "User Behavior Analytics Cloud Content 5.1.0": ["Microsoft Office 365"]
+  "Retention Period":
+    - id: 3b2bba1c-f1a1-4d3d-b1a1-eefd4d1fb62d
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Risk Score":
+    - id: 50752976-b849-4325-8da6-4edb8c655d03
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "Role":
+    - id: DEFAULTCUSTOMEVENT1
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+  "Role Actions":
+    - id: cc83400e-4f38-4810-a49c-99fb146ad23f
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+  "Role Assigned Resources":
+    - id: f73067be-639a-42cd-af2b-e5fae10723d0
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+  "Role Name":
+    - id: f3fd1f39-dc3d-420c-95f2-85f5be7f5c43
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit", "Google G Suite Activity Reports"]
+        "IBM QRadar Custom Properties for VMware 1.1.0": ["EMC VMWare"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Root Hash":
+    - id: DEFAULT_ROOT_HASH
+      type: string
+      extensions:
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Bit9 Security Platform"]
+  "Rule Action":
+    - id: 898e845a-9fac-4549-b03b-53d2ef4a74d8
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Rule Details":
+    - id: 746dd5e4-ce44-45ee-a6df-55f071a9b64e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Rule Filters":
+    - id: 03c2c6ed-7a3f-4a74-97ea-c1269fe7be78
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+  "Rule ID":
+    - id: 8bebc00d-f3f0-4f01-915f-7c0e1eb83b00
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+        "IBM Security QRadar Custom Properties for Snort 1.1.0": ["Snort Open Source IDS"]
+  "Rule Name":
+    - id: DEFAULT_RULE_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Platform Firewall"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for Snort 1.1.0": ["Snort Open Source IDS"]
+  "Rule Notes":
+    - id: 65a65758-0e24-46d4-9d7a-9e2636261a41
+      type: string
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Run Level":
+    - id: 717b2df1-41fa-44e9-97b0-2ff4374caa79
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "SAM Account Name":
+    - id: e94d9796-6237-48f6-b2e3-1f37abdbaf98
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "Scope":
+    - id: DEFAULTCUSTOMEVENT20
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Score":
+    - id: fc238534-badc-4724-9a37-abf630aac50c
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties for SAP Enterprise Threat Detection 1.0.2": ["SAP Enterprise Threat Detection"]
+  "Search Executed":
+    - id: c9de973e-fae4-400d-a998-ba56a8ccc5e6
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["SIM Audit"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Security Rule":
+    - id: 298b32fe-b237-44b7-8e4e-e4df85cbcc53
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Sender":
+    - id: 8c490f4b-641a-4df6-ad56-6a8a467658d4
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Sender Host":
+    - id: bd3b952a-4036-4f9e-aa85-e20ee98ed8fc
+      type: string
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+  "senseConf":
+    - id: 40283dc9-41b8-49ea-88f6-6b3eefbfd4a8
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "senseDesc":
+    - id: 04cce850-fb89-4a7e-bb55-61dfcdd7b9cf
+      type: string
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "senseOffenseId":
+    - id: 4e7565b3-0eb6-405f-af63-e8f13da9a08e
+      type: string
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "senseOffenseScore":
+    - id: 3693a6ac-f503-4ebd-9379-99324f2081ac
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "senseOverallScore":
+    - id: 4400304c-e5e7-4c2d-91da-d4793fe6f850
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "senseScore":
+    - id: 0e05a8a5-ba60-4c34-bd10-8b32e434d6e1
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "senseValue":
+    - id: b06402ad-41e3-4fc8-a017-2988d7a1ba9a
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["Custom Rule Engine", "IBM Sense"]
+  "senseValueDestination":
+    - id: f0177f21-8cd0-4899-b5f1-c14ba1721acd
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["Custom Rule Engine"]
+  "senseValueSource":
+    - id: 4ea3b427-836c-4d13-8874-82cfe2feeb30
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["Custom Rule Engine"]
+  "senseWindowScore":
+    - id: 971a1d74-03ab-4d25-ab05-da8b000910ff
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "Sensitive Groups":
+    - id: DEFAULT_SENSITIVE_GROUPS
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Sensitive User Privileges":
+    - id: DEFAULT_SENSITIVE_USER_PRIVILEGES
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Server Response Time":
+    - id: db98fc9c-bacf-4778-9c66-3181e795d904
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+  "Server Status Code":
+    - id: ae1037c2-ff4d-4c35-abd9-5dcfde9f7f7e
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Service Filename":
+    - id: 135b9822-5e07-426e-a4bb-0f693a25fb46
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Service Name":
+    - id: 240a3ddb-1cd6-43c8-b3e9-b2e5f66f5a5a
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Service Port":
+    - id: 157ed2ed-d68e-4815-960f-d3b4c5e5f17f
+      type: port
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+  "Session ID":
+    - id: d547d106-a0dd-47ff-89fe-0712e42a5934
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "SHA1 Hash":
+    - id: daefb0b4-39e4-437d-bb84-0a567eea65a2
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["Microsoft 365 Defender"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "SHA256 Hash":
+    - id: afbddd70-7610-446f-a808-bc85763ed9c4
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+        "User Behavior Analytics Threat Intelligence Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Share Name":
+    - id: 36c31ecf-d67b-48fc-adfb-b60a482039bd
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Share Path":
+    - id: 3830765f-4e47-4b2d-91fe-679e0dd92030
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "ShareName":
+    - id: ea4ab874-5bcb-47b3-860c-e54498ccea9f
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Shell":
+    - id: a3e3006e-7095-43d5-a41a-4525276f4bbe
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+  "SID History":
+    - id: ec100ee3-02e3-4f76-97a7-3500cce5b3ef
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "SignatureStatus":
+    - id: 2bfc9b8e-57d8-408a-899a-1d5cf51fe2f2
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Signed":
+    - id: e49de3ef-2992-49c9-a749-eff4dbeb088b
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "SignerType":
+    - id: bb95b2c6-09e1-4b9b-a994-3f570165f8bd
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Source Hostname":
+    - id: DEFAULT_SOURCE_HOSTNAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Source Interface":
+    - id: 95084ce2-3237-4eb0-811e-9ac0b3a466e2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Source Interface UUID":
+    - id: bcd89d64-64d3-4881-ba89-1777b6288979
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Source Mount Point":
+    - id: a5e6c492-b2d1-4db7-9ca3-3107b9b21797
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+  "Source of Risk":
+    - id: 39f4dd01-a377-4821-aa83-692b3d55208b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+  "Source Process Path":
+    - id: daf362c1-ce5e-49e7-8b7a-0da268414abd
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Source Workstation":
+    - id: e6467851-5762-4916-96df-1efd63d62d0e
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+        "User Behavior Analytics Access and Authentication Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Source Zone":
+    - id: APPTRACK_SRC_ZONE
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+  "SourceImageTempPath":
+    - id: 1d470c3b-dcf4-4181-9166-77dc65f01c37
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+  "SQL Command":
+    - id: 39e3fa57-5d18-4089-b574-2cdb994e983e
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "SSH Login Audit Event":
+    - id: 5652f87a-2b31-4d0d-b376-5edb0ebd84d7
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["SIM Audit"]
+  "SSH Process ID":
+    - id: fbe3ca21-397d-4bfc-9a39-edfdcc83716a
+      type: string
+      extensions:
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Linux OS"]
+  "SSL Actual Action":
+    - id: 346ca198-0132-4668-89d8-ad6bd8ea1f71
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "Start Address":
+    - id: cecdcd5a-60e9-4c89-8b63-921a77c50c53
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Start Function":
+    - id: f52b3cfb-a8db-492f-b273-34c5b5ff1083
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Start Module":
+    - id: 23ac846c-7383-4863-b363-37e0fbfef92e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "State":
+    - id: 73d5f06c-8a8e-4ed1-9590-15b57da47ea9
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Status":
+    - id: 81d71590-2c98-4b91-a304-a8db41f673ed
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Status Code":
+    - id: ea09870e-db54-41e8-8147-da673c84ce02
+      type: string
+      extensions:
+        "User Behavior Analytics Accounts and Privileges Content 5.1.0": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "Step Name":
+    - id: DEFAULT_STEP_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Storage Name":
+    - id: 5abe5b1f-86d2-4130-b1c8-bf04ba4eb34e
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+  "Subject":
+    - id: 13e7f692-2cd0-4b84-bc1f-fb628a5e8eb4
+      type: string
+      extensions:
+        "IBM Custom Properties for Microsoft Exchange 1.1.1": ["Microsoft Exchange Server"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Postfix 1.0.2": ["PostFix MailTransferAgent"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Subject Account Name":
+    - id: 72909fcc-c660-4fb6-a0b2-1627a5cd2e85
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Submitted By":
+    - id: DEFAULT_SUBMITTED_BY
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Subscriber":
+    - id: DEFAULTCUSTOMEVENT28
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Subscription ID":
+    - id: 7d57ddbf-bb80-4090-818f-4ac972cbead1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Defender for Cloud"]
+  "Subsystem Name":
+    - id: DEFAULT_SUBSYSTEM_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft IAS 1.0.0": ["Microsoft IAS Server"]
+  "Subtype":
+    - id: b0db09e3-11d9-4a5d-81b0-4f37acdd59af
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["Microsoft DNS Debug"]
+  "SyscallID":
+    - id: 66e53d5c-6530-4211-8069-f960d3ab6542
+      type: string
+      extensions:
+        "User Behavior Analytics Endpoint Content 5.1.0": ["Linux OS"]
+  "System Status":
+    - id: 7bd1d694-454d-4294-a61a-1120a591a41b
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["System Notification"]
+  "Tactic":
+    - id: 2f22a3bd-e854-4885-8bd3-ae3508c57e7c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "Target Access Key ID":
+    - id: 85ff6400-e3c0-4c55-97e0-811dbc4762f2
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+  "Target Account Security ID":
+    - id: bebfc0a5-b313-4759-8f40-600910926071
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Target Computer Domain":
+    - id: 95ddd83d-10da-41ac-85e5-dc6c5f884bea
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Target Computer Name":
+    - id: 687de32f-8e93-488d-a6d9-a0a1dacfbd79
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Target Details":
+    - id: 744658bb-7500-4bdb-a724-124fa5d61397
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Target File Directory":
+    - id: 737a2cbc-f7aa-43ec-b128-8674cbf026e4
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Target ID":
+    - id: de624252-48f8-43b1-ba62-f80e29ec2b86
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Target Machine Identifier":
+    - id: 7267bdeb-ab52-4d3e-9100-5648a52a7a2c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Platform Firewall"]
+  "Target Object":
+    - id: 522ead7f-70b1-412a-8790-6f4bf871006e
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "Target Object ID":
+    - id: aa7b8c3a-3b4a-431c-8be7-5bdaab4c3741
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "Target Parent Process ID":
+    - id: b1d81a45-edf6-457e-937e-d4a614236fdd
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Parent Process Name":
+    - id: 0313ebba-f62a-4200-8261-9423494e6dc6
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Parent Process Path":
+    - id: 063df1ba-b0f7-45a8-8876-b6a9920b8a96
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Process Command":
+    - id: e0af0ce1-0eee-4cff-8f63-c8e9ed094097
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Process ID":
+    - id: a05731e0-3f98-4278-bc8d-edfdc20bc219
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Process Name":
+    - id: 7453f3f4-58b3-4e08-aa35-372e2a029deb
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+    - id: 57a98aa9-275b-4e0c-80a1-bbcdaffc1c8d
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Process Path":
+    - id: 1aa29046-3025-4243-8168-6464da805862
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Sysmon 1.3.2": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+    - id: 2ec49c99-25e0-413c-889e-3277213f5431
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Process SHA1 Hash":
+    - id: c8951239-6bc1-4f4d-848c-d49cfc550e09
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Process SHA256 Hash":
+    - id: 363d24f8-9bf0-4a9d-97e3-8be74e1b110d
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Target Server Name":
+    - id: 1a1c257a-111b-4c86-a934-4a6b47fca4e9
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Target User Area":
+    - id: 3b54d6a4-8ce4-43c3-a010-8899dbd00d99
+      type: string
+      extensions:
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "Target User Domain":
+    - id: 6b2c398a-124a-4349-9897-e5abb9df9f54
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "Target User ID":
+    - id: 9599bb25-8c33-4d89-a7d7-f8c21659123b
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+  "Target Username":
+    - id: e7da1cc0-5bf0-48de-86a9-6af817266c7f
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit", "Google G Suite Activity Reports"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Custom Properties for VMware 1.1.0": ["EMC VMWare"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Phishing and Email Content Extension 1.2.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "TargetUserOrGroupType":
+    - id: 61009fa7-083f-4437-a1bc-23f1007fdae7
+      type: string
+      extensions:
+        "User Behavior Analytics Cloud Content 5.1.0": ["Microsoft Office 365"]
+  "Task Name":
+    - id: 4aefc749-73b0-42b3-a1a3-87b0338586c4
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for VMware 1.1.0": ["EMC VMWare"]
+  "Technique":
+    - id: a2099253-c87a-44d4-8f11-f8a6641bd237
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "Temptation":
+    - id: 5c0a773d-9969-4808-90dd-5a94c735a621
+      type: numeric
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Tenant ID":
+    - id: 0c526543-2336-4de3-bf7e-dda1d277fffc
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "Terminal ID":
+    - id: 9109c3d1-7daa-4dd4-8fc7-029509f3ef4d
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+  "Terminated Process Name":
+    - id: 0cc44f96-c8cb-482e-b618-9e50d243b70d
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM", "Microsoft Windows Security Event Log"]
+  "Threat Category":
+    - id: ad7bd4c7-4792-4b2e-9585-8e1d39c446e4
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["Microsoft 365 Defender"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+  "Threat Classification":
+    - id: 042245f6-f4ee-4418-894b-a5cc5e2eef18
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "Threat Execution Status":
+    - id: 48434b2d-5856-463b-9103-df45aedfa108
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Threat Family":
+    - id: 3cb93d92-fbeb-4fd5-9e02-50a280898911
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["Microsoft 365 Defender"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+  "Threat ID":
+    - id: b5b851d8-91b7-4a4a-b2ff-03142514351e
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Threat Name":
+    - id: 266b1a2c-deb7-47d5-b082-f7cac7b5477c
+      type: string
+      extensions:
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM", "Kaspersky Security Center"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco AMP 1.1.0": ["Cisco AMP"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["100", "IBM Security Trusteer Apex Advanced Malware Protection", "Kaspersky Security Center", "Symantec System Center", "Trend Micro Deep Discovery Email Inspector", "Trend Micro Office Scan"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Threat Remediation":
+    - id: 1102bcae-6b90-405e-854a-2b79fcb86e51
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+  "Threat Score":
+    - id: f40471e2-e599-4f63-8040-0e21205d3115
+      type: numeric
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud"]
+  "Threat Severity":
+    - id: ad9afbf1-518b-4e46-9811-3104257a97ed
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6": ["Microsoft 365 Defender"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+  "Threat Type":
+    - id: aae23fc1-ebff-4f1b-8763-c1945acccc2c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "Ticket Encryption Type":
+    - id: 2571f796-f0d7-4196-b64d-0674f85c69d8
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "User Behavior Analytics Domain Controller Content 5.1.0": ["Microsoft Windows Security Event Log"]
+  "TLS Client Certificate":
+    - id: ec328503-a1d0-4aa6-a206-9d5d14a34f04
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS Cypher":
+    - id: f81aef31-fccc-4cb1-9edc-bbf6c0593940
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "TLS Encryption Chaining Mode":
+    - id: 0c4511b3-eb7a-47fb-806e-31b701790ff2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS Encryption Family":
+    - id: 3103ce77-56b4-4c16-8b6f-4a52dc0caf29
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS Encryption Key Length":
+    - id: d3c849f5-9b8d-4097-96c5-891088b112fe
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS Key Exchange Method":
+    - id: 90222f9d-de06-4de7-a43d-9984a1528eab
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS Message Digest":
+    - id: e0286d4f-7e2f-4e61-87f0-a03273ac66a2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS or SSL Protocol Level":
+    - id: c0fb538e-f4af-4935-aaee-e44bcd6a0db3
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+  "TLS RFC Level":
+    - id: c849a775-5ac7-42b0-981b-580612367c05
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "TLS Version":
+    - id: 697cd27b-2d4b-414b-87cc-21ce27f55147
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+  "Token Elevation Type":
+    - id: 85fa4e37-dafa-40f4-be93-d2059d54aed3
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+  "Total Events Dropped":
+    - id: 135ee6b5-4a97-4ff2-9d52-9bbeffca3a95
+      type: numeric
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["System Notification"]
+  "Total Events Forwarded":
+    - id: cb136be2-01a0-4fb2-95e3-fb9d2bba09dd
+      type: numeric
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["System Notification"]
+  "Total Events Not Correlated":
+    - id: 62bb7d84-b49e-4564-a31a-b984a980f56d
+      type: numeric
+      extensions:
+        "IBM QRadar Security Analytics Self Monitoring 2.2.2": ["System Notification"]
+  "Transaction ID":
+    - id: 2dcd9f62-cef1-4ee4-b5e5-e6c4a241446c
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Transaction Name":
+    - id: DEFAULT_TRANSACTION_NAME
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Type":
+    - id: ff99325a-4071-4a2f-8086-a450f2069fe0
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM Security QRadar Custom Properties for Cisco ISE 1.0.0": ["Cisco Identity Services Engine"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "UEBA Entity ID":
+    - id: 11c85222-2093-4d78-b997-c97cd70d72c9
+      type: numeric
+      extensions:
+        "User Entity Behavior Analytics – QRadar v7.5.0 - UP7+ 5.1.0": ["IBM Sense"]
+  "UploadRatio":
+    - id: 5d655d8d-cc30-4871-a228-e293e801d23e
+      type: unknown
+      extensions:
+        "User Behavior Analytics Exfiltration Content 5.0.0": []
+  "URL":
+    - id: DEFAULTCUSTOMEVENT10
+      type: string
+      extensions:
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Forcepoint 1.0.0": ["Forcepoint V Series"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for Microsoft Sharepoint 1.0.1": ["Microsoft SharePoint"]
+        "JuniperNetworksSecureAccess-CustomProperties-1.0.1": ["Pulse Secure Pulse Connect Secure"]
+        "User Behavior Analytics Browsing Behavior Content 5.1.0": ["Blue Coat SG Appliance", "Microsoft ISA", "Pulse Secure Pulse Connect Secure"]
+  "URL Classification":
+    - id: a7e888bb-d552-4b06-a43c-aef5d3d930f7
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "URL Host":
+    - id: 641cd865-b9fb-42f5-81a1-664bdab52270
+      type: string
+      extensions:
+        "IBM QRadar Cryptomining Content Extension 1.1.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["BlueCat Networks Adonis", "ISC BIND", "Infoblox NIOS", "Microsoft DNS Debug"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Crowdstrike 1.0.1": ["CrowdStrike Falcon Host"]
+        "IBM Security QRadar Custom Properties for Microsoft 365 Defender 1.2.1": ["Microsoft 365 Defender"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+        "IBM Security QRadar Techniques for Turla Content Extension 1.1.1": ["IBM Custom DSM"]
+  "URL Path":
+    - id: 41c21ee8-5feb-4fa9-a47e-30bf07c7de18
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+  "URL Query String":
+    - id: 7a347732-5f3b-4b1e-9cfa-9f333ad29387
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+  "URL Referrer":
+    - id: f967556a-f63c-48d9-a0b1-3ad1762a8d74
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+  "URL Scheme":
+    - id: 68dd0992-d936-4326-a6b9-afb195ce9df5
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Squid Web Proxy 1.0.4": ["Squid Web Proxy"]
+  "URL Super Category":
+    - id: edf841f8-1973-49a4-aa9f-3f0a783f05fb
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+  "User Agent":
+    - id: df427563-e73b-49ae-8851-f9b10abfdaba
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+        "IBM QRadar Custom Properties for Kubernetes 1.0.2": ["Kubernetes Auditing"]
+        "IBM QRadar Custom Properties for VMware 1.1.0": ["EMC VMWare"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Apache 1.0.3": ["Apache HTTP Server"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform", "Microsoft Entra ID"]
+        "IBM Security QRadar Custom Properties for Microsoft IIS 1.0.2": ["Microsoft IIS"]
+        "IBM Security QRadar Custom Properties for Microsoft ISA 1.0.0": ["Microsoft ISA"]
+        "IBM Security QRadar Custom Properties for NGINX 1.0.4": ["NGINX HTTP Server"]
+        "IBM Security QRadar Custom Properties for Office 365 1.4.1": ["Microsoft Office 365"]
+  "User Authentication":
+    - id: 5a354cd9-ad2b-40c2-8db4-2ab6d68c8aba
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "User Domain":
+    - id: d13acb4d-16c7-4258-bc6a-5c0bf0b83393
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "User ID":
+    - id: 75e33ff8-1e37-4f31-8deb-4a25fde5dd34
+      type: string
+      extensions:
+        "IBM QRadar Content Extension for Container 1.1.4": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Linux 1.1.4": ["Linux OS"]
+        "IBM QRadar Custom Properties for Osquery 1.0.2": ["osquery"]
+        "IBM QRadar Endpoint Content Extension 3.1.0": ["IBM Custom DSM"]
+        "IBM QRadar Endpoint Content Extension 3.3.0": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "User Principal Name":
+    - id: 1e158a0b-ad44-4867-b53f-8f7f396315a2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Defender for Cloud", "Microsoft Entra ID"]
+  "User Protocol":
+    - id: 27adc2b7-21b8-4fec-8fb2-3d5c3bf7b268
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Cisco Firepower 1.0.3": ["Cisco Firepower Management Center"]
+  "User PUID":
+    - id: 1b8f83b6-c79c-4716-8314-bbce7b9bbe42
+      type: string
+      extensions:
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Entra ID"]
+  "User Right":
+    - id: abd17fdc-e22d-4561-9a7f-860ec1bd2def
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Microsoft Windows 1.2.9": ["Microsoft Windows Security Event Log"]
+  "User Type":
+    - id: d0431023-731f-4e69-bcb6-41bd2f6492f1
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+  "Vendor":
+    - id: 6ac938e2-7173-46ee-9a32-6dc314d07a9a
+      type: string
+      extensions:
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+  "Version":
+    - id: 7d12f075-44cf-4cd1-a1ab-df3a13f5f59b
+      type: string
+      extensions:
+        "IBM Security GPG13 Content 1.1.0": ["Microsoft Windows Security Event Log"]
+  "Virtual Network":
+    - id: 688e8570-8f64-4956-94c8-74c1bff5099b
+      type: string
+      extensions:
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "VirusName":
+    - id: DEFAULTCUSTOMEVENT9
+      type: string
+      extensions:
+        "IBM QRadar Baseline Maintenance Content Extension 1.1.0": ["Juniper Networks Network and Security Manager"]
+  "Volume ID":
+    - id: 6b261718-348f-4600-95bf-d78d0b3c8047
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Audit"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+        "IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3": ["Microsoft Azure Platform"]
+  "Volume Serial":
+    - id: DEFAULT_VOLUME_SERIAL
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "VPC ID":
+    - id: 84e56d11-e813-450d-aab3-2ff7bfe9d5f2
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties for Google Cloud Platform 2.0.0": ["Google Cloud Platform Firewall"]
+        "IBM Security QRadar Content Extension for Hybrid Cloud Use Cases 2.3.2": ["IBM Custom DSM"]
+  "VPNsubject_CN":
+    - id: 0b2a2ccd-6200-4cf9-a4d7-56e4235b74db
+      type: string
+      extensions:
+        "User Behavior Analytics Access and Authentication Content 5.1.0": ["Cisco Adaptive Security Appliance (ASA)"]
+  "Watchlist Name":
+    - id: 08f438c0-0e0a-480c-b5d7-62eb16bb2e5a
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Watchlists Content":
+    - id: d18569ed-127e-42f2-a4b3-6127d33c5402
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+  "Web Category":
+    - id: 146d997c-e963-4a8d-bcf5-5a7a13e6d733
+      type: string
+      extensions:
+        "IBM QRadar Custom Properties Dictionary 1.4.1": ["IBM Custom DSM"]
+        "IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1": ["Cisco Firepower Threat Defense"]
+        "IBM QRadar Custom Properties for Palo Alto PA Series 1.1.1": ["Palo Alto PA Series"]
+        "IBM QRadar Custom Properties for Zscaler 1.0.1": ["Zscaler Nss"]
+        "IBM QRadar Data Exfiltration Content Extension 1.0.5": ["IBM Custom DSM"]
+        "IBM QRadar Security Threat Monitoring Content Extension 3.1.0": ["IBM Custom DSM"]
+        "User Behavior Analytics Browsing Behavior Content 5.1.0": ["Blue Coat SG Appliance", "Check Point", "Cisco IronPort", "Forcepoint V Series", "Fortinet FortiGate Security Gateway", "McAfee Web Gateway", "Palo Alto PA Series"]

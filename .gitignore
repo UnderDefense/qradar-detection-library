@@ -23,3 +23,5 @@ SysmonContentExtension-*.zip
 User_Entity_Behavior_Analytics[-_]*.zip
 ThreatIntelligenceApp*.zip
 IBM_QRadar_SOAR_Plugin_*_Content_Pack.zip
+*-CustomProperties-*.zip
+CustomProperties[-_]*.zip

@@ -25,18 +25,20 @@
 
 **Custom properties** the console must have:
 
-- Command (custom)
-- Granted Access (custom)
-- Machine Identifier (custom)
-- Parent Process Name (custom)
-- Process Name (custom)
-- Process Path (custom)
-- Registry Value Data (custom)
-- Registry Value Name (custom)
-- Source Process Path (custom)
-- Target Object (custom)
-- Target Process Name (custom)
-- Target Process Path (custom)
+| Property | IBM package | Parsed for this log source |
+|---|---|---|
+| Command (custom) | IBM QRadar Content Extension for Sysmon 1.3.2<br>IBM QRadar Custom Properties for Microsoft Windows 1.2.9<br>User Behavior Analytics Endpoint Content 5.1.0 | yes |
+| Granted Access (custom) | IBM QRadar Content Extension for Sysmon 1.3.2 | yes |
+| Machine Identifier (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Parent Process Name (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Process Name (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9<br>IBM QRadar Security Threat Monitoring Content Extension 3.1.0<br>User Behavior Analytics Endpoint Content 5.1.0 | yes |
+| Process Path (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Registry Value Data (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Registry Value Name (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Source Process Path (custom) | IBM QRadar Custom Properties Dictionary 1.4.1 | no: needs an expression for Microsoft Windows Security Event Log |
+| Target Object (custom) | IBM QRadar Content Extension for Sysmon 1.3.2 | yes |
+| Target Process Name (custom) | IBM QRadar Content Extension for Sysmon 1.3.2 | yes |
+| Target Process Path (custom) | IBM QRadar Content Extension for Sysmon 1.3.2 | yes |
 
 **Properties in AQL filters** (custom or built-in): Current Directory, Description, Event ID, Original Filename, Process CommandLine
 <!-- pack:end -->

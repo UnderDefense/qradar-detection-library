@@ -47,11 +47,13 @@
 
 **Custom properties** the console must have:
 
-- Action (custom)
-- Level (custom)
-- OS Name (custom)
-- Policy Type (custom)
-- Threat Severity (custom)
+| Property | IBM package | Parsed for this log source |
+|---|---|---|
+| Action (custom) | IBM QRadar Custom Properties Dictionary 1.4.1<br>IBM QRadar Custom Properties for Cisco Firepower (Syslog) 1.0.1 | no: needs an expression for Fortinet FortiGate Security Gateway |
+| Level (custom) | not in IBM extensions: create it on the console | - |
+| OS Name (custom) | IBM QRadar Custom Properties Dictionary 1.4.1<br>IBM QRadar Custom Properties for Cisco Firepower 1.0.3 | no: needs an expression for Fortinet FortiGate Security Gateway |
+| Policy Type (custom) | not in IBM extensions: create it on the console | - |
+| Threat Severity (custom) | IBM QRadar Custom Properties Dictionary 1.4.1<br>IBM QRadar Baseline Maintenance Content Extension v7.5.0 GA+ 2.2.6 | no: needs an expression for Fortinet FortiGate Security Gateway |
 
 **Reference sets** (created empty by the extension unless `reference-data.yml` fills them):
 

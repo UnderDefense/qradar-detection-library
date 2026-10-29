@@ -17,7 +17,9 @@
 
 **Custom properties** the console must have:
 
-- Error Code (custom)
-- OAuth Actor (custom)
-- Role Name (custom)
+| Property | IBM package | Parsed for this log source |
+|---|---|---|
+| Error Code (custom) | IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3 | yes |
+| OAuth Actor (custom) | IBM Security QRadar Custom Properties for Office 365 1.4.1 | no: needs an expression for Microsoft Entra ID |
+| Role Name (custom) | IBM Security QRadar Custom Properties for Microsoft Azure 2.1.3 | yes |
 <!-- pack:end -->

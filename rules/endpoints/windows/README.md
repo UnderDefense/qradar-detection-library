@@ -16,18 +16,20 @@
 
 **Custom properties** the console must have:
 
-- Authentication Package (custom)
-- Command (custom)
-- Impersonation Level (custom)
-- Logon Process (custom)
-- Logon Type (custom)
-- Machine Identifier (custom)
-- Parent Command (custom)
-- Parent Process Name (custom)
-- Parent Process Path (custom)
-- Process Name (custom)
-- Process Path (custom)
-- Task Name (custom)
+| Property | IBM package | Parsed for this log source |
+|---|---|---|
+| Authentication Package (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9<br>User Behavior Analytics Domain Controller Content 5.1.0 | yes |
+| Command (custom) | IBM QRadar Content Extension for Sysmon 1.3.2<br>IBM QRadar Custom Properties for Microsoft Windows 1.2.9<br>User Behavior Analytics Endpoint Content 5.1.0 | yes |
+| Impersonation Level (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Logon Process (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Logon Type (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9<br>User Behavior Analytics Access and Authentication Content 5.1.0<br>User Behavior Analytics Domain Controller Content 5.1.0 | yes |
+| Machine Identifier (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Parent Command (custom) | IBM QRadar Content Extension for Sysmon 1.3.2<br>IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Parent Process Name (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Parent Process Path (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Process Name (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9<br>IBM QRadar Security Threat Monitoring Content Extension 3.1.0<br>User Behavior Analytics Endpoint Content 5.1.0 | yes |
+| Process Path (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
+| Task Name (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
 
 **Properties in AQL filters** (custom or built-in): Account Name, Account Security ID, AllowHardTerminate, Command Arguments, File Path, Filename, Logon Account Domain, Logon Account Name, Registry Key
 <!-- pack:end -->

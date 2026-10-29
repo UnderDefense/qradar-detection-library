@@ -14,7 +14,9 @@
 
 **Custom properties** the console must have:
 
-- Extended Error Code (custom)
+| Property | IBM package | Parsed for this log source |
+|---|---|---|
+| Extended Error Code (custom) | IBM QRadar Custom Properties for Microsoft Windows 1.2.9 | yes |
 
 **Properties in AQL filters** (custom or built-in): Authentication Package, Logon Account Domain, Logon Account Name, Logon Type, Machine Identifier
 
